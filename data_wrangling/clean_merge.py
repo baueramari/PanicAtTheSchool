@@ -6,7 +6,9 @@ crime_cols = ['id', 'case_number', 'date', 'iucr',
        'domestic', 'district', 'ward', 'community_area', 'fbi_code',
         'year', 'updated_on']
 #crime = pd.read_csv('raw_data/crime.csv', usecols = crime_cols)
-#no need to rerun above, takes a long time.
+crime = crime[crime['year'] > 2011]
+crime = crime[crime['year'] != 2023] 
+
 admin_cols = ['School_ID','Short_Name','Long_Name','Primary_Category','Is_High_School','Is_Middle_School',
         'Is_Elementary_School','Is_Pre_School','Summary','Address','City','State','Zip','Phone','Attendance_Boundaries',
         'Grades_Offered_All','Grades_Offered','Student_Count_Total','Student_Count_Low_Income','Student_Count_Special_Ed',
@@ -20,8 +22,17 @@ admin_cols = ['School_ID','Short_Name','Long_Name','Primary_Category','Is_High_S
         'Community Areas','Zip Codes','Census Tracts','Wards'] 
 admin = pd.read_csv('raw_data/admin_demog.csv', usecols = admin_cols)
 
-attend = pd.read_csv('raw_data/attendance.csv')
+admin_to_merge = admin[['School_ID','Wards']] #If planning to look at other variables from file, add them in here
 
+year_range = list(range(2012,2023))
+year_range.insert(0,'School ID')
+
+attend = attend[year_range]
+attend = attend[attend['School Name'] != 'CITYWIDE']
+attend = pd.read_csv('raw_data/attendance.csv')
+attend['School ID'] = attend['School ID'].astype(int)
+
+#HANDLE NA'S 
 #clean columns, subset to years that we're interested in
 #create subset with crime counts and averages by ward
 
