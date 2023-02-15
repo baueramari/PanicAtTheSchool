@@ -1,0 +1,662 @@
+﻿School_ID,Legacy_Unit_ID,Finance_ID,Short_Name,Long_Name,School_Type
+400083,5810,0,ACERO - PAZ,Acero Charter Schools - Octavio Paz Campus,Charter
+609903,3200,0,EDWARDS,Richard Edwards Elementary School,Neighborhood
+609941,3550,0,RANDOLPH,Asa Philip Randolph Elementary School,Magnet
+610170,5860,20071,COLUMBIA EXPLORERS,Columbia Explorers Elementary Academy,Neighborhood
+609772,2020,22021,ADDAMS,Jane Addams Elementary School,Neighborhood
+609773,2030,22031,AGASSIZ,Louis A Agassiz Elementary School,Neighborhood
+609774,2040,22041,ALCOTT ES,Louisa May Alcott College Preparatory ES,Neighborhood
+610524,8035,22041,ALCOTT HS,Louisa May Alcott College Preparatory HS,Small
+609777,2070,22061,ARMOUR,Phillip D Armour Elementary School,Neighborhood
+610284,7060,22071,NEW FIELD,New Field Elementary School,Neighborhood
+609779,2080,22081,ARMSTRONG G,George Armstrong International Studies ES,Neighborhood
+609782,2110,22091,AUDUBON,John J Audubon Elementary School,Neighborhood
+609786,2130,22101,AVALON PARK,Avalon Park Elementary School,Neighborhood
+609788,2150,22131,BARNARD,Alice L Barnard Computer Math & Science Ctr ES,Neighborhood
+609789,2160,22141,BARRY,John Barry Elementary School,Neighborhood
+609790,2170,22151,BARTON,Clara Barton Elementary School,Neighborhood
+609791,2180,22161,BASS,Perkins Bass Elementary School,Neighborhood
+609792,2190,22171,BATEMAN,Newton Bateman Elementary School,Neighborhood
+609793,2200,22181,NICHOLSON,Lillian R. Nicholson STEM Academy,Neighborhood
+609795,2230,22191,CLARK ES,George Rogers Clark Elementary School,Neighborhood
+609796,2240,22201,BEAUBIEN,Jean Baptiste Beaubien Elementary School,Regional gifted center
+609797,2250,22211,BEIDLER,Jacob Beidler Elementary School,Neighborhood
+609798,2260,22221,BELDING,Hiram H Belding Elementary School,Neighborhood
+609799,2270,22231,BELL,Alexander Graham Bell Elementary School,Regional gifted center
+609800,2280,22241,BENNETT,Frank I Bennett Elementary School,Neighborhood
+610530,2015,22251,SOUTH SHORE ES,South Shore Fine Arts Academy,Small
+609803,2300,22261,BLAINE,James G Blaine Elementary School,Neighborhood
+609804,2320,22271,BOONE,Daniel Boone Elementary School,Neighborhood
+609805,2330,22281,JOPLIN,Scott Joplin Elementary School,Neighborhood
+609806,2340,22291,BRADWELL,Myra Bradwell Communications Arts & Sciences ES,Neighborhood
+609808,2360,22301,HALEY,Alex Haley Elementary Academy,Neighborhood
+609809,2370,22311,BRENTANO,Lorenz Brentano Math & Science Academy ES,Neighborhood
+609810,2380,22321,BRIDGE,Norman A Bridge Elementary School,Neighborhood
+609811,2390,22331,BRIGHT,Orville T Bright Elementary School,Neighborhood
+610541,8330,22341,LORCA,Federico Garcia Lorca Elementary School,Neighborhood
+609812,2400,22351,BROWN W,William H Brown Elementary School,Neighborhood
+609813,2410,22361,BROWNELL,Charles S Brownell Elementary School,Neighborhood
+609815,2430,22371,BOUCHET,Edward A Bouchet Math & Science Academy ES,Neighborhood
+610542,8440,22381,WEST RIDGE,West Ridge Elementary School,Neighborhood
+609817,2440,22391,BUDLONG,Lyman A Budlong Elementary School,Neighborhood
+609818,2450,22401,BURBANK,Luther Burbank Elementary School,Neighborhood
+609819,2460,22411,BURKE,Edmond Burke Elementary School,Neighborhood
+609820,2470,22421,BURLEY,Augustus H Burley Elementary School,Neighborhood
+609821,2480,22431,BURNHAM,Burnham Elementary Inclusive Academy,Neighborhood
+610532,8021,22441,HERNANDEZ,Irene C. Hernandez Middle School for the Advancement of Science,Neighborhood
+610368,8060,22451,HUGHES L,Langston Hughes Elementary School,Neighborhood
+609826,2510,22461,CASTELLANOS,Rosario Castellanos Elementary School,Neighborhood
+609828,2530,22471,BURR,Jonathan Burr Elementary School,Neighborhood
+609829,2540,22481,BURROUGHS,John C Burroughs Elementary School,Neighborhood
+609830,2550,22491,BRUNSON,Milton Brunson Math & Science Specialty ES,Neighborhood
+609832,2570,22501,BYRNE,Michael M Byrne Elementary School,Neighborhood
+609833,2580,22511,CALDWELL,Charles P Caldwell Academy of Math & Science ES,Neighborhood
+609834,2590,22521,LITTLE VILLAGE,Little Village Elementary School,Neighborhood
+609835,2610,22531,CAMERON,Daniel R Cameron Elementary School,Neighborhood
+609836,2620,22541,CANTY,Arthur E Canty Elementary School,Neighborhood
+609837,2630,22551,CARNEGIE,Andrew Carnegie Elementary School,Regional gifted center
+609839,2650,22571,CARROLL,Carroll-Rosenwald Specialty Elementary School,Neighborhood
+610533,8023,22581,PRIETO,Dr Jorge Prieto Math and Science,Neighborhood
+610534,8024,22591,SKINNER NORTH,Skinner North,Classical
+609842,2660,22601,CARSON,Rachel Carson Elementary School,Neighborhood
+609844,2670,22611,CARTER,William W Carter Elementary School,Neighborhood
+609845,2690,22621,CARVER G,George Washington Carver Primary School,Neighborhood
+610586,9681,22631,SOUTHEAST,Southeast Area Elementary School,Neighborhood
+609848,2710,22641,ALDRIDGE,Ira F Aldridge Elementary School,Neighborhood
+609849,2720,22651,CASSELL,George F Cassell Elementary School,Neighborhood
+609850,2730,22661,GREELEY,Horace Greeley Elementary School,Neighborhood
+609851,2740,22671,CHALMERS,Thomas Chalmers Specialty Elementary School,Neighborhood
+609852,2750,22681,CHAPPELL,Eliza Chappell Elementary School,Neighborhood
+610539,8600,22691,CAMRAS,Marvin Camras Elementary School,Neighborhood
+609853,2760,22701,CHASE,Salmon P Chase Elementary School,Neighborhood
+610548,8678,22711,STEM,STEM Magnet Academy,Magnet
+609854,2770,22721,CHOPIN,Frederic Chopin Elementary School,Neighborhood
+609856,2790,22731,CLAY,Henry Clay Elementary School,Neighborhood
+609857,2800,22741,CLEVELAND,Grover Cleveland Elementary School,Neighborhood
+609859,2810,22751,CLINTON,DeWitt Clinton Elementary School,Neighborhood
+609861,2820,22761,CLISSOLD,Henry R Clissold Elementary School,Neighborhood
+609862,2830,22771,COLES,Edward Coles Elementary Language Academy,Neighborhood
+609863,2850,22791,COLUMBUS,Christopher Columbus Elementary School,Neighborhood
+609864,2860,22801,COOK,John W Cook Elementary School,Neighborhood
+609865,2870,22811,JORDAN,Jordan Elementary Community School,Neighborhood
+609866,2880,22821,COONLEY,John C Coonley Elementary School,Regional gifted center
+609867,2890,22831,COOPER,Peter Cooper Elementary Dual Language Academy,Neighborhood
+609869,2900,22841,LANGFORD,Anna R. Langford Community Academy,Neighborhood
+609870,2910,22851,CORKERY,Daniel J Corkery Elementary School,Neighborhood
+609872,2930,22861,PEREZ,Manuel Perez Elementary School,Neighborhood
+609874,2950,22871,DIRKSEN,Everett McKinley Dirksen Elementary School,Neighborhood
+609875,2960,22881,DARWIN,Charles R Darwin Elementary School,Neighborhood
+609876,2970,22891,DAVIS N,Nathan S Davis Elementary School,Neighborhood
+609879,2980,22901,DAWES,Charles Gates Dawes Elementary School,Neighborhood
+610544,8660,22921,AZUELA,Mariano Azuela Elementary School,Neighborhood
+609883,3010,22931,DENEEN,Charles S Deneen Elementary School,Neighborhood
+609884,3020,22941,DEVER,William E Dever Elementary School,Neighborhood
+609885,3030,22951,DEWEY,Dewey Elementary Academy of Fine Arts,Neighborhood
+609887,3040,22971,DIXON,Arthur Dixon Elementary School,Neighborhood
+609891,3070,22991,DOOLITTLE,James R Doolittle Jr Elementary School,Neighborhood
+609893,3080,23001,DORE,John C Dore Elementary School,Neighborhood
+609894,3100,23011,DRAKE,John B Drake Elementary School,Neighborhood
+609896,3120,23021,DRUMMOND,Thomas Drummond Elementary School,Magnet
+609897,3130,23031,EARLE,Charles W Earle Elementary School,Neighborhood
+609898,3140,23041,EBERHART,John F Eberhart Elementary School,Neighborhood
+609899,3150,23051,EBINGER,Christian Ebinger Elementary School,Neighborhood
+609900,3160,23061,CURTIS,George W Curtis Elementary School,Neighborhood
+609901,3170,23071,EDGEBROOK,Edgebrook Elementary School,Neighborhood
+609904,3220,23101,ELLINGTON,Edward K Ellington Elementary School,Neighborhood
+609908,3250,23131,ESMOND,Esmond Elementary School,Neighborhood
+609909,3260,23141,EVERETT,Edward Everett Elementary School,Neighborhood
+609910,3270,23151,FALCONER,Laughlin Falconer Elementary School,Neighborhood
+609912,3280,23161,FARNSWORTH,James B Farnsworth Elementary School,Neighborhood
+609917,3330,23201,FERNWOOD,Fernwood Elementary School,Neighborhood
+609918,3350,23211,FIELD,Eugene Field Elementary School,Neighborhood
+609919,3360,23221,FISKE,John Fiske Elementary School,Neighborhood
+609921,3380,23231,TELPOCHCALLI,Telpochcalli Elementary School,Neighborhood
+609924,3400,23241,FORT DEARBORN,Fort Dearborn Elementary School,Neighborhood
+609925,3410,23251,KELLMAN,Joseph Kellman Corporate Community ES,Neighborhood
+609927,3430,23261,FOSTER PARK,Foster Park Elementary School,Neighborhood
+609928,3440,23271,FULLER,Melville W Fuller Elementary School,Neighborhood
+609929,3450,23281,FULTON,Robert Fulton Elementary School,Neighborhood
+609930,3460,23291,FUNSTON,Frederick Funston Elementary School,Neighborhood
+609937,3510,23301,GARVY,John W Garvy Elementary School,Neighborhood
+609938,3520,23311,GARY,Joseph E Gary Elementary School,Neighborhood
+609939,3530,23321,GILLESPIE,Frank L Gillespie Elementary School,Neighborhood
+609942,3560,23341,GOETHE,Johann W von Goethe Elementary School,Neighborhood
+609943,3570,23351,OWENS,Jesse Owens Elementary Community Academy,Neighborhood
+609944,3580,23361,GRISSOM,Virgil Grissom Elementary School,Neighborhood
+609945,3590,23371,GOUDY,William C. Goudy Technology Academy,Neighborhood
+610588,0,23381,RICHARDSON,Robert J. Richardson Middle School,Neighborhood
+609947,3600,23391,GRAHAM ES,Alexander Graham Elementary School,Neighborhood
+609949,3620,23401,GRAY,William P Gray Elementary School,Neighborhood
+609950,3630,23411,ORTIZ DE DOMINGUEZ,Josefa Ortiz De Dominguez Elementary School,Neighborhood
+609951,3640,23421,ARIEL,Ariel Elementary Community Academy,Small
+609952,3650,23431,GREENE,Nathanael Greene Elementary School,Neighborhood
+609954,3660,23441,GREGORY,John Milton Gregory Elementary School,Neighborhood
+609955,3670,23451,GRESHAM,Walter Q Gresham Elementary School,Neighborhood
+609956,3680,23461,GRIMES,Robert L Grimes Elementary School,Neighborhood
+609959,3700,23481,HAINES,John Charles Haines Elementary School,Neighborhood
+609960,3710,23491,HALE,Nathan Hale Elementary School,Neighborhood
+609963,3730,23501,HAMILTON,Alexander Hamilton Elementary School,Neighborhood
+609964,3740,23511,HAMLINE,John H Hamline Elementary School,Neighborhood
+609966,3750,23531,HAMMOND,Charles G Hammond Elementary School,Neighborhood
+609967,3760,23541,FINKL,William F Finkl Elementary School,Neighborhood
+609968,3770,23551,MCAULIFFE,Sharon Christa McAuliffe Elementary School,Neighborhood
+609969,3780,23561,HARTE,Bret Harte Elementary School,Neighborhood
+609971,3800,23581,HARVARD,John Harvard Elementary School of Excellence,Neighborhood
+609972,3810,23591,HAUGAN,Helge A Haugan Elementary School,Neighborhood
+609973,3820,23611,ZAPATA,Emiliano Zapata Elementary Academy,Neighborhood
+609976,3850,23621,HAYT,Stephen K Hayt Elementary School,Neighborhood
+609977,3860,23631,WOODLAWN,Woodlawn Community Elementary School,Small
+609978,3870,23641,SMITH,Wendell Smith Elementary School,Neighborhood
+609979,3880,23651,HEALY,Robert Healy Elementary School,Neighborhood
+609981,3890,23671,HEARST,Phoebe Apperson Hearst Elementary School,Neighborhood
+609983,3900,23681,HEDGES,James Hedges Elementary School,Neighborhood
+609985,3910,23711,HEFFERAN,Helen M Hefferan Elementary School,Neighborhood
+609986,3920,23721,HENDERSON,Charles R Henderson Elementary School,Neighborhood
+609988,3940,23731,HENRY,Patrick Henry Elementary School,Neighborhood
+609990,3960,23751,SOUTH LOOP,South Loop Elementary School,Regional gifted center
+609991,3970,23771,HERZL,Theodore Herzl Elementary School,Neighborhood
+609993,3980,23791,LARA,Agustin Lara Elementary Academy,Neighborhood
+609994,4000,23801,HIBBARD,William G Hibbard Elementary School,Neighborhood
+609995,4010,23811,HITCH,Rufus M Hitch Elementary School,Neighborhood
+609996,4020,23821,HOLDEN,Charles N Holden Elementary School,Neighborhood
+609997,4030,23831,HOLMES,Oliver Wendell Holmes Elementary School,Neighborhood
+610000,4060,23851,HOWE,Julia Ward Howe Elementary School of Excellence,Neighborhood
+610002,4080,23871,HOYNE,Thomas Hoyne Elementary School,Neighborhood
+610003,4090,23881,CUFFE,Paul Cuffe Math-Science Technology Academy ES,Neighborhood
+610004,4100,23891,CULLEN,Countee Cullen Elementary School,Neighborhood
+610005,4110,23901,HUGHES C,Charles Evans Hughes Elementary School,Neighborhood
+610006,4120,23911,HURLEY,Edward N Hurley Elementary School,Neighborhood
+610010,4170,23921,JAHN,Friedrich L. Jahn Elementary of the Fine Arts,Neighborhood
+610011,4180,23931,JAMIESON,Minnie Mars Jamieson Elementary School,Neighborhood
+610012,4200,23951,JENNER,Edward Jenner Elementary Academy of the Arts,Neighborhood
+610015,4230,23961,JUNGMAN,Joseph Jungman Elementary School,Neighborhood
+610016,4240,23971,KELLOGG,Kate S Kellogg Elementary School,Neighborhood
+610019,4270,23991,KERSHAW,Joshua D Kershaw Elementary School,Magnet
+610021,4290,24011,CASALS,Pablo Casals Elementary School,Neighborhood
+610022,4300,24021,KILMER,Joyce Kilmer Elementary School,Neighborhood
+610024,4320,24051,CARDENAS,Lazaro Cardenas Elementary School,Neighborhood
+610026,4330,24071,KINZIE,John H Kinzie Elementary School,Neighborhood
+610027,4350,24081,KIPLING,Rudyard Kipling Elementary School,Neighborhood
+610029,4380,24101,LOZANO,Rodolfo Lozano Bilingual & International Ctr ES,Neighborhood
+610032,4410,24131,GREEN,Wendell E Green Elementary School,Neighborhood
+610036,4450,24151,LEWIS,Leslie Lewis Elementary School,Neighborhood
+610037,4470,24171,LIBBY,Arthur A Libby Elementary School,Neighborhood
+610038,4480,24191,LINCOLN,Abraham Lincoln Elementary School,Neighborhood
+610039,4490,24201,VON LINNE,Carl von Linne Elementary School,Neighborhood
+610040,4500,24221,LLOYD,Henry D Lloyd Elementary School,Neighborhood
+610041,4510,24231,LOCKE J,Josephine C Locke Elementary School,Neighborhood
+610043,4530,24241,LOVETT,Joseph Lovett Elementary School,Neighborhood
+610044,4540,24251,LOWELL,James Russell Lowell Elementary School,Neighborhood
+610046,4560,24281,LYON,Mary Lyon Elementary School,Neighborhood
+610047,4570,24301,MADISON,James Madison Elementary School,Neighborhood
+610048,4580,24311,MANIERRE,George Manierre Elementary School,Neighborhood
+610052,4610,24331,MANN,Horace Mann Elementary School,Neighborhood
+610053,4620,24341,MARQUETTE,Marquette Elementary School,Neighborhood
+610054,4630,24361,MARSH,John L Marsh Elementary School,Neighborhood
+610055,4640,24371,FARADAY,Michael Faraday Elementary School,Neighborhood
+610056,4650,24381,MASON,Roswell B Mason Elementary School,Small
+610059,4680,24401,MAYER,Oscar F Mayer Elementary School,Magnet
+610062,4710,24421,MCCLELLAN,George B McClellan Elementary School,Neighborhood
+610063,4720,24431,MCCORMICK,Cyrus H McCormick Elementary School,Neighborhood
+610065,4740,24441,TILL,Emmett Louis Till Math and Science Academy,Neighborhood
+610067,4760,24451,MCKAY,Francis M McKay Elementary School,Neighborhood
+610068,4770,24461,HANSON PARK,Hanson Park Elementary School,Neighborhood
+610070,4800,24471,MCPHERSON,James B McPherson Elementary School,Neighborhood
+610073,4840,24511,MITCHELL,Ellen Mitchell Elementary School,Neighborhood
+610074,4850,24531,MONROE,James Monroe Elementary School,Neighborhood
+610076,4870,24551,MOOS,Bernhard Moos Elementary School,Neighborhood
+610077,4880,24571,MORRILL,Donald Morrill Math & Science Elementary School,Neighborhood
+610082,4940,24591,MOUNT GREENWOOD,Mount Greenwood Elementary School,Neighborhood
+610086,4980,24601,MOUNT VERNON,Mount Vernon Elementary School,Neighborhood
+610088,5000,24611,MOZART,Wolfgang A Mozart Elementary School,Neighborhood
+610089,5020,24621,MURPHY,John B Murphy Elementary School,Neighborhood
+610091,5040,24631,BROWN R,Ronald Brown Elementary Community Academy,Neighborhood
+610092,5050,24641,NASH,Henry H Nash Elementary School,Neighborhood
+610093,5060,24651,NEIL,Jane A Neil Elementary School,Neighborhood
+610094,5070,24661,NETTELHORST,Louis Nettelhorst Elementary School,Neighborhood
+610096,5090,24671,NIGHTINGALE,Florence Nightingale Elementary School,Neighborhood
+610097,5100,24681,NIXON,William P Nixon Elementary School,Neighborhood
+610098,5110,24691,NOBEL,Alfred Nobel Elementary School,Neighborhood
+610099,5120,24711,NORWOOD PARK,Norwood Park Elementary School,Neighborhood
+610100,5140,24721,WEST PARK,West Park Elementary Academy,Neighborhood
+610101,5150,24731,OGDEN ES,William B Ogden Elementary School,Neighborhood
+610529,8083,24731,OGDEN HS,Ogden International High School,Neighborhood
+610102,5170,24741,OGLESBY,Richard J Oglesby Elementary School,Neighborhood
+610103,5180,24751,OKEEFFE,Isabelle C O'Keeffe Elementary School,Neighborhood
+610104,5190,24761,ONAHAN,William J Onahan Elementary School,Neighborhood
+610105,5200,24771,ORIOLE PARK,Oriole Park Elementary School,Neighborhood
+610106,5210,24781,PICCOLO,Brian Piccolo Elementary Specialty School,Neighborhood
+610107,5220,24791,OTIS,James Otis Elementary School,Neighborhood
+610108,5230,24801,OTOOLE,Luke O'Toole Elementary School,Neighborhood
+610110,5250,24811,WELLS ES,Ida B Wells Preparatory Elementary Academy,Small
+610111,5260,24821,PALMER,John Palmer Elementary School,Neighborhood
+610115,5290,24841,PARK MANOR,Park Manor Elementary School,Neighborhood
+610117,5310,24851,PASTEUR,Louis Pasteur Elementary School,Neighborhood
+610120,5340,24871,PECK,Ferdinand Peck Elementary School,Neighborhood
+610121,5350,24881,IRVING,Washington Irving Elementary School,Neighborhood
+610122,5360,24891,PEIRCE,Helen Peirce International Studies ES,Neighborhood
+610123,5370,24911,PENN,William Penn Elementary School,Neighborhood
+610124,5380,24921,WASHINGTON H ES,Harold Washington Elementary School,Neighborhood
+610125,5390,24931,RUIZ,Irma C Ruiz Elementary School,Neighborhood
+610127,5410,24941,PETERSON,Mary Gage Peterson Elementary School,Neighborhood
+610128,5420,24951,GARVEY,Marcus Moziah Garvey Elementary School,Neighborhood
+610129,5430,24961,PICKARD,Josiah Pickard Elementary School,Neighborhood
+610130,5440,24971,PIRIE,John T Pirie Fine Arts & Academic Center ES,Neighborhood
+610131,5450,24981,PLAMONDON,Ambrose Plamondon Elementary School,Neighborhood
+610133,5470,24991,WARD L,Laura S Ward Elementary School,Neighborhood
+610135,5490,25011,PORTAGE PARK,Portage Park Elementary School,Neighborhood
+610136,5500,25021,PRESCOTT,William H Prescott Elementary School,Neighborhood
+610137,5510,25031,PRUSSING,Ernst Prussing Elementary School,Neighborhood
+610139,5530,25041,PULLMAN,George M Pullman Elementary School,Neighborhood
+610141,5550,25061,RAVENSWOOD,Ravenswood Elementary School,Neighborhood
+610142,5560,25071,RAY,William H Ray Elementary School,Neighborhood
+610143,5580,25091,REAVIS,William C Reavis Math & Science Specialty ES,Neighborhood
+610144,5590,25101,REILLY,Frank W Reilly Elementary School,Neighborhood
+610145,5600,25111,REINBERG,Peter A Reinberg Elementary School,Neighborhood
+610146,5610,25121,REVERE,Paul Revere Elementary School,Neighborhood
+610147,5630,25141,ROGERS,Philip Rogers Elementary School,Neighborhood
+610148,5640,25151,CHAVEZ,Cesar E Chavez Multicultural Academic Center ES,Neighborhood
+610152,5660,25181,RUGGLES,Martha Ruggles Elementary School,Neighborhood
+610153,5670,25191,RYDER,William H Ryder Math & Science Specialty ES,Neighborhood
+610155,5690,25211,SAUGANASH,Sauganash Elementary School,Neighborhood
+610157,5710,25231,SAWYER,Sidney Sawyer Elementary School,Neighborhood
+610159,5730,25241,SCAMMON,Jonathan Y Scammon Elementary School,Neighborhood
+610165,5800,25291,SCHUBERT,Franz Peter Schubert Elementary School,Neighborhood
+610167,5820,25301,SEWARD,William H Seward Communication Arts Academy ES,Neighborhood
+610171,5880,25331,MIRELES,Arnold Mireles Elementary Academy,Neighborhood
+610172,5890,25341,SHERMAN,William T Sherman Elementary School,Neighborhood
+610173,5900,25351,SHERWOOD,Jesse Sherwood Elementary School,Neighborhood
+610174,5910,25361,SHIELDS,James Shields Elementary School,Neighborhood
+610175,5920,25371,SHOESMITH,Beulah Shoesmith Elementary School,Neighborhood
+610176,5930,25381,SHOOP,John D Shoop Math-Science Technical Academy ES,Neighborhood
+610178,5950,25391,SCHMID,Theophilus Schmid Elementary School,Neighborhood
+610179,5960,25401,SMYSER,Washington D Smyser Elementary School,Neighborhood
+610180,5970,25411,SMYTH,John M Smyth Elementary School,Magnet
+610182,5980,25431,SOLOMON,Hannah G Solomon Elementary School,Neighborhood
+610183,6000,25441,SPENCER,Spencer Technology Academy,Neighborhood
+610184,6010,25451,SPRY ES,John Spry Elementary Community School,Neighborhood
+610185,6030,25471,STEVENSON,Adlai E Stevenson Elementary School,Neighborhood
+610188,6050,25491,DUNNE,Dunne Technology Academy,Neighborhood
+610192,6080,25521,STOWE,Harriet Beecher Stowe Elementary School,Neighborhood
+610193,6100,25541,NEW SULLIVAN,William K New Sullivan Elementary School,Neighborhood
+610195,6120,25561,SUTHERLAND,Elizabeth H Sutherland Elementary School,Neighborhood
+610196,6130,25571,SWIFT,George B Swift Elementary Specialty School,Neighborhood
+610197,6140,25581,TALCOTT,Mancel Talcott Elementary School,Neighborhood
+610198,6150,25591,TAYLOR,Douglas Taylor Elementary School,Neighborhood
+610200,6180,25601,THORP J,James N Thorp Elementary School,Neighborhood
+610202,6210,25621,TILTON,George W Tilton Elementary School,Neighborhood
+610203,6220,25631,TONTI,Enrico Tonti Elementary School,Neighborhood
+610206,6240,25661,TWAIN,Mark Twain Elementary School,Neighborhood
+610208,6260,25671,LAVIZZO,Mildred I Lavizzo Elementary School,Neighborhood
+610209,6270,25681,VOLTA,Alessandro Volta Elementary School,Neighborhood
+610213,6300,25711,WADSWORTH,James Wadsworth Elementary School,Neighborhood
+610216,6320,25731,WALSH,John A Walsh Elementary School,Neighborhood
+610217,6330,25751,WARD J,James Ward Elementary School,Neighborhood
+610218,6350,25761,WARREN,Joseph Warren Elementary School,Neighborhood
+610219,6360,25771,WASHINGTON G ES,George Washington Elementary School,Neighborhood
+610220,6370,25781,WATERS,Thomas J Waters Elementary School,Neighborhood
+610221,6380,25791,WEBSTER,Daniel Webster Elementary School,Neighborhood
+610223,6390,25811,WENTWORTH,Daniel S Wentworth Elementary School,Neighborhood
+610225,6420,25831,WHISTLER,John Whistler Elementary School,Neighborhood
+610227,6440,25841,WHITNEY,Eli Whitney Elementary School,Neighborhood
+610228,6450,25861,WHITTIER,John Greenleaf Whittier Elementary School,Neighborhood
+610229,6460,25871,PRITZKER,A.N. Pritzker School,Regional gifted center
+610230,6470,25881,WILDWOOD,Wildwood IB World Magnet School,Magnet
+610234,6510,25911,YATES,Richard Yates Elementary School,Neighborhood
+610235,6520,25921,YOUNG ES,Ella Flagg Young Elementary School,Neighborhood
+610237,6540,25931,BEETHOVEN,Ludwig Van Beethoven Elementary School,Neighborhood
+610238,6550,25941,BOND,Carrie Jacobs Bond Elementary School,Neighborhood
+610239,6560,25951,DALEY,Richard J Daley Elementary Academy,Neighborhood
+610242,6600,25991,BRENNEMANN,Joseph Brennemann Elementary School,Neighborhood
+610251,6730,26021,CATHER,Willa Cather Elementary School,Neighborhood
+610252,6740,26031,DETT,Robert Nathaniel Dett Elementary School,Neighborhood
+610254,6760,26051,DVORAK,Dvorak Technology Academy,Neighborhood
+610256,6780,26061,ROBINSON,Jackie Robinson Elementary School,Neighborhood
+610257,6800,26091,MORTON,Morton School of Excellence,Neighborhood
+610263,6860,26141,DULLES,John Foster Dulles Elementary School,Neighborhood
+610268,6900,26191,ASHE,Arthur R Ashe Elementary School,Neighborhood
+610269,6910,26201,MCCUTCHEON,John T McCutcheon Elementary School,Neighborhood
+610274,6940,26231,JOHNSON,James Weldon Johnson Elementary School,Neighborhood
+610276,6950,26251,MOLLISON,Irvin C Mollison Elementary School,Neighborhood
+610279,6970,26281,TANNER,Henry O Tanner Elementary School,Neighborhood
+610281,7010,26291,POWELL,Adam Clayton Powell Paideia Community Academy ES,Neighborhood
+610282,7040,26301,MCNAIR,Ronald E McNair Elementary School,Neighborhood
+610290,7150,26321,MAYS,Benjamin E Mays Elementary Academy,Neighborhood
+610291,7170,26331,LEE,Richard Henry Lee Elementary School,Neighborhood
+610293,7190,26351,MELODY,Genevieve Melody Elementary School,Neighborhood
+610299,7250,26371,KING ES,Dr. Martin L. King Jr Academy of Social Justice,Neighborhood
+610300,7260,26381,WESTCOTT,Oliver S Westcott Elementary School,Neighborhood
+610305,7320,26391,LELAND,George Leland Elementary School,Neighborhood
+610312,7390,26421,MCDOWELL,Mary E McDowell Elementary School,Neighborhood
+610315,7440,26431,WHITE,Edward White Elementary Career Academy,Neighborhood
+610316,7450,26441,EARHART,Amelia Earhart Options for Knowledge ES,Neighborhood
+610317,7470,26451,BRIGHTON PARK,Brighton Park Elementary School,Neighborhood
+610319,7490,26461,EVERGREEN,Evergreen Academy Middle School,Neighborhood
+610339,7760,26521,STAGG,Amos Alonzo Stagg Elementary School,Neighborhood
+610345,7820,26541,WOODSON,Carter G Woodson South Elementary School,Neighborhood
+610362,7990,26591,EVERS,Medgar Evers Elementary School,Neighborhood
+610364,8010,26601,DUBOIS,William E B Dubois Elementary School,Neighborhood
+610366,8030,26621,WACKER,Charles H Wacker Elementary School,Neighborhood
+610367,8050,26631,DEPRIEST,Oscar DePriest Elementary School,Neighborhood
+610369,8090,26651,JACKSON M,Mahalia Jackson Elementary School,Neighborhood
+610057,4660,26701,FAIRFIELD,Fairfield Elementary Academy,Neighborhood
+610226,6430,26721,SANDOVAL,Socorro Sandoval Elementary School,Neighborhood
+609871,2920,26731,VICK,Barbara Vick Early Childhood & Family Center,Special Education
+610199,6170,26751,COLEMON,Johnnie Colemon Elementary Academy,Neighborhood
+609922,3390,26771,BELMONT-CRAGIN,Belmont-Cragin Elementary School,Small
+610249,6680,26781,TALMAN,Talman Elementary School,Neighborhood
+610396,7160,26791,TARKINGTON,Tarkington School of Excellence ES,Neighborhood
+610353,7880,26821,CALMECA,Calmeca Academy of Fine Arts and Dual Language,Small
+610352,7870,26831,DURKIN PARK,Durkin Park Elementary School,Neighborhood
+610354,7890,26841,NORTH RIVER,North River Elementary School,Small
+610394,2210,26861,UPLIFT HS,Uplift Community High School,Small
+610405,6340,26881,SUDER,Suder Montessori Magnet ES,Magnet
+610504,6710,26891,THOMAS,Velma F Thomas Early Childhood Center,Neighborhood
+400040,6650,26901,FRAZIER CHARTER,Frazier Preparatory Academy Charter School,Charter
+610515,8045,26921,DISNEY II ES,Disney II Magnet School,Magnet
+610564,9626,26921,DISNEY II HS,Disney II Magnet High School,Magnet
+610559,9597,27091,SHIELDS MIDDLE,James Shields Middle School,Neighborhood
+610523,2085,28081,EDISON PARK,Edison Park Elementary School,Neighborhood
+610389,1830,28151,ORR HS,Orr Academy High School,Neighborhood
+609794,2220,29011,EDISON,Thomas A Edison Regional Gifted Center ES,Regional gifted center
+609827,2520,29021,BURNSIDE,Burnside Elementary Scholastic Academy,Magnet
+609880,2990,29031,DECATUR,Stephen Decatur Classical Elementary School,Classical
+609895,3110,29041,TURNER-DREW,Turner-Drew Elementary Language Academy,Magnet
+609907,3240,29051,ERICSON,Leif Ericson Elementary Scholastic Academy,Magnet
+609920,3370,29071,KANOON,Gerald Delgado Kanoon Elementary Magnet School,Neighborhood
+609926,3420,29081,FRANKLIN,Franklin Elementary Fine Arts Center,Magnet
+609935,3490,29091,GALLISTEL,Matthew Gallistel Elementary Language Academy,Magnet
+610520,8040,29101,LASALLE II,LaSalle II Magnet Elementary School,Magnet
+609958,3690,29121,GUNSAULUS,Frank W Gunsaulus Elementary Scholastic Academy,Magnet
+609974,3830,29131,HAWTHORNE,Hawthorne Elementary Scholastic Academy,Magnet
+610009,4160,29141,GALILEO,Galileo Math & Science Scholastic Academy ES,Magnet
+610017,4250,29151,SAUCEDO,Maria Saucedo Elementary Scholastic Academy,Magnet
+610033,4420,29161,LASALLE,LaSalle Elementary Language Academy,Magnet
+610060,4690,29171,JACKSON A,Andrew Jackson Elementary Language Academy,Magnet
+610066,4750,29181,MCDADE,James E McDade Elementary Classical School,Classical
+610078,4890,29191,INTER-AMERICAN,Inter-American Elementary Magnet School,Magnet
+610081,4920,29201,SHERIDAN,Mark Sheridan Math & Science Academy,Magnet
+610084,4960,29211,KELLER,Annie Keller Elementary Gifted Magnet School,Regional gifted center
+610090,5030,29221,MURRAY,Phillip Murray Elementary Language Academy,Magnet
+610095,5080,29231,NEWBERRY,Walter L Newberry Math & Science Academy ES,Magnet
+610109,5240,29241,OWEN,William Bishop Owen Scholastic Academy ES,Magnet
+610126,5400,29251,PERSHING,John J Pershing Elementary Humanities Magnet,Magnet
+610132,5460,29261,POE,Edgar Allan Poe Elementary Classical School,Classical
+610158,5720,29271,SAYRE,Harriet E Sayre Elementary Language Academy,Neighborhood
+610177,5940,29281,SKINNER,Mark Skinner Elementary School,Classical
+610191,6070,29291,STONE,Stone Elementary Scholastic Academy,Magnet
+610201,6190,29301,THORP O,Ole A Thorp Elementary Scholastic Academy,Magnet
+610207,6250,29311,VANDERPOEL,John H Vanderpoel Elementary Magnet School,Magnet
+610246,6660,29321,BEASLEY,Edward Beasley Elementary Magnet Academic Center,Regional gifted center
+610271,6920,29341,JENSEN,Jensen Elementary Scholastic Academy,Magnet
+610298,7240,29361,LENART,Lenart Elementary Regional Gifted Center,Regional gifted center
+610342,7790,29371,SABIN,Albert R Sabin Elementary Magnet School,Magnet
+610350,7860,29381,BLACK,Robert A Black Magnet Elementary School,Magnet
+610521,7000,29391,DAVIS M,Sir Miles Davis Magnet Elementary Academy,Magnet
+610363,8000,29401,DISNEY,Walt Disney Magnet Elementary School,Magnet
+610503,5850,29411,FRAZIER PROSPECTIVE,Frazier Prospective IB Magnet ES,Magnet
+609783,2120,30011,JEFFERSON HS,Nancy B Jefferson Alternative HS,Citywide-Option
+609855,2780,30031,CHRISTOPHER,Walter S Christopher Elementary School,Neighborhood
+610083,4950,30051,BEARD,Daniel C Beard Elementary School,Special Education
+610087,4990,30071,BLAIR,Blair Early Childhood Center,Special Education
+610163,5770,30081,STOCK,Frederick Stock Elementary School,Neighborhood
+610250,6720,30101,SALAZAR,Rueben Salazar Elementary Bilingual Center,Small
+610308,7350,30121,RUDOLPH,Wilma Rudolph Elementary Learning Center,Special Education
+610355,7910,30141,COURTENAY,Mary E Courtenay Elementary Language Arts Center,Small
+609873,2940,31041,CROWN,Crown Community Academy of Fine Arts Center ES,Neighborhood
+609902,3190,31061,METCALFE,Ralph H Metcalfe Elementary Community Academy,Neighborhood
+609933,3480,31081,GALE,Stephen F Gale Elementary Community Academy,Neighborhood
+609961,3720,31101,NINOS HEROES,Ninos Heroes Elementary Academic Center,Neighborhood
+609975,3840,31111,HAY,John Hay Elementary Community Academy,Neighborhood
+609987,3930,31121,HENDRICKS,Thomas A Hendricks Elementary Community Academy,Neighborhood
+610013,4210,31141,PILSEN,Pilsen Elementary Community Academy,Neighborhood
+610030,4390,31151,KOZMINSKI,Charles Kozminski Elementary Community Academy,Neighborhood
+610034,4430,31161,LAWNDALE,Lawndale Elementary Community Academy,Neighborhood
+610112,5270,31181,PARKER,Francis W Parker Elementary Community Academy,Neighborhood
+610116,5300,31201,PARKSIDE,Parkside Elementary Community Academy,Neighborhood
+610138,5520,31211,PULASKI,Pulaski International School of Chicago,Neighborhood
+610194,6110,31221,SUMNER,Charles Sumner  Math & Science Community Acad ES,Neighborhood
+610295,7210,31251,HIGGINS,Thomas J Higgins Elementary Community Academy,Neighborhood
+610313,7420,31261,DE DIEGO,Jose De Diego Elementary Community Academy,Neighborhood
+610329,7610,31281,OROZCO,Orozco Fine Arts & Sciences Elementary School,Neighborhood
+610347,7830,31301,CLAREMONT,Claremont Academy Elementary School,Neighborhood
+610212,6290,32011,ALBANY PARK,Albany Park Multicultural Academy,Neighborhood
+609807,2350,32021,HAMPTON,Lionel Hampton Fine & Performing Arts ES,Neighborhood
+610231,6480,32031,NATIONAL TEACHERS,National Teachers Elementary Academy,Neighborhood
+610287,7100,32081,ASHBURN,Ashburn Community Elementary School,Small
+610215,6310,41041,MADERO,Francisco I Madero Middle School,Neighborhood
+610244,6620,41051,CLARK HS,Michele Clark Academic Prep Magnet High School,Magnet
+610245,6630,41061,DOUGLASS HS,Frederick A Douglass Academy High School,Neighborhood
+610325,7560,41091,LOGANDALE,Logandale Middle School,Neighborhood
+609780,2090,41111,MARINE LEADERSHIP AT AMES HS,Marine Leadership Academy at Ames,Military academy
+610051,4600,41121,NORTHWEST,Northwest Middle School,Neighborhood
+610248,6670,45211,CHICAGO ACADEMY ES,Chicago Academy Elementary School,Small
+610390,7140,45221,RICKOVER MILITARY HS,Hyman G Rickover Naval Academy High School,Military academy
+610513,1055,45231,AIR FORCE HS,Air Force Academy High School,Military academy
+609694,1200,46021,HANCOCK HS,John Hancock College Preparatory High School,Selective enrollment
+609695,1210,46031,AMUNDSEN HS,Roald Amundsen High School,Neighborhood
+609698,1230,46041,BOGAN HS,William J Bogan High School,Neighborhood
+609749,1740,46061,NORTHSIDE PREP HS,Northside College Preparatory High School,Selective enrollment
+610543,8550,46101,SOLORIO HS,Eric Solorio Academy High School,Neighborhood
+609705,1310,46111,FENGER HS,Christian Fenger Academy High School,Neighborhood
+609707,1320,46121,ROBESON HS,Paul Robeson High School,Neighborhood
+609708,1330,46131,FOREMAN HS,Edwin G. Foreman College and Career Academy,Neighborhood
+609709,1340,46141,GAGE PARK HS,Gage Park High School,Neighborhood
+609711,1360,46151,HARPER HS,William Rainey Harper High School,Neighborhood
+609713,1390,46171,HYDE PARK HS,Hyde Park Academy High School,Neighborhood
+609715,1400,46181,KELLY HS,Thomas Kelly High School,Neighborhood
+609716,1410,46191,KELVYN PARK HS,Kelvyn Park High School,Neighborhood
+609718,1420,46201,KENNEDY HS,John F Kennedy High School,Neighborhood
+609719,1430,46211,LAKE VIEW HS,Lake View High School,Neighborhood
+609720,1440,46221,LANE TECH HS,Albert G Lane Technical High School,Selective enrollment
+609724,1480,46241,MATHER HS,Stephen T Mather High School,Neighborhood
+609725,1490,46251,MORGAN PARK HS,Morgan Park High School,Neighborhood
+609727,1510,46261,PHILLIPS HS,Wendell Phillips Academy High School,Neighborhood
+609728,1520,46271,ROOSEVELT HS,Theodore Roosevelt High School,Neighborhood
+609729,1530,46281,SCHURZ HS,Carl Schurz High School,Neighborhood
+609732,1560,46291,STEINMETZ HS,Charles P Steinmetz College Preparatory HS,Neighborhood
+609733,1570,46301,SULLIVAN HS,Roger C Sullivan High School,Neighborhood
+609734,1580,46311,TAFT HS,William Howard Taft High School,Neighborhood
+609738,1620,46321,LINCOLN PARK HS,Lincoln Park High School,Neighborhood
+609739,1630,46331,WASHINGTON HS,George Washington High School,Neighborhood
+609741,1670,46341,HUBBARD HS,Gurdon S Hubbard High School,Neighborhood
+609746,1710,46361,KENWOOD HS,Kenwood Academy High School,Neighborhood
+609751,1760,46371,KING HS,Dr  Martin Luther King  Jr  College Prep HS,Selective enrollment
+609760,1850,46381,CARVER MILITARY HS,George Washington Carver Military Academy HS,Military academy
+609761,1860,46391,CORLISS HS,George H Corliss High School,Neighborhood
+609762,1870,46401,JULIAN HS,Percy L Julian High School,Neighborhood
+609764,1890,46421,JUAREZ HS,Benito Juarez Community Academy High School,Neighborhood
+609691,1140,46431,NORTH-GRAND HS,North-Grand High School,Neighborhood
+610357,7930,46461,SPRY HS,Spry Community Links High School,Neighborhood
+610334,7690,46471,RABY HS,Al Raby High School,Small
+610340,7770,46481,CHICAGO ACADEMY HS,Chicago Academy High School,Small
+610323,7540,46491,BOWEN HS,Bowen High School,Small
+610391,7110,46511,LINDBLOM HS,Robert Lindblom Math & Science Academy HS,Selective enrollment
+610402,6990,46521,DEVRY HS,DeVry University Advantage Academy HS,Magnet
+610563,9623,46551,BACK OF THE YARDS HS,Back of the Yards IB HS,Neighborhood
+610558,9598,46611,GOODE HS,Sarah E. Goode STEM Academy,Citywide-Option
+610518,1145,46621,AUSTIN CCA HS,Austin College and Career Academy High School,Small
+610547,8676,46631,SOUTH SHORE INTL HS,South Shore Intl College Prep High School,Selective enrollment
+610561,9621,46641,CRANE MEDICAL HS,Richard T Crane Medical Preparatory HS,Magnet
+610587,9682,46681,DYETT ARTS HS,Walter Henri Dyett High School for the Arts,Neighborhood
+609678,1060,47021,JONES HS,William Jones College Preparatory High School,Selective enrollment
+609712,1380,47031,HIRSCH HS,Emil G Hirsch Metropolitan High School,Neighborhood
+609723,1470,47041,MARSHALL HS,John Marshall Metropolitan High School,Neighborhood
+609726,1500,47051,BROOKS HS,Gwendolyn Brooks College Preparatory Academy HS,Selective enrollment
+609730,1540,47061,SENN HS,Nicholas Senn High School,Neighborhood
+609737,1610,47081,VON STEUBEN HS,Friedrich W von Steuben Metropolitan Science HS,Magnet
+609753,1790,47091,CHICAGO AGRICULTURE HS,Chicago High School for Agricultural Sciences,Magnet
+609755,1810,47101,YOUNG HS,Whitney M Young Magnet High School,Selective enrollment
+609744,1690,49021,NORTHSIDE LEARNING HS,Northside Learning Center High School,Special Education
+609745,1700,49031,SOUTHSIDE HS,Southside Occupational Academy High School,Special Education
+609748,1730,49041,YORK HS,Consuella B York Alternative HS,Citywide-Option
+609750,1750,49051,SIMPSON HS,Simpson Academy HS for Young Women,Citywide-Option
+609766,1920,49081,VAUGHN HS,Jacqueline B Vaughn Occupational High School,Special Education
+609768,1940,49091,HOPE HS,Hope College Preparatory High School,Neighborhood
+609769,1950,49101,GRAHAM HS,Ray Graham Training Center High School,Special Education
+610499,1045,49131,COLLINS HS,Collins Academy High School,Small
+610506,8080,49161,TEAM HS,TEAM Englewood Community Academy High School,Small
+609710,1350,51021,HARLAN HS,John M Harlan Community Academy High School,Neighborhood
+609740,1640,51071,WELLS HS,Wells Community Academy High School,Neighborhood
+609759,1840,51091,CLEMENTE HS,Roberto Clemente Community Academy High School,Neighborhood
+610392,4460,52011,WORLD LANGUAGE HS,World Language Academy High School,Small
+609674,1010,53011,CHICAGO VOCATIONAL HS,Chicago Vocational Career Academy High School,Career academy
+609676,1030,53021,DUNBAR HS,Paul Laurence Dunbar Career Academy High School,Career academy
+609679,1070,53041,PROSSER HS,Charles Allen Prosser Career Academy High School,Career academy
+609682,1110,53051,RICHARDS HS,Ellen H Richards Career Academy High School,Neighborhood
+609692,1150,53061,SIMEON HS,Neal F Simeon Career Academy High School,Career academy
+609693,1160,53071,WESTINGHOUSE HS,George Westinghouse College Prep,Selective enrollment
+609704,1300,53091,FARRAGUT HS,David G Farragut Career Academy High School,Neighborhood
+609756,1820,53101,CURIE HS,Marie Sklodowska Curie Metropolitan High School,Magnet
+609722,1460,53111,MANLEY HS,Manley Career Academy High School,Neighborhood
+609735,1590,53121,TILDEN HS,Edward Tilden Career Community Academy HS,Neighborhood
+610304,7310,55011,PHOENIX MILITARY HS,Phoenix Military Academy High School,Military academy
+610384,7680,55151,INFINITY HS,Infinity Math Science and Technology High School,Small
+610380,7200,55161,WILLIAMS HS,Daniel Hale Williams Prep School of Medicine,Small
+610383,7600,55171,SOCIAL JUSTICE HS,Greater Lawndale High School For Social Justice,Small
+610385,7630,55181,MULTICULTURAL HS,Multicultural Academy of Scholarship,Small
+610381,7270,55191,BRONZEVILLE HS,Bronzeville Scholastic Academy High School,Small
+400009,2025,63011,GLOBAL CITIZENSHIP,Academy for Global Citizenship Charter School,Charter
+400068,2045,63021,PLATO,Plato Learning Academy,Contract
+400043,8067,63031,HOPE INSTITUTE,Hope Institute Learning Academy,Contract
+400045,2055,63041,NKRUMAH,Kwame Nkrumah Academy Charter School,Charter
+400022,8047,63051,CHIARTS HS,Chicago High School for the Arts (ChiArts),Contract
+400102,8096,63071,URBAN PREP - WEST HS,Urban Prep Charter Academy for Young Men - West,Charter
+400094,8058,63081,EPIC HS,EPIC Academy Charter High School,Charter
+400091,8022,63091,CHICAGO TECH HS,Chicago Technology Academy High School,Contract
+400104,8026,63131,INSTITUTO - HEALTH,Instituto Health Sciences Career Academy,Charter
+400147,9066,63141,CAMELOT - EXCEL HS,Chicago Excel Academy,Citywide-Option
+610565,9630,63142,CAMELOT - EXCEL ENGLEWOOD HS,Excel - Englewood HS,Citywide-Option
+400175,9650,63143,CAMELOT - EXCEL SOUTHSHORE HS,Excel - Woodlawn HS,Citywide-Option
+400176,9651,63144,CAMELOT - EXCEL SOUTHWEST HS,Excel - Southwest HS,Citywide-Option
+400137,9054,63161,LITTLE BLACK PEARL HS,Little Black Pearl Art and Design Academy,Charter
+400167,9642,63181,HORIZON - SOUTHWEST,Horizon Science Academy Southwest Chicago Charter,Charter
+610566,9631,65011,MAGIC JOHNSON - N LAWNDALE HS,Magic Johnson- North Lawndale HS,Citywide-Option
+610567,9632,65012,MAGIC JOHNSON - ROSELAND HS,Magic Johnson- Roseland HS,Citywide-Option
+610569,9634,65013,OMBUDSMAN - NORTHWEST HS,Ombudsman Chicago- Northwest,Citywide-Option
+610570,9635,65014,OMBUDSMAN - SOUTH HS,Ombudsman Chicago- South,Citywide-Option
+610571,9636,65015,OMBUDSMAN - WEST HS,Ombudsman Chicago- West,Citywide-Option
+610568,9633,65016,PATHWAYS - AVONDALE HS,Pathways in Education- Avondale,Citywide-Option
+610557,8687,65018,PATHWAYS - ASHBURN HS,Pathways in Education- Ashburn,Citywide-Option
+610580,9653,65020,MAGIC JOHNSON - HUMBOLDT PK HS,Magic Johnson- Humboldt Park HS,Citywide-Option
+610581,9654,65021,MAGIC JOHNSON - BRAINERD HS,Magic Johnson- Brainerd HS,Citywide-Option
+610572,9637,66012,CAMELOT - SAFE ES,Camelot Safe Elementary,Citywide-Option
+610573,9638,66012,CAMELOT - SAFE HS,Camelot Safe HS,Citywide-Option
+400146,9067,66031,KIPP - ACADEMY,KIPP Chicago Charter School - KIPP Create,Charter
+400180,9684,66032,KIPP - ONE,KIPP One Academy,Charter
+400064,1960,66051,PERSPECTIVES - JOSLIN HS,Perspectives - Rodney D. Joslin,Charter
+400061,1961,66052,PERSPECTIVES - LEADERSHIP HS,Perspectives - Leadership Academy,Charter
+400062,1962,66053,PERSPECTIVES - TECH HS,Perspectives - High School of Technology,Charter
+400066,1964,66056,PERSPECTIVES - MATH & SCI HS,Perspectives - Math and Science Academy,Charter
+400033,2420,66061,CICS - LONGWOOD,CICS - Longwood,Charter
+400025,4910,66071,CICS - BUCKTOWN,CICS - Bucktown,Charter
+400032,4911,66072,CICS - ELLISON HS,CICS - Ralph Ellison,Charter
+400027,4913,66074,CICS - IRVING PARK,CICS - Irving Park,Charter
+400026,4914,66075,CICS - LOOMIS,CICS - Loomis Primary,Charter
+400092,8049,66076,CICS - BOND,CICS - Lloyd Bond,Charter
+400058,1105,66091,NORTH LAWNDALE - CHRISTIANA HS,North Lawndale College Prep - Christiana,Charter
+400059,1106,66092,NORTH LAWNDALE - COLLINS HS,North Lawndale College Prep - Collins,Charter
+400123,9040,66106,YCCS - SCHOLASTIC ACHIEVEMENT,YCCS- Academy of Scholastic Achievement HS,Charter
+400124,9041,66107,YCCS - MCKINLEY,YCCS-Ada S. McKinley-Lakeside HS,Charter
+400125,9042,66108,YCCS - ASPIRA PANTOJA,"YCCS-ASPIRA,Antonia Pantoja Alternative HS",Charter
+400126,9043,66109,YCCS - ASSOCIATION HOUSE,YCCS-Association House HS,Charter
+400076,3060,66111,U OF C - NKO,University of Chicago - North Kenwood/Oakland,Charter
+400077,3061,66112,U OF C - WOODLAWN HS,University of Chicago - Woodlawn,Charter
+400078,3062,66113,U OF C - WOODSON,University of Chicago - Carter G. Woodson,Charter
+400120,9037,66133,ACERO - CLEMENTE,Acero Charter Schools - Roberto Clemente,Charter
+400121,9038,66134,ACERO - DE LA CRUZ,Acero Charter Schools - Sor Juana In√©s de la Cruz,Charter
+400149,9640,66137,ACERO - SOTO HS,Acero Charter Schools - Victoria Soto,Charter
+400051,1930,66141,NOBLE - NOBLE HS,Noble - Noble College Prep,Charter
+400054,1931,66142,NOBLE - PRITZKER HS,Noble - Pritzker College Prep,Charter
+400055,1932,66143,NOBLE - RAUNER HS,Noble - Rauner College Prep,Charter
+400056,1933,66144,NOBLE - ROWE CLARK HS,Noble - Rowe-Clark Math and Science Academy,Charter
+400053,1934,66145,NOBLE - GOLDER HS,Noble - Golder College Prep,Charter
+400052,1935,66146,NOBLE - COMER,Noble - Gary Comer College Prep,Charter
+400057,1936,66147,NOBLE - UIC HS,Noble - UIC College Prep,Charter
+400106,8028,66148,NOBLE - JOHNSON HS,Noble - John and Eunice Johnson College Prep,Charter
+400169,9644,66149,NOBLE - ITW SPEER HS,Noble - ITW David Speer Academy,Charter
+400011,4730,66151,LOCKE A,Alain Locke Charter School,Charter
+400028,4220,66161,CICS - PRAIRIE,CICS - Prairie,Charter
+400087,2490,66171,YOUNG WOMENS HS,Young Women's Leadership Charter School,Charter
+400029,2290,66181,CICS - WASHINGTON PARK,CICS - Washington Park,Charter
+400060,6850,66191,AHS - PASSAGES,Asian Human Services - Passages Charter School,Charter
+400046,6770,66211,LEARN - BUTLER,L.E.A.R.N. - Romano Butler Campus,Charter
+400030,7120,66221,CICS - WEST BELDEN,CICS - West Belden,Charter
+400024,7130,66231,CICS - BASIL,CICS - Basil,Charter
+400034,7740,66241,CICS - NORTHTOWN HS,CICS - Northtown,Charter
+400013,7803,66254,ASPIRA - EARLY COLLEGE HS,ASPIRA Charter School - Early College High School,Charter
+400172,9647,66255,ASPIRA - BUSINESS & FINANCE HS,ASPIRA Business and Finance,Charter
+400044,7810,66261,KIPP - ASCEND,KIPP Ascend Charter School,Charter
+400050,7920,66271,NAMASTE,Namaste Charter School,Charter
+400035,7940,66281,CHICAGO MATH & SCIENCE HS,Chicago Math and Science Academy Charter School,Charter
+400010,7950,66291,ACE TECH HS,ACE Technical Charter School,Charter
+400075,2600,66321,U OF C - DONOGHUE,University of Chicago - Donoghue,Charter
+400039,5780,66331,ERIE,Erie Elementary Charter School,Charter
+400017,3500,66351,ASPIRA - HAUGAN,ASPIRA Charter School - Haugan Middle School,Charter
+400023,6580,66371,CICS - AVALON/SOUTH SHORE,CICS - Avalon/South Shore,Charter
+400031,3180,66381,CICS - WRIGHTWOOD,CICS - Wrightwood,Charter
+400084,3340,66391,ACERO - TAMAYO,Acero Charter Schools - Rufino Tamayo,Charter
+400081,3341,66392,ACERO - DE LAS CASAS,Acero Charter Schools - Bartolom√© de las Casas,Charter
+400082,3342,66393,ACERO - FUENTES,Acero Charter Schools - Carlos Fuentes,Charter
+400085,3343,66394,ACERO - GARCIA HS,Acero Charter Schools - Major Hector P. Garcia MD,Charter
+400079,3344,66395,ACERO - ZIZUMBO,Acero Charter Schools - SPC Daniel Zizumbo,Charter
+400080,3345,66396,ACERO - TORRES,Acero Charter Schools - PFC Omar E. Torres,Charter
+400089,3346,66397,ACERO - MARQUEZ,Acero Charter Schools - Officer Donald J. Marquez,Charter
+400101,8094,66398,ACERO - CISNEROS,Acero Charter Schools - Sandra Cisneros,Charter
+400112,8671,66399,ACERO - IDAR,Acero Charter Schools - Jovita Idar,Charter
+400021,4371,66432,CATALYST - CIRCLE ROCK,Catalyst Elementary Charter School - Circle Rock,Charter
+400115,9032,66433,CATALYST - MARIA,Catalyst - Maria Charter School,Charter
+400086,7030,66441,URBAN PREP - ENGLEWOOD HS,Urban Prep Academy for Young Men - Englewood,Charter
+400105,8027,66442,URBAN PREP - BRONZEVILLE HS,Urban Prep Academy for Young Men - Bronzeville,Charter
+400071,6700,66471,PROVIDENCE ENGLEWOOD,Providence Englewood Charter School,Charter
+400036,7700,66481,CHICAGO VIRTUAL,Chicago Virtual Charter School,Charter
+400048,6775,66561,LEARN - EXCEL,L.E.A.R.N. - Excel Campus,Charter
+400047,8072,66562,LEARN - CAMPBELL,L.E.A.R.N. - Charles and Dorothy Campbell Campus,Charter
+400107,8029,66563,LEARN - SOUTH CHICAGO,L.E.A.R.N. - South Chicago Campus,Charter
+400111,8677,66564,LEARN - PERKINS,L.E.A.R.N. - Hunter Perkins Campus,Charter
+400151,9608,66566,LEARN - 7,L.E.A.R.N. Charter School - 7th Campus,Charter
+400165,9629,66567,LEARN - MIDDLE,L.E.A.R.N. - Middle School Campus,Charter
+400096,8077,66571,ROWE,Rowe Elementary Charter School,Charter
+400097,8078,66572,NOBLE - BULLS HS,Noble - Chicago Bulls College Prep,Charter
+400098,8079,66573,NOBLE - MUCHIN HS,Noble - Muchin College Prep,Charter
+400117,9034,66574,NOBLE - HANSBERRY HS,Noble - Hansberry College Prep,Charter
+400118,9035,66575,NOBLE - DRW HS,Noble - DRW College Prep,Charter
+400156,9613,66576,NOBLE - BUTLER HS,Noble - Butler College Prep,Charter
+400157,9614,66577,NOBLE - BAKER HS,Noble - Baker College Prep,Charter
+400170,9645,66578,NOBLE - ACADEMY HS,Noble - The Noble Academy,Charter
+400179,9683,66579,NOBLE - MANSUETO HS,Noble Mansueto High School,Charter
+400116,9033,66591,MONTESSORI ENGLEWOOD,The Montessori School of Englewood Charter,Charter
+400114,8093,66601,ACERO - SANTIAGO,Acero Charter Schools - Esmeralda Santiago,Charter
+400153,9610,66602,ACERO - BRIGHTON PARK,Acero Charter Schools - Brighton Park,Charter
+400127,9044,66611,YCCS - AUSTIN CAREER,YCCS-Austin Career Education Center HS,Charter
+400128,9045,66612,YCCS - CCA ACADEMY,YCCS-CCA Academy HS,Charter
+400129,9046,66613,YCCS - PROGRESSIVE LEADERSHIP,YCCS-Progressive Leadership Academy,Charter
+400130,9047,66614,YCCS - YOUTH DEVELOPMENT,YCCS-Community Youth Development Institute HS,Charter
+400131,9601,66615,YCCS - CAMPOS,YCCS-Dr. Pedro Albizu Campos Puerto Rican HS,Charter
+400133,9602,66617,YCCS - INNOVATIONS,YCCS- Innovations HS of Arts Integration,Charter
+400134,9051,66618,YCCS - ADDAMS,YCCS-Jane Addams Alternative HS,Charter
+400135,9052,66619,YCCS - LATINO YOUTH,YCCS-Latino Youth Alternative HS,Charter
+400136,9053,66621,YCCS - OLIVE HARVEY,YCCS-Olive Harvey Middle College HS,Charter
+400139,9056,66623,YCCS - SULLIVAN,YCCS-Sullivan House Alternative HS,Charter
+400141,9058,66625,YCCS - TRUMAN,YCCS-Truman Middle College HS,Charter
+400142,9059,66626,YCCS - VIRTUAL,YCCS-Virtual HS,Charter
+400143,9603,66627,YCCS - WEST TOWN,YCCS-West Town Acad Alternative HS,Charter
+400144,9604,66628,YCCS - WESTSIDE HOLISTIC,YCCS-Westside Holistic Leadership Acad HS,Charter
+400145,9062,66629,YCCS - YOUTH CONNECTION,YCCS-Youth Connection Leadership Acad HS,Charter
+400150,9599,66631,YCCS - CHATHAM,YCCS-Chatham AcademyHS,Charter
+400119,9036,66641,LEGAL PREP HS,Legal Prep Charter Academy,Charter
+400113,8672,66651,CICS - CHICAGOQUEST HS,CICS - ChicagoQuest North,Charter
+400159,9616,66661,CHRISTOPHER HOUSE,Christopher House Charter School,Charter
+400161,9618,66671,CHICAGO COLLEGIATE,Chicago Collegiate Charter School,Charter
+400162,9619,66691,INTRINSIC HS,Intrinsic Charter School,Charter
+400173,9648,66801,PATHWAYS - BRIGHTON PARK HS,Pathways in Education- Brighton Park,Citywide-Option
+400178,9659,66911,MOVING EVEREST,Moving Everest Charter School,Charter
+400164,9628,66921,INSTITUTO - LOZANO MASTERY HS,Instituto - Justice Lozano Mastery,Charter
+400163,9627,66931,KIPP - BLOOM,KIPP Chicago Charter School - KIPP Bloom,Charter
+400171,9646,66941,FOUNDATIONS,Foundations College Preparatory Charter School,Charter
+400168,9643,66951,GREAT LAKES,Great Lakes Academy Charter School,Charter
+610386,1123,67021,PEACE AND EDUCATION HS,Peace & Education Coalition HS,Citywide-Option
+400049,5870,67071,LEGACY,Legacy Charter School,Charter
+400069,4150,67081,POLARIS,Polaris Charter Academy,Charter
+609680,1090,70020,PAYTON HS,Walter Payton College Preparatory High School,Selective enrollment
+609754,1800,70070,CHICAGO MILITARY HS,Chicago Military Academy High School,Military academy
