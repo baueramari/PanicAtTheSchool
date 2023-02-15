@@ -4,15 +4,16 @@ crime_cols = ['id', 'case_number', 'date', 'iucr',
        'primary_type', 'description', 'arrest',
        'domestic', 'district', 'ward', 'community_area', 'fbi_code',
         'year', 'updated_on']
-#crime = pd.read_csv('raw_data/crime.csv', usecols = crime_cols)
+crime = pd.read_csv('raw_data/crime.csv', usecols = crime_cols)
 
 crime = crime[crime['year'] > 2011]
 crime = crime[crime['year'] != 2023]
 crime.dropna(subset='ward', inplace = True)
+crime.drop_duplicates(inplace = True)
 crime['ward'] = crime['ward'].astype(int)
-crime['count'] = 1
-crime = crime.groupby(by = 'ward').count()
-crime = crime[crime['ward','count']]
+crime_by_ward = crime.groupby(by = 'ward', as_index = False).size()
+crime_by_ward['crime_capita'] = crime_by_ward['size'] / 55000 #average population in Chicago wards
+crime_by_ward.to_csv('data_wrangling/cleaned_data/crime_by_ward.csv')
 
 
 admin_cols = ['School_ID','Short_Name','Long_Name','Primary_Category','Is_High_School','Is_Middle_School',
@@ -25,7 +26,7 @@ admin_cols = ['School_ID','Short_Name','Long_Name','Primary_Category','Is_High_S
         'Transportation_Metra','Average_ACT_School','Mean_ACT','College_Enrollment_Rate_School','College_Enrollment_Rate_Mean',
         'Graduation_Rate_School','Graduation_Rate_Mean','Overall_Rating','Rating_Status','Rating_Statement',
         'Classification_Description','School_Year','School_Latitude','School_Longitude','Location','Boundaries - ZIP Codes',
-        'Community Areas','Zip Codes','Census Tracts','Wards'] 
+        'Community Areas','Zip Codes','Census Tracts','Wards']  #many potentially useful variables
 admin = pd.read_csv('raw_data/admin_demog.csv', usecols = admin_cols)
 
 schoolid_ward_map = admin[['School_ID','Wards']] #If planning to look at other variables from file, add them in here
@@ -39,7 +40,8 @@ year_range.remove('2020')   #no attendance data for 2020 - covid.
 
 citywide = attend[attend['School Name'] == 'CITYWIDE']
 citywide = citywide[citywide['Grade'].isin(['9','10','11','12'])]
-citywide = pd.melt(citywide, id_vars = ['Grade'], var_name = 'Year',value_vars=year_range[1:], value_name='Attendance')
+citywide = pd.melt(citywide, id_vars = ['Grade'], var_name = 'Year',
+                   value_vars=year_range[1:], value_name='Attendance')
 citywide_attend = citywide.groupby(by = 'Year').mean('Attendance')
 citywide_attend.to_csv('data_wrangling/cleaned_data/citywide_attend.csv')
 
@@ -47,16 +49,13 @@ attend = attend[attend['School Name'] != 'CITYWIDE']
 attend['School ID'] = attend['School ID'].astype(int)
 attend.dropna(how = 'all', subset = year_range, inplace = True) #drop rows where ALL of the year values are NaN's
 attend = attend[attend['Grade'].isin(['9','10','11','12'])] #only looking at high school attendance
-attend = pd.melt(attend,id_vars = ['School ID','Grade'], value_vars = year_range[1:], value_name='Attendance') #data is tidy.
+attend = pd.melt(attend,id_vars = ['School ID','Grade'], 
+                 value_vars = year_range[1:], value_name='Attendance') #data is tidy.
 attend = attend[attend['Attendance'] != 0.0]
 attend = attend[attend['Attendance'] != 100.0] #untrustworthy reporting
 attend.rename(columns = {'variable':'Year'}, inplace = True)
 
 avg_attend = attend.groupby(by = ['School ID','Year']).mean('Attendance')
-avg_attend.to_csv('cleaned_data/avg_attend.csv')
+avg_attend.to_csv('data_wrangling/cleaned_data/avg_attend.csv')
 
-
-#HANDLE NA'S 
-#clean crime still. 
-#create subset with crime counts and averages by ward
 
