@@ -6,7 +6,9 @@ crime_cols = ['id', 'case_number', 'date', 'iucr',
        'domestic', 'district', 'ward', 'community_area', 'fbi_code',
         'year', 'updated_on']
 #crime = pd.read_csv('raw_data/crime.csv', usecols = crime_cols)
-#no need to rerun above, takes a long time.
+crime = crime[crime['year'] > 2011]
+crime = crime[crime['year'] != 2023] 
+
 admin_cols = ['School_ID','Short_Name','Long_Name','Primary_Category','Is_High_School','Is_Middle_School',
         'Is_Elementary_School','Is_Pre_School','Summary','Address','City','State','Zip','Phone','Attendance_Boundaries',
         'Grades_Offered_All','Grades_Offered','Student_Count_Total','Student_Count_Low_Income','Student_Count_Special_Ed',
@@ -20,8 +22,26 @@ admin_cols = ['School_ID','Short_Name','Long_Name','Primary_Category','Is_High_S
         'Community Areas','Zip Codes','Census Tracts','Wards'] 
 admin = pd.read_csv('raw_data/admin_demog.csv', usecols = admin_cols)
 
-attend = pd.read_csv('raw_data/attendance.csv')
+admin_to_merge = admin[['School_ID','Wards']] #If planning to look at other variables from file, add them in here
 
-#clean columns, subset to years that we're interested in
+attend = pd.read_csv('raw_data/attendance.csv', usecols= lambda x: x not in ['Group', 'Network'])
+ 
+attend = attend[attend['School Name'] != 'CITYWIDE']
+attend['School ID'] = attend['School ID'].astype(int)
+year_range = list(range(2012,2023))
+year_range = list(map(str, year_range))
+year_range.remove('2020')   #no attendance data for 2020 - covid. 
+attend.dropna(how = 'all', subset = year_range, inplace = True) #drop rows where ALL of the year values are NaN's
+attend = attend[attend['Grade'].isin(['9','10','11','12'])]
+attend = pd.melt(attend,id_vars = ['School ID','Grade'], value_vars = year_range[1:], value_name='Attendance') #data is tidy.
+attend = attend[attend['Attendance'] != 0.0]
+attend = attend[attend['Attendance'] != 100.0] #untrustworthy reporting
+attend.rename(columns = {'variable':'Year'}, inplace = True)
+avg_attend = attend.groupby(by = ['School ID','Year']).mean('Attendance')
+
+admin_to_merge.merge(avg_attend, how='left',left_on='School_ID', 
+                right_on='School ID') #still seems off
+#HANDLE NA'S 
+#clean crime still. 
 #create subset with crime counts and averages by ward
 
