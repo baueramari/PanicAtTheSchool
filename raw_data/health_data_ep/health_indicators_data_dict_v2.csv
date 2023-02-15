@@ -1,0 +1,39 @@
+﻿(Indicator name),(Definition),(Citation)
+"Low birthweight (count of births), 2013-2017",Number of births with birthweight less than 2500 grams (5.5 pounds).,"Illinois Department of Public Health, Birth Certificate Data Files"
+"Low birthweight rate (% of births), 2013-2017",Percent of births with a birthweight less than 2500 grams (5.5 pounds).,"Illinois Department of Public Health, Birth Certificate Data Files"
+"Very low birthweight (count of births), 2013-2017",Number of births with a birthweight less than 1500 grams (3.25 pounds).,"Illinois Department of Public Health, Birth Certificate Data Files"
+"Very low birthweight rate (% of births), 2013-2017",Percent of births with a birthweight less than 1500 grams (3.25 pounds).,"Illinois Department of Public Health, Birth Certificate Data Files"
+"Uninsured residents (residents), 2017-2021",Number of residents without health insurance.,American Community Survey (Tables B27001/C27001)
+"Uninsured rate (% of residents), 2017-2021",Percent of residents without health insurance (at the time of the survey).,American Community Survey (Tables B27001/C27001)
+"Early and adequate prenatal care (count of births), 2013-2017",Number of births where mother received adequate prenatal care by the Adequacy of Prenatal Care Utilization Index (APNCU).,"Illinois Department of Public Health, Birth Certificate Data Files"
+"Early and adequate prenatal care rate (% of births), 2013-2017",Percent of births where mother received adequate prenatal care by the Adequacy of Prenatal Care Utilization Index (APNCU).,"Illinois Department of Public Health, Birth Certificate Data Files"
+"Vacant (% of housing units), 2017-2021",,American Community Survey (Table B25002)
+"Single-parent households (% of households), 2017-2021","Percentage of households that have children present and are headed by a single parent (mother or father), with no partner present.",American Community Survey (Table B11012)
+"Community belonging rate (% of adults), 2016-2018",Percent of adults who reported that they strongly agree or agree that they really feel part of their neighborhood.,"Chicago Department of Public Health, Healthy Chicago Survey"
+"Community belonging (count of adults), 2016-2018",Number of adults who reported that they strongly agree or agree that they really feel part of their neighborhood.,"Chicago Department of Public Health, Healthy Chicago Survey"
+"Community belonging (count of adults), 2020-2021",Number of adults who reported that they strongly agree or agree that they really feel part of their neighborhood.,"Chicago Department of Public Health, Healthy Chicago Survey"
+"Community belonging rate (% of adults), 2020-2021",Percent of adults who reported that they strongly agree or agree that they really feel part of their neighborhood.,"Chicago Department of Public Health, Healthy Chicago Survey"
+"Food stamps (SNAP) (% of households), 2017-2021","Percent of households receiving Supplemental Nutrition Assistance Program (SNAP) benefits, formerly known as food stamps, over the past 12 months.","American Community Survey (Tables B22003, B22005, and S2201)"
+"Households in poverty not receiving food stamps (SNAP) (% of households below the poverty line), 2017-2021",Percent of households with income in the past 12 months below the poverty level who did not receive food stamps/SNAP in the past 12 months.,American Community Survey (Table B22003)
+"Mean age at first birth (age), 2013-2017",The arithmetic average of a mother's age at first birth (first child born alive).,"Illinois Department of Public Health, Birth Certificate Data Files"
+"Mean age at first birth (age), 2012-2016",The arithmetic average of a mother's age at first birth (first child born alive).,"Illinois Department of Public Health, Birth Certificate Data Files"
+"Rent-burdened (% of renter-occupied housing units), 2017-2021","Households spending more than 30% of income on rent are considered rent-burdened. Rent costs do not include utilities, insurance, or building fees.",American Community Survey (Table B25070)
+"Severely rent-burdened (% of renter-occupied housing units), 2017-2021","Households spending more than 50% of income on rent are considered severely rent-burdened. Rent costs do not include utilities, insurance, or building fees.",American Community Survey (Table B25070)
+"Homicide mortality (count of deaths), 2015-2019",Number of people who died due to homicide.,"Illinois Department of Public Health, Death Certificate Data Files"
+"Homicide mortality rate (per 100,000 population), 2015-2019",Age-adjusted rate of people who died due to homicide.,"Illinois Department of Public Health, Death Certificate Data Files"
+"Firearm-related homicide mortality (count of deaths), 2015-2019",Number of people who died due to firearm-related homicide.,"Illinois Department of Public Health, Death Certificate Data Files"
+"Firearm-related homicide mortality rate (per 100,000 population), 2015-2019",Age-adjusted rate of people who died due to firearm-related homicide.,"Illinois Department of Public Health, Death Certificate Data Files"
+"Drug-induced mortality (count of deaths), 2015-2019","Number of people who died due to poisoning and medical conditions caused by use of legal or illegal drugs or deaths from poisoning due to medically prescribed and other drugs. It excludes unintentional injuries, homicides, and other causes indirectly related to drug use, as well as newborn deaths due to the mother‚Äôs drug use.","Illinois Department of Public Health, Death Certificate Data Files"
+"Drug-induced mortality rate (per 100,000 population), 2015-2019",Age-adjusted rate of people who died due to poisoning and medical conditions caused by use of legal or illegal drugs or from poisoning due to medically prescribed and other drugs.,"Illinois Department of Public Health, Death Certificate Data Files"
+"Drug overdose mortality (count of deaths), 2015-2019",Number of people who died due to drug overdose.,"Illinois Department of Public Health, Death Certificate Data Files"
+"Drug overdose mortality rate (per 100,000 population), 2015-2019",Age-adjusted rate of people who died due to drug overdose.,"Illinois Department of Public Health, Death Certificate Data Files"
+"Population (residents), 2017-2021",Average population over the time period.,American Community Survey (ACS: Table B01001; Decennial Census: Table P012)
+"Population (residents), 2016-2020",Average population over the time period.,American Community Survey (ACS: Table B01001; Decennial Census: Table P012)
+"Population, Infants (0-4 years) (residents), 2017-2021",Average population over the time period.,American Community Survey (ACS: Table B01001; Decennial Census: Table P012)
+"Population, Infants (0-4 years) (residents), 2016-2020",Average population over the time period.,American Community Survey (ACS: Table B01001; Decennial Census: Table P012)
+"Population, Juveniles (5-17 years) (residents), 2017-2021",Average population over the time period.,American Community Survey (ACS: Table B01001; Decennial Census: Table P012)
+"Population, Juveniles (5-17 years) (residents), 2016-2020",Average population over the time period.,American Community Survey (ACS: Table B01001; Decennial Census: Table P012)
+"Population, Non-Hispanic Black (residents), 2017-2021",Average population over the time period.,American Community Survey (ACS: Table B01001; Decennial Census: Table P012)
+"Population, Non-Hispanic Black (residents), 2016-2020",Average population over the time period.,American Community Survey (ACS: Table B01001; Decennial Census: Table P012)
+"Population, Hispanic or Latino (residents), 2017-2021",Average population over the time period.,American Community Survey (ACS: Table B01001; Decennial Census: Table P012)
+"Population, Hispanic or Latino (residents), 2016-2020",Average population over the time period.,American Community Survey (ACS: Table B01001; Decennial Census: Table P012)
