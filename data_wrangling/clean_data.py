@@ -12,6 +12,8 @@ crime.dropna(subset='ward', inplace = True)
 crime['ward'] = crime['ward'].astype(int)
 crime['count'] = 1
 crime = crime.groupby(by = 'ward').count()
+crime = crime[crime['ward','count']]
+
 
 admin_cols = ['School_ID','Short_Name','Long_Name','Primary_Category','Is_High_School','Is_Middle_School',
         'Is_Elementary_School','Is_Pre_School','Summary','Address','City','State','Zip','Phone','Attendance_Boundaries',
@@ -27,15 +29,22 @@ admin_cols = ['School_ID','Short_Name','Long_Name','Primary_Category','Is_High_S
 admin = pd.read_csv('raw_data/admin_demog.csv', usecols = admin_cols)
 
 schoolid_ward_map = admin[['School_ID','Wards']] #If planning to look at other variables from file, add them in here
-schoolid_ward_map.to_csv('cleaned_data/schoolid_ward_map.csv')
+schoolid_ward_map.to_csv('data_wrangling/cleaned_data/schoolid_ward_map.csv')
 
 
 attend = pd.read_csv('raw_data/attendance.csv', usecols= lambda x: x not in ['Group', 'Network'])
-attend = attend[attend['School Name'] != 'CITYWIDE']
-attend['School ID'] = attend['School ID'].astype(int)
 year_range = list(range(2012,2023))
 year_range = list(map(str, year_range))
 year_range.remove('2020')   #no attendance data for 2020 - covid. 
+
+citywide = attend[attend['School Name'] == 'CITYWIDE']
+citywide = citywide[citywide['Grade'].isin(['9','10','11','12'])]
+citywide = pd.melt(citywide, id_vars = ['Grade'], var_name = 'Year',value_vars=year_range[1:], value_name='Attendance')
+citywide_attend = citywide.groupby(by = 'Year').mean('Attendance')
+citywide_attend.to_csv('data_wrangling/cleaned_data/citywide_attend.csv')
+
+attend = attend[attend['School Name'] != 'CITYWIDE']
+attend['School ID'] = attend['School ID'].astype(int)
 attend.dropna(how = 'all', subset = year_range, inplace = True) #drop rows where ALL of the year values are NaN's
 attend = attend[attend['Grade'].isin(['9','10','11','12'])] #only looking at high school attendance
 attend = pd.melt(attend,id_vars = ['School ID','Grade'], value_vars = year_range[1:], value_name='Attendance') #data is tidy.
