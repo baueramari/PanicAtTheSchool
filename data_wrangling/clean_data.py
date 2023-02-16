@@ -11,7 +11,7 @@ crime = crime[crime['year'] != 2023]
 crime.dropna(subset='ward', inplace = True)
 crime.drop_duplicates(inplace = True)
 crime['ward'] = crime['ward'].astype(int)
-crime_by_ward = crime.groupby(by = 'ward', as_index = False).size()
+crime_by_ward = crime.groupby(by = ['ward','year'], as_index = False).size()
 crime_by_ward['crime_capita'] = crime_by_ward['size'] / 55000 #average population in Chicago wards
 crime_by_ward.to_csv('data_wrangling/cleaned_data/crime_by_ward.csv')
 
@@ -54,8 +54,10 @@ attend = pd.melt(attend,id_vars = ['School ID','Grade'],
 attend = attend[attend['Attendance'] != 0.0]
 attend = attend[attend['Attendance'] != 100.0] #untrustworthy reporting
 attend.rename(columns = {'variable':'Year'}, inplace = True)
+attend['Year'] = attend['Year'].astype(int)
 
-avg_attend = attend.groupby(by = ['School ID','Year']).mean('Attendance')
+avg_attend = attend.groupby(by = ['School ID','Year'], as_index = False).mean('Attendance')
+avg_attend.dropna(subset = 'Attendance', inplace = True)
 avg_attend.to_csv('data_wrangling/cleaned_data/avg_attend.csv')
 
 
