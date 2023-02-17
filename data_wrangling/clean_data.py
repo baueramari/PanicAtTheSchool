@@ -67,9 +67,7 @@ attend.dropna(
 attend = attend[
     attend["Grade"].isin(["9", "10", "11", "12"])
 ]  # only looking at high school attendance
-attend["Network"].fillna(
-    "Public", inplace=True
-)  # CAN WE ASSUME A BLANK HERE MEANS PUBLIC? ASK SARAH.
+
 attend = pd.melt(
     attend,
     id_vars=["School ID", "Grade", "Network"],
