@@ -6,7 +6,7 @@ schoolid_ward_map = pd.read_csv("data_wrangling/cleaned_data/schoolid_ward_map.c
 
 low_crime = crime_by_ward["crime_capita"].quantile(0.25)
 medium_crime = crime_by_ward["crime_capita"].quantile(0.75)
-high_crime = crime_by_ward["crime_capita"].quantile(1)
+high_crime = float("inf")
 crime_by_ward["crime_class"] = pd.cut(
     crime_by_ward["crime_capita"],
     bins=[0, low_crime, medium_crime, high_crime],
@@ -36,4 +36,10 @@ attend_id_crime = attend_id_crime[
 ]
 attend_id_crime["Year"] = attend_id_crime["Year"].astype(int)
 
+attend_by_crime = attend_id_crime.groupby(
+    by=["crime_class", "Year"], as_index=False
+).mean("Attendance")
+attend_by_crime = attend_by_crime[["crime_class", "Year", "Attendance"]]
+
 attend_id_crime.to_csv("data_wrangling/cleaned_data/attend_id_crime.csv")
+attend_by_crime.to_csv("data_wrangling/cleaned_data/attend_by_crime.csv")
