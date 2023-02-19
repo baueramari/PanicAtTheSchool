@@ -13,4 +13,4 @@ client = Socrata("data.cityofchicago.org", TOKEN, timeout=1200)
 results = client.get("ijzp-q8t2", limit=8000000)
 
 results_df = pd.DataFrame.from_records(results)
-results_df.to_csv("raw_data/crimes.csv")
+results_df.to_csv("raw_data/crime.csv")
