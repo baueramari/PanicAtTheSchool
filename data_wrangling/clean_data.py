@@ -83,4 +83,35 @@ avg_attend = attend.groupby(by=["School ID", "Year", "Network"], as_index=False)
     "Attendance"
 )
 avg_attend.dropna(subset="Attendance", inplace=True)
+high_schools = avg_attend["School ID"].unique().tolist() #Sarah wants this 
+
 avg_attend.to_csv("data_wrangling/cleaned_data/avg_attend.csv")
+
+
+
+#Sarah's Data Cleaning
+suspension_cols = [
+    "School ID",
+    "School Name",
+    "School Network",
+    "School Year",
+    "Time Period",
+    "% of Misconducts Resulting in a Suspension\n(includes ISS and OSS)", # '--'
+    "# of Unique Students Receiving ISS", #'--'
+    "# of Unique Students Receiving OSS", #'--'
+    "% of Misconducts Resulting in a Police Notification", #'--' 
+]
+suspensions = pd.read_csv("raw_data/suspensions/suspension_data.csv", usecols=suspension_cols)
+
+#avg_attend = pd.read_csv("data_wrangling/cleaned_data/avg_attend.csv")
+#high_schools = avg_attend["School ID"].unique().tolist()
+suspensions = suspensions[suspensions["School ID"].isin(high_schools)]
+suspensions = suspensions[suspensions["Time Period"] == 'EOY']
+suspensions = suspensions[suspensions["% of Misconducts Resulting in a Suspension\n(includes ISS and OSS)"] != '--']
+suspensions = suspensions[suspensions["# of Unique Students Receiving ISS"] != '--']
+suspensions = suspensions[suspensions["# of Unique Students Receiving OSS"] != '--']
+suspensions = suspensions[suspensions["% of Misconducts Resulting in a Police Notification"] != '--']
+
+
+avg_suspension_data = suspensions.groupby(by="School ID", as_index=False).mean()
+avg_suspension_data.to_csv("data_wrangling/cleaned_data/avg_suspension_data.csv")
