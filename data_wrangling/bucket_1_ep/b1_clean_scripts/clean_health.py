@@ -10,7 +10,7 @@ import pandas as pd
 import numpy as np
 from sklearn.preprocessing import StandardScaler
 
-# Check path and name of file- could lead to bug
+# Check final location and name of file- will definitely lead to bugs in case of incorrect pathname
 ha_df = pd.read_csv("health_indicators_atlas_v2.csv", skiprows=range(4))
 ha_df = ha_df.loc[
     :,

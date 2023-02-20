@@ -2,9 +2,9 @@ import pandas as pd
 import numpy as np
 from sklearn.preprocessing import StandardScaler
 
-# from data_wrangling import clean_functions
+#from data_wrangling import clean_functions
 
-# Check final location and name of file- could lead to bug
+# Check final location and name of file- will definitely lead to bugs in case of incorrect pathname
 demo_df = pd.read_csv("cmap_demog_data.csv")
 demo_df = demo_df.loc[
     :,
