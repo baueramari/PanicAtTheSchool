@@ -7,8 +7,6 @@
 # 6. New file has all the health and demographic data ready to be analysed
 
 import pandas as pd
-import numpy as np
-from sklearn.preprocessing import StandardScaler
 
 # Check final location and name of file- will definitely lead to bugs in case of incorrect pathname
 ha_df = pd.read_csv("health_indicators_atlas_v2.csv", skiprows=range(4))
@@ -66,11 +64,5 @@ ha_df = ha_df.rename(
 # comm_belong_16_18 has 1 missing value; will impute average of remaining
 col_impute_val = ha_df["comm_belong_16_18"].mean()
 ha_df["comm_belong_16_18"].fillna(col_impute_val, inplace=True)
+ha_df.to_csv('clean_health_atlas.csv', index = False)
 
-#Now time to normalise all columns needed for analysis and saving in new csv file
-cols_to_normalize = ha_df.columns[5:]
-ha_df_to_normalize = ha_df[cols_to_normalize] 
-scaler = StandardScaler()
-ha_df_normalized = pd.DataFrame(scaler.fit_transform(ha_df_to_normalize), columns = cols_to_normalize)
-ha_df[cols_to_normalize] = ha_df_normalized
-ha_df.to_csv('normalized_health_atlas.csv', index = False)

@@ -1,6 +1,4 @@
 import pandas as pd
-import numpy as np
-from sklearn.preprocessing import StandardScaler
 
 #from data_wrangling import clean_functions
 
@@ -89,15 +87,5 @@ demo_df = demo_df.rename(
         "MED_RENT": "med_rent",
     }
 )
-# print(demo_df.columns[2:])
-# Data has all columns we need, now we normalize columns -- Use a function to achieve this
-cols_to_normalize = demo_df.columns[2:]
-demo_df_to_normalize = demo_df[cols_to_normalize]
-scaler = StandardScaler()
-demo_df_normalized = pd.DataFrame(
-    scaler.fit_transform(demo_df_to_normalize), columns=cols_to_normalize
-)
-demo_df[cols_to_normalize] = demo_df_normalized
-demo_df.to_csv("normalized_demog.csv", index=False)
-
+demo_df.to_csv("clean_demog.csv", index=False)
 # Path will cause bugs if we move things around

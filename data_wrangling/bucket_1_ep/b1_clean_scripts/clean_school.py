@@ -1,11 +1,11 @@
-# The objective of this code is to clean attendance data and add c_area IDs
+# The objective of this code is to clean school data; specifically:
+# 1. attendance data, 
+# 2. school profile data
 
 import pandas as pd
-import numpy as np
-from sklearn.preprocessing import StandardScaler
 
 # Check final location and name of file- will definitely lead to bugs in case of incorrect pathname
-att_df = pd.read_csv("attendance.csv")
+att_df = pd.read_csv("/home/eshanprashar/PanicAtTheSchool/raw_data/attendance.csv")
 att_df = att_df.loc[
     :,
     ["School ID", "School Name", "Network", "Grade", "2018", "2019", "2021", "2022"],
@@ -25,12 +25,18 @@ att_df = att_df.dropna()
 att_df_group_sid = att_df.groupby(["School ID", "School Name", "Network"])[
     ["2018", "2019", "2021", "2022"]
 ].mean()
+att_df_group_sid = att_df_group_sid.reset_index()
+
+#Adding cols for pre-Covid, post-Covid and p.p. diff 
+att_df_group_sid["pre_cov_att"] = att_df_group_sid[["2018","2019"]].mean(axis = 1)
+att_df_group_sid["post_cov_att"] = att_df_group_sid[["2021","2022"]].mean(axis = 1)
+att_df_group_sid["att_diff_pp"] = att_df_group_sid["post_cov_att"] - att_df_group_sid["pre_cov_att"]
 
 att_df_group_sid.to_csv("clean_attendance_ep.csv", index=False)
 
 # Work with school_admin csv to extract relevant cols and merge with attendance data
 # Check final location and name of file- will definitely lead to bugs in case of incorrect pathname
-school_prf_df = pd.read_csv("admin_demog.csv")
+school_prf_df = pd.read_csv("/home/eshanprashar/PanicAtTheSchool/raw_data/admin_demog.csv")
 school_prf_df = school_prf_df.loc[
     :,
     [
