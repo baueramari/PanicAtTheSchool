@@ -3,49 +3,27 @@ import pandas as pd
 import plotly.express as px
 
 attend_by_crime = pd.read_csv("data_wrangling/cleaned_data/attend_by_crime.csv")
-citywide = pd.read_csv("data_wrangling/cleaned_data/citywide_attend.csv")
-citywide["crime_class"] = "Chicago Average"
-attend_by_crime = pd.concat([attend_by_crime, citywide])
-
-medium_crime_wards = attend_by_crime[attend_by_crime["crime_class"] == "Medium"]
-low_crime_wards = attend_by_crime[attend_by_crime["crime_class"] == "Low"]
+order = ["High", "Medium", "Low"]
+attend_by_crime["crime_class"] = pd.Categorical(
+    attend_by_crime["crime_class"], categories=order
+)
+attend_by_crime = attend_by_crime.sort_values(["crime_class", "Year"])
 plot_axes = {
     "xaxis_title": "School Year",
     "yaxis_title": "Attendance (% Students at School)",
+    "legend_title": "Legend",
 }
-
-high = px.line(
-    attend_by_crime[attend_by_crime["crime_class"].isin(["High", "Chicago Average"])],
+crime_attend = px.line(
+    attend_by_crime,
     x="Year",
     y="Attendance",
     color="crime_class",
-    title="School Attendance in High Crime Wards",
+    title="School Attendance by Crime Level",
     markers=True,
+    line_shape="spline",
 )
-high.update_layout(plot_axes)
-high.update_xaxes(tick0=2013, dtick=1)
-high.show()
-
-medium = px.line(
-    attend_by_crime[attend_by_crime["crime_class"].isin(["Medium", "Chicago Average"])],
-    x="Year",
-    y="Attendance",
-    color="crime_class",
-    title="School Attendance in Medium Crime Wards",
-    markers=True,
+crime_attend.update_layout(
+    plot_axes,
 )
-medium.update_layout(plot_axes)
-medium.update_xaxes(tick0=2013, dtick=1)
-medium.show()
-
-low = px.line(
-    attend_by_crime[attend_by_crime["crime_class"].isin(["Low", "Chicago Average"])],
-    x="Year",
-    y="Attendance",
-    color="crime_class",
-    title="School Attendance in Low Crime Wards",
-    markers=True,
-)
-low.update_layout(plot_axes)
-low.update_xaxes(tick0=2013, dtick=1)
-low.show()
+crime_attend.update_xaxes(tick0=2013, dtick=1)
+crime_attend.show()
