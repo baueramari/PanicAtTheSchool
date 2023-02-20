@@ -1,11 +1,20 @@
 # PanicAtTheSchool
 CAPP 30122 Group Project: Sarah, Eshan, and Amari
 
-Our aim is to assess 2 worrying trends observed by Chicago Public Schools in the last decade: a) a decrease in enrolment by 16% and b) decrease in grade-level proficiency by more than 40 p.p. (https://www.illinoispolicy.org/one-third-of-chicago-public-schools-are-half-full/) 
-News agencies covering this issue have attributed these trends to the emergence and solidification of Chicago Teacher’s Union. While we’re unsure as of now whether we can validate that relationship through data scraping or any other means, we want to investigate other variables that might have impacted enrolment and learning trends.  
-Specifically, we want to look at 3 things: 
-  a) emergence of private schools near public schools, 
-  b) the closure of public schools, and 
-  c) crime rates in school districts. 
-We want to see whether students are leaving CPS and moving elsewhere, or whether they are possibly leaving the school system altogether. We are also interested in looking at whether academically poor performing school districts have steadily lower enrolment and higher crime rates. This idea is derived from the school-to-prison pipeline theory.  
-Finally, we intend to look at some steps CPS, and possibly other school organizations across the US have taken to increase student engagement and performance and see the extent to which those steps have worked.
+TLDR: We have moved away from looking into enrolment and learning gains, and now are focusing only at attendance drops. Our goal is to investigate reasons for drops (read below) and visualize our findings on a web app. 
+
+Our aim is to assess the drop in attendance observed by Chicago Public Schools in the last decade, but more specifically, in the time returning from COVID. Based on attendance data from CPS, pre-K and grades 9-12 have shown the most noticeable drop in attendance. For these grades, in 2018 and 2019, for example, the average attendance was 86.15%  and 86.51% respectively. Post Covid, these numbers dropped to 79.72% and 78.79% respectively in 2021 and 2022. 
+News agencies covering this issue have attributed these trends to the emergence and solidification of the Chicago Teachers Union. While we’re not looking into those claims through this project, we want to investigate other variables that might have impacted attendance. Specifically, we want to look at 3 buckets: 
+  a) Neighborhood indicators: These will cover:
+Demographic build up of school neighborhood
+Socioeconomic indicators - employment, income etc. 
+Health indicators 
+Accessibility indicators such as walkability score, access to public transport etc.    
+  b) Investment in school indicators: These will cover:
+Per pupil budget for schools
+Teacher distribution by race/qualification
+Attendance distribution by school type
+  c) Crime and punishment indicators:
+Crime in the school neighborhood 
+Suspensions/expulsions handed out by school authorities 
+Through our analysis, we want to see which of these factors impacts attendance the most. Finally, we will visualize our results on a web-app and write down some potential next steps based on research of news articles/interviews with CPS employees. 
