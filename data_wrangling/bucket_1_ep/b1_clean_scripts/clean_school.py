@@ -10,18 +10,13 @@ att_df = att_df.loc[
     :,
     ["School ID", "School Name", "Network", "Grade", "2018", "2019", "2021", "2022"],
 ]
-# Clean dataset
-# Checking number of observations for every column
-# for column in att_df:
-#    mis_values = att_df[column].isna().sum()
-#    if mis_values > 0:
-#        print(f'Column "{column}" has {mis_values} missing value(s)')
-
-# Too many values to impute; will drop rows with NAs. But first, extract columns that make sense
+#Clean dataset
+#Too many values to impute; will drop rows with NAs. But first, extract columns that make sense
 grades_to_filter = ["Pre-K", "9", "10", "11", "12"]
 att_df = att_df.loc[att_df["Grade"].isin(grades_to_filter)]
 att_df = att_df.dropna()
-# Now group attendance by school ID
+
+#Now group attendance by school ID
 att_df_group_sid = att_df.groupby(["School ID", "School Name", "Network"])[
     ["2018", "2019", "2021", "2022"]
 ].mean()

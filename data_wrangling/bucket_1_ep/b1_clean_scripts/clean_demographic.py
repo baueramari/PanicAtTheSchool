@@ -31,13 +31,7 @@ demo_df = demo_df.loc[
         "highly_walkable_emp_pct",
     ],
 ]
-# Checking number of observations for every column
-# for column in demo_df:
-#    mis_values = demo_df[column].isna().sum()
-#    if mis_values > 0:
-#        print(f'Column "{column}" has {mis_values} missing value(s)')
-
-# Add new measures to data: dividing by HH/population or calculate differences over time
+#Add new measures to data: dividing by HH/population or calculate differences over time
 demo_df["perc_chg_pop"] = (
     (demo_df["2020_POP"] - demo_df["2000_POP"]) / demo_df["2000_POP"]
 ) * 100

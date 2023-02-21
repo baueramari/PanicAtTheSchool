@@ -3,8 +3,8 @@
 # 2. Clean extracted columns: look for inconsistencies --Done
 # 3. Normalize columns- mean of zero and standard deviation of 1 --Done
 # 4. Same process for demographic_data - Done
-# 5. Merge the two files on ID Community areas
-# 6. New file has all the health and demographic data ready to be analysed
+# 5. Merge the two files on ID Community areas - Done
+# 6. New file has all the health and demographic data ready to be analysed - Done
 
 import pandas as pd
 
@@ -54,15 +54,7 @@ ha_df = ha_df.rename(
         "VRDIDR_2015-2019": "drug_induced_dt_rate",
     }
 )
-# print(ha_df.columns) #Columns are uploaded correctly
-# Checking number of observations for every column
-# for column in ha_df:
-#    mis_values = ha_df[column].isna().sum()
-#    if mis_values > 0:
-#        print(f'Column "{column}" has {mis_values} missing value(s)')
-
-# comm_belong_16_18 has 1 missing value; will impute average of remaining
+#comm_belong_16_18 has 1 missing value; will impute average of remaining
 col_impute_val = ha_df["comm_belong_16_18"].mean()
 ha_df["comm_belong_16_18"].fillna(col_impute_val, inplace=True)
 ha_df.to_csv('clean_health_atlas.csv', index = False)
-
