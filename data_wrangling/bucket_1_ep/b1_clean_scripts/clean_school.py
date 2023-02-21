@@ -1,6 +1,8 @@
 # The objective of this code is to clean school data; specifically:
 # 1. attendance data, 
 # 2. school profile data
+# 3. school finance data
+# 4. backlog: teacher_data that might need Jaro_Winkler
 
 import pandas as pd
 
@@ -25,9 +27,10 @@ att_df_group_sid = att_df_group_sid.reset_index()
 #Adding cols for pre-Covid, post-Covid and p.p. diff 
 att_df_group_sid["pre_cov_att"] = att_df_group_sid[["2018","2019"]].mean(axis = 1)
 att_df_group_sid["post_cov_att"] = att_df_group_sid[["2021","2022"]].mean(axis = 1)
-att_df_group_sid["att_diff_pp"] = att_df_group_sid["post_cov_att"] - att_df_group_sid["pre_cov_att"]
+att_df_group_sid["att_diff_pp"] = att_df_group_sid["pre_cov_att"] - att_df_group_sid["post_cov_att"]
 
-att_df_group_sid.to_csv("clean_attendance_ep.csv", index=False)
+cols_to_select = ["School ID", "School Name","pre_cov_att","post_cov_att","att_diff_pp"]
+att_df_group_sid[cols_to_select].to_csv("clean_attendance_ep.csv", index=False)
 
 # Work with school_admin csv to extract relevant cols and merge with attendance data
 # Check final location and name of file- will definitely lead to bugs in case of incorrect pathname
@@ -42,14 +45,11 @@ school_prf_df = school_prf_df.loc[
         "Student_Count_Low_Income",
         "Student_Count_Black",
         "Student_Count_Hispanic",
-        "Student_Count_White",
         "Transportation_Bus",
     ],
 ]
 #Add new measures to data and drop schools that don't have total student count
-school_prf_df["perc_black_stu"] = school_prf_df["Student_Count_Black"]/school_prf_df["Student_Count_Total"]
-school_prf_df["perc_hisp_stu"] = school_prf_df["Student_Count_Hispanic"]/school_prf_df["Student_Count_Total"]
-school_prf_df["perc_white_stu"] = school_prf_df["Student_Count_White"]/school_prf_df["Student_Count_Total"]
+school_prf_df["perc_black_his_stu"] = (school_prf_df["Student_Count_Black"] + school_prf_df["Student_Count_Hispanic"])/school_prf_df["Student_Count_Total"]
 school_prf_df["perc_low_income"] = school_prf_df["Student_Count_Low_Income"]/school_prf_df["Student_Count_Total"]
 school_prf_df["bus_count"] = school_prf_df['Transportation_Bus'].apply(lambda x: len(str(x).split(',')) if pd.notna(x) else 0)
 
@@ -66,9 +66,7 @@ school_prf_df = school_prf_df.loc[
         "Finance_ID",
         "Student_Count_Total",
         "perc_low_income",
-        "perc_black_stu",
-        "perc_hisp_stu",
-        "perc_white_stu",
+        "perc_black_his_stu",
         "bus_count",
     ],
 ]
