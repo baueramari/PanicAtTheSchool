@@ -95,10 +95,10 @@ suspension_cols = [
     "School Network",
     "School Year",
     "Time Period",
-    "% of Misconducts Resulting in a Suspension\n(includes ISS and OSS)",  # '--'
-    "# of Unique Students Receiving ISS",  #'--'
-    "# of Unique Students Receiving OSS",  #'--'
-    "% of Misconducts Resulting in a Police Notification",  #'--'
+    "% of Misconducts Resulting in a Suspension\n(includes ISS and OSS)",
+    "# of Unique Students Receiving ISS",  
+    "# of Unique Students Receiving OSS",  
+    "% of Misconducts Resulting in a Police Notification",  
 ]
 suspensions = pd.read_csv(
     "raw_data/suspensions/suspension_data.csv", usecols=suspension_cols
@@ -107,17 +107,24 @@ suspensions = pd.read_csv(
 # avg_attend = pd.read_csv("data_wrangling/cleaned_data/avg_attend.csv")
 # high_schools = avg_attend["School ID"].unique().tolist()
 suspensions = suspensions[suspensions["School ID"].isin(high_schools)]
+suspensions["School ID"] = suspensions["School ID"].astype(int)
+
 suspensions = suspensions[suspensions["Time Period"] == "EOY"]
 suspensions = suspensions[
     suspensions["% of Misconducts Resulting in a Suspension\n(includes ISS and OSS)"]
     != "--"
 ]
+suspensions["% of Misconducts Resulting in a Suspension\n(includes ISS and OSS)"] = suspensions["% of Misconducts Resulting in a Suspension\n(includes ISS and OSS)"].astype(float)
+
 suspensions = suspensions[suspensions["# of Unique Students Receiving ISS"] != "--"]
+suspensions["# of Unique Students Receiving ISS"] = suspensions["# of Unique Students Receiving ISS"].astype(float)
+
 suspensions = suspensions[suspensions["# of Unique Students Receiving OSS"] != "--"]
+suspensions["# of Unique Students Receiving OSS"] = suspensions["# of Unique Students Receiving OSS"].astype(float)
+
 suspensions = suspensions[
     suspensions["% of Misconducts Resulting in a Police Notification"] != "--"
 ]
+suspensions["% of Misconducts Resulting in a Police Notification"] = suspensions["% of Misconducts Resulting in a Police Notification"].astype(float)
 
-
-avg_suspension_data = suspensions.groupby(by="School ID", as_index=False).mean()
-avg_suspension_data.to_csv("data_wrangling/cleaned_data/avg_suspension_data.csv")
+suspensions.to_csv("data_wrangling/cleaned_data/suspension_data.csv")
