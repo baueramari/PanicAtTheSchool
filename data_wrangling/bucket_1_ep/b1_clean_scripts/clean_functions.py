@@ -24,11 +24,4 @@ def missing_val_per_col(DataFrame):
     merged_df = df_file_1(df_file_2, left_on = col_left_on, right_on = col_right_on)
     return merged_df
 
-#Now time to normalise all columns needed for analysis and saving in new csv file
-#cols_to_normalize = ha_df.columns[5:]
-#ha_df_to_normalize = ha_df[cols_to_normalize] 
-#scaler = StandardScaler()
-#ha_df_normalized = pd.DataFrame(scaler.fit_transform(ha_df_to_normalize), columns = cols_to_normalize)
-#ha_df[cols_to_normalize] = ha_df_normalized
-
     
