@@ -96,9 +96,9 @@ suspension_cols = [
     "School Year",
     "Time Period",
     "% of Misconducts Resulting in a Suspension\n(includes ISS and OSS)",
-    "# of Unique Students Receiving ISS",  
-    "# of Unique Students Receiving OSS",  
-    "% of Misconducts Resulting in a Police Notification",  
+    "# of Unique Students Receiving ISS",
+    "# of Unique Students Receiving OSS",
+    "% of Misconducts Resulting in a Police Notification",
 ]
 suspensions = pd.read_csv(
     "raw_data/suspensions/suspension_data.csv", usecols=suspension_cols
@@ -114,17 +114,29 @@ suspensions = suspensions[
     suspensions["% of Misconducts Resulting in a Suspension\n(includes ISS and OSS)"]
     != "--"
 ]
-suspensions["% of Misconducts Resulting in a Suspension\n(includes ISS and OSS)"] = suspensions["% of Misconducts Resulting in a Suspension\n(includes ISS and OSS)"].astype(float)
+suspensions[
+    "% of Misconducts Resulting in a Suspension\n(includes ISS and OSS)"
+] = suspensions[
+    "% of Misconducts Resulting in a Suspension\n(includes ISS and OSS)"
+].astype(
+    float
+)
 
 suspensions = suspensions[suspensions["# of Unique Students Receiving ISS"] != "--"]
-suspensions["# of Unique Students Receiving ISS"] = suspensions["# of Unique Students Receiving ISS"].astype(float)
+suspensions["# of Unique Students Receiving ISS"] = suspensions[
+    "# of Unique Students Receiving ISS"
+].astype(float)
 
 suspensions = suspensions[suspensions["# of Unique Students Receiving OSS"] != "--"]
-suspensions["# of Unique Students Receiving OSS"] = suspensions["# of Unique Students Receiving OSS"].astype(float)
+suspensions["# of Unique Students Receiving OSS"] = suspensions[
+    "# of Unique Students Receiving OSS"
+].astype(float)
 
 suspensions = suspensions[
     suspensions["% of Misconducts Resulting in a Police Notification"] != "--"
 ]
-suspensions["% of Misconducts Resulting in a Police Notification"] = suspensions["% of Misconducts Resulting in a Police Notification"].astype(float)
+suspensions["% of Misconducts Resulting in a Police Notification"] = suspensions[
+    "% of Misconducts Resulting in a Police Notification"
+].astype(float)
 
 suspensions.to_csv("data_wrangling/cleaned_data/suspension_data.csv")
