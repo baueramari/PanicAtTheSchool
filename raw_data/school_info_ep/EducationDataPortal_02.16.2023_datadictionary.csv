@@ -1,0 +1,21 @@
+year,variable,label,description,source
+2020,ncessch,National Center for Education Statistics (NCES) identification number,None,Common Core of Data
+2020,school_name,School name,None,Common Core of Data
+2020,state_location,State of location,None,Common Core of Data
+2020,lea_name,Local education agency name,Name of the local education agency (school district),Common Core of Data
+2020,school_level,School level,None,Common Core of Data
+2020,school_type,School type,None,Common Core of Data
+2020,charter,Charter school,None,Common Core of Data
+2017,teachers_fte_crdc,Number of full-time equivalent teachers (Civil Rights Data Collection),None,The Civil Rights Data Collection
+2017,teachers_certified_fte,Number of full-time equivalent certified teachers,None,The Civil Rights Data Collection
+2017,teachers_uncertified_fte,Number of full-time equivalent uncertified teachers,None,The Civil Rights Data Collection
+2017,support_fte,Number of support staff,None,The Civil Rights Data Collection
+2017,counselors_fte,Number of full-time equivalent school counselors,Number of FTE school counselors. Recorded values are left as is and consequently may be subject to reporting errors.,The Civil Rights Data Collection
+2017,social_workers_fte,Number of full-time equivalent social workers,Recorded values are left as is and consequently may be subject to reporting errors.,The Civil Rights Data Collection
+2017,psychologists_fte,Number of full-time equivalent psychologists,Recorded values are left as is and consequently may be subject to reporting errors.,The Civil Rights Data Collection
+2017,law_enforcement_fte,Number of full-time equivalen sworn law enforcement officers,Recorded values are left as is and consequently may be subject to reporting errors.,The Civil Rights Data Collection
+2017,security_guard_fte,Number of full-time equivalent security guards,Recorded values are left as is and consequently may be subject to reporting errors.,The Civil Rights Data Collection
+2017,salaries_teachers,Personnel salaries at school level— teachers only—amount,None,The Civil Rights Data Collection
+2017,salaries_instructional_aides,Salary expenditure for instructional aides funded with state and local funds,None,The Civil Rights Data Collection
+2017,salaries_support,Salary expenditure for support staff funded with state and local funds,None,The Civil Rights Data Collection
+2017,salaries_administration,Salary expenditure for administration staff funded with state and local funds,None,The Civil Rights Data Collection
