@@ -104,8 +104,8 @@ suspensions = pd.read_csv(
     "raw_data/suspensions/suspension_data.csv", usecols=suspension_cols
 )
 
-# avg_attend = pd.read_csv("data_wrangling/cleaned_data/avg_attend.csv")
-# high_schools = avg_attend["School ID"].unique().tolist()
+avg_attend = pd.read_csv("data_wrangling/cleaned_data/avg_attend.csv")
+high_schools = avg_attend["School ID"].unique().tolist()
 suspensions = suspensions[suspensions["School ID"].isin(high_schools)]
 suspensions["School ID"] = suspensions["School ID"].astype(int)
 

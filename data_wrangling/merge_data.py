@@ -67,4 +67,4 @@ suspension_crime_merge.dropna(how="all", inplace=True)
 avg_suspension_crime = suspension_crime_merge.groupby(by="crime_class", as_index=False).mean(numeric_only=True)
 avg_suspension_crime.drop('School ID', axis=1, inplace=True)
 
-suspension_crime_merge.to_csv("data_wrangling/cleaned_data/suspension_crime.csv")
+avg_suspension_crime.to_csv("data_wrangling/cleaned_data/suspension_crime.csv")
