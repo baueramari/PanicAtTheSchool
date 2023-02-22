@@ -15,8 +15,43 @@ merged_df = pd.read_csv(
 )
 
 # For, analysis: we will first explore correlations
-print(merged_df.columns)
-cols_for_corr = ["perc_low_income", "att_diff_pp"]
+num_schools = 5
+merged_df = merged_df[merged_df["count_schools"] >= num_schools]
+
+cols_for_corr = [
+    "att_diff_pp",
+    "perc_low_income",
+    "perc_black_his_stu",
+    "bus_count",
+    "dolla_per_student",
+    "med_age",
+    "covid_idx",
+    "perc_chg_pop",
+    "perc_black_hispanic",
+    "perc_pop_lforce",
+    "perc_emp",
+    "med_inc",
+    "inc_p_cap",
+    "med_rent",
+    "perc_hh_comp",
+    "perc_hh_internet",
+    "highly_walkable_pop_pct",
+    "highly_walkable_emp_pct",
+    "low_bw_rate",
+    "uninsured_rate",
+    "adq_child_care",
+    "perc_vacant_units",
+    "perc_sing_par_hh",
+    "comm_belong_16_18",
+    "comm_belong_20_21",
+    "perc_hh_stamps",
+    "perc_not_getting_stamps",
+    "rent_burdened_hh",
+    "homicide_rate",
+    "drug_induced_dt_rate",
+]
 corr_matrix = merged_df[cols_for_corr].corr()
-sns.heatmap(corr_matrix, cmap="coolwarm", annot=True)
+sns.set(rc = {'figure.figsize': (12,9)})
+sns.heatmap(corr_matrix, cmap="coolwarm", annot=True, annot_kws = {"size": 6})
 plt.savefig("correlation_heatmap.png")
+corr_matrix.to_csv("correlation_table.csv")
