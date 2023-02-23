@@ -50,6 +50,7 @@ attend_by_crime.to_csv("data_wrangling/cleaned_data/attend_by_crime.csv")
 crime_cols = [
     "School_ID",
     "crime_class",  
+    "Attendance",
 ]
 ID_crimeclass = pd.read_csv("data_wrangling/cleaned_data/attend_id_crime.csv", usecols=crime_cols)
 suspensions = pd.read_csv("data_wrangling/cleaned_data/suspension_data.csv")
@@ -57,14 +58,28 @@ suspensions = pd.read_csv("data_wrangling/cleaned_data/suspension_data.csv")
 high_schools = suspensions["School ID"].unique().tolist()
 ID_crimeclass = ID_crimeclass[ID_crimeclass["School_ID"].isin(high_schools)]
 
+#merge csv to compare suspensions and crime_class
 suspension_crime_merge = pd.merge(suspensions, ID_crimeclass,
      left_on = "School ID", right_on = "School_ID"
 )
 suspension_crime_merge.drop('School_ID', axis=1, inplace=True)
+suspension_crime_merge.drop('Attendance', axis=1, inplace=True)
 suspension_crime_merge.drop_duplicates(inplace=True)
 suspension_crime_merge.dropna(how="all", inplace=True)
 
 avg_suspension_crime = suspension_crime_merge.groupby(by="crime_class", as_index=False).mean(numeric_only=True)
 avg_suspension_crime.drop('School ID', axis=1, inplace=True)
+avg_suspension_crime.to_csv("data_wrangling/cleaned_data/avg_suspension_crime.csv")
 
-avg_suspension_crime.to_csv("data_wrangling/cleaned_data/suspension_crime.csv")
+#merge csv to compare suspensions and attendance
+suspension_attend_merge = pd.merge(suspensions, ID_crimeclass,
+     left_on = "School ID", right_on = "School_ID"
+)
+suspension_attend_merge.drop('School_ID', axis=1, inplace=True)
+suspension_attend_merge.drop('crime_class', axis=1, inplace=True)
+suspension_attend_merge.drop_duplicates(inplace=True)
+suspension_attend_merge.dropna(how="all", inplace=True)
+
+avg_suspension_attend = suspension_attend_merge.groupby(by="School ID", as_index=False).mean(numeric_only=True)
+
+avg_suspension_attend.to_csv("data_wrangling/cleaned_data/suspension_attendance.csv")
