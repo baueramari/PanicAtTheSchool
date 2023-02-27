@@ -1,7 +1,6 @@
 # In this file, I will rearrange merged file columns, and run:
 # 1. Make scatterplots, look at correlation coefficients -- Done
 # 2. Run regression on reduced column space -- Done
-# 3. Backlog: Try to run PCA to, reduce matrix size and then run regression
 # This file should tell me what variables should be plotted while analysing attendance
 
 import pandas as pd
@@ -71,8 +70,6 @@ for pair in unique_pairs:
             variables_to_include.remove(var2)
         else:
             variables_to_include.remove(var1)
-
-
 
 #print(variables_to_include)
 #X = merged_df[variables_to_include]
