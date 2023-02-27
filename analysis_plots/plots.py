@@ -1,6 +1,7 @@
 # CODE TO GENERATE PLOTS
 import pandas as pd
 import plotly.express as px
+import plotly.graph_objects as go
 
 
 def plot_crime():
@@ -31,48 +32,99 @@ def plot_crime():
     return crime_attend
 
 
-#Sarah's plots for suspension data
+# Sarah's plots for suspension data
 def scatter_OSS_attendance():
     avg_SS_attend = pd.read_csv("data_wrangling/cleaned_data/suspension_attendance.csv")
-    OSS_attend_scatter = px.scatter(avg_SS_attend, x = '% of Unique Students Receiving OSS', y= "Attendance")
-    
-    #scatter.show()
+    OSS_attend_scatter = px.scatter(
+        avg_SS_attend,
+        x="% of Unique Students Receiving OSS",
+        y="Attendance",
+        labels={
+            "Attendance": "Average Attendance Rate",
+        },
+        title="School's Average Attendance Rate by Percent of Unique Students Receiving Out of School Suspension",
+    )
+
+    # scatter.show()
     return OSS_attend_scatter
+
 
 def scatter_ISS_attendance():
     avg_SS_attend = pd.read_csv("data_wrangling/cleaned_data/suspension_attendance.csv")
-    ISS_attend_scatter = px.scatter(avg_SS_attend, x = '% of Unique Students Receiving ISS', y= "Attendance")
-    
+    ISS_attend_scatter = px.scatter(
+        avg_SS_attend,
+        x="% of Unique Students Receiving ISS",
+        y="Attendance",
+        labels={
+            "Attendance": "Average Attendance Rate",
+        },
+        title="School's Average Attendance Rate by Percent of Unique Students Receiving In School Suspension",
+    )
+
     return ISS_attend_scatter
+
 
 def scatter_SSrate_attendance():
     avg_SS_attend = pd.read_csv("data_wrangling/cleaned_data/suspension_attendance.csv")
-    SSrate_attend_scatter = px.scatter(avg_SS_attend, x = '% of Misconducts Resulting in a Suspension\n(includes ISS and OSS)', y= "Attendance")
-    
+    SSrate_attend_scatter = px.scatter(
+        avg_SS_attend,
+        x="% of Misconducts Resulting in a Suspension\n(includes ISS and OSS)",
+        y="Attendance",
+        labels={
+            "Attendance": "Average Attendance Rate",
+        },
+        title="School's Average Attendance Rate by Percent of Misconducts Resulting in a Suspension",
+    )
+
     return SSrate_attend_scatter
 
 
-#will want to imagine this in a deifferent way, but it's a start
+# Still need to fix this 
 def bar_SSrate_OSS_ISS():
     avg_SS_crime = pd.read_csv("data_wrangling/cleaned_data/suspension_crime.csv")
-    fig = px.bar(avg_SS_crime, x="crime_class", y='% of Misconducts Resulting in a Suspension\n(includes ISS and OSS)', color = '% of Unique Students Receiving ISS')
+    fig = go.Figure(go.Bar(x="crime_class", y="% of Unique Students Receiving OSS"))
+    fig.add_trace(go.Bar(x="crime_class", y="% of Unique Students Receiving ISS"))
+    fig.update_layout(barmode='stack')
+
+    # px.bar(
+    #     avg_SS_crime,
+    #     x="crime_class",
+    #     y="% of Misconducts Resulting in a Suspension\n(includes ISS and OSS)",
+    #     color="% of Unique Students Receiving ISS",
+    # )
     fig.show()
 
 
-#will want to modify the y-axis range so it doesn't look as dramatic
-def line_police_crime():
+#     import plotly.graph_objects as go
+
+# x=['b', 'a', 'c', 'd']
+# fig = go.Figure(go.Bar(x=x, y=[2,5,1,9], name='Montreal'))
+# fig.add_trace(go.Bar(x=x, y=[1, 4, 9, 16], name='Ottawa'))
+# fig.add_trace(go.Bar(x=x, y=[6, 8, 4.5, 8], name='Toronto'))
+
+# fig.update_layout(barmode='stack')
+# fig.update_xaxes(categoryorder='category ascending')
+# fig.show()
+
+
+def bar_police_crime():
     avg_SS_crime = pd.read_csv("data_wrangling/cleaned_data/suspension_crime.csv")
 
-    order = ["Low", "Medium", "High"]
-    avg_SS_crime = avg_SS_crime.sort_values("crime_class")
+    order = ["High", "Medium", "Low"]
     avg_SS_crime["crime_class"] = pd.Categorical(
         avg_SS_crime["crime_class"], categories=order
     )
+    avg_SS_crime = avg_SS_crime.sort_values("crime_class")
 
-    line_police_crime = px.line(
+    bar_police_crime = px.bar(
         avg_SS_crime,
         x="crime_class",
         y="% of Misconducts Resulting in a Police Notification",
+        labels={
+            "crime_class": "Crime Class",
+        },
+        title="School's Percent of Misconducts Resulting in a Police Notification by Crime Class",
     )
+    bar_police_crime.update_layout(yaxis_range=[0, 10])
 
-    line_police_crime.show()
+    return bar_police_crime
