@@ -51,6 +51,7 @@ school_prf_df = school_prf_df.loc[
         "School_ID",
         "Community Areas",
         "Finance_ID",
+        "Network",
         "Student_Count_Total",
         "Student_Count_Low_Income",
         "Student_Count_Black",
