@@ -8,7 +8,7 @@ import plotly.express as px
 from analysis_plots.plots import plot_crime, scatter_OSS_attendance
 
 app = dash.Dash()
-# VERY INITIAL STAGE USER INTERFACE
+# VERY INITIAL STAGE
 
 app.layout = html.Div(
     id="parent",
@@ -23,20 +23,12 @@ app.layout = html.Div(
             options=[
                 {"label": "Project Introduction", "value": "Project Introduction"},
                 {"label": "Misconduct", "value": "Misconduct"},
-                {"label": "Demographic", "value": "Demographic"},
-                {"label": "Health", "value": "Health"},
+                {"label": "Demographic", "value": "Demographic"},  # at home factors
+                {"label": "Health", "value": "Health"},  # at school factors
             ],
-            value="Project Introduction",
+            value="project_intro",
         ),
-        # html.Div(id="Text Area")
-        dcc.Textarea(
-            id="Text Area", value=project_intro()
-        ),  # SEE NEWEST TAB AND HOW THAT MAY FACILITATE MAKING IT VISIBLE.
-        # add nice pictures or something here to go under the initial readme.
-        # dcc.Graph(id="plot", figure=plot_crime()),
-        # dcc.Textarea(id="Text Area", value="INSERT CRIME PLOT ANALYSIS"),
-        # dcc.Graph(id="line_plot", figure=scatter_OSS_attendance()),
-        # dcc.Textarea(id="Text Area", value="INSERT SUSPENSION PLOT ANALYSIS"),
+        html.Div(dcc.Textarea(id="Text Area", value="project_intro")),
     ],
 )
 
@@ -62,6 +54,7 @@ b) Investment in school indicators: These will cover: Per pupil budget for schoo
     return text
 
 
+"""
 @app.callback(
     Output(component_id="plot", component_property="figure"),
     [Input(component_id="dropdown", component_property="value")],
@@ -82,7 +75,7 @@ def display_plots(dropdown):
     # dcc.Graph(id="line_plot", figure=scatter_OSS_attendance())
     # dcc.Textarea(id="Text Area", value="INSERT SUSPENSION PLOT ANALYSIS")
     return figures
-
+"""
 
 if __name__ == "__main__":
-    app.run_server(port=6031)
+    app.run_server(port=6035)
