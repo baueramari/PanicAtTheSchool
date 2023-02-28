@@ -1,9 +1,7 @@
 import pandas as pd
 
-#from data_wrangling import clean_functions
-
-# Check final location and name of file- will definitely lead to bugs in case of incorrect pathname
-demo_df = pd.read_csv("/home/eshanprashar/PanicAtTheSchool/raw_data/demographic_data_ep/cmap_demog_data.csv")
+#Check final location and name of file- will definitely lead to bugs in case of incorrect pathname
+demo_df = pd.read_csv("raw_data/demographic_data_ep/cmap_demog_data.csv")
 demo_df = demo_df.loc[
     :,
     [
@@ -72,5 +70,5 @@ demo_df = demo_df.rename(
         "MED_RENT": "med_rent",
     }
 )
-demo_df.to_csv("clean_demog.csv", index=False)
+demo_df.to_csv("data_wrangling/cleaned_data/clean_demog.csv", index=False)
 # Path will cause bugs if we move things around

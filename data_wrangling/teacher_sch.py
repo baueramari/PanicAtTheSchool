@@ -2,10 +2,10 @@ import pandas as pd
 import recordlinkage
 from pyjarowinkler import distance
 
-df_school = pd.read_csv("/home/eshanprashar/PanicAtTheSchool/raw_data/admin_demog.csv")
+df_school = pd.read_csv("raw_data/admin_demog.csv")
 df_school = df_school[["School_ID", "Long_Name", "Student_Count_Total"]]
 df_teacher = pd.read_csv(
-    "/home/eshanprashar/PanicAtTheSchool/raw_data/school_info_ep/EducationDataPortal_02.16.2023_Schools.csv"
+    "raw_data/school_info_ep/EducationDataPortal_02.16.2023_Schools.csv"
 )
 df_teacher = df_teacher[df_teacher["lea_name"].str.contains("Chicago")]
 df_teacher = df_teacher[
@@ -55,4 +55,4 @@ df_school_ids = pd.DataFrame.from_dict(
 threshold_score = 0.89
 df_school_ids = df_school_ids[df_school_ids["match_score"] > threshold_score]
 df_school_ids = df_school_ids.dropna()
-df_school_ids.to_csv("/home/eshanprashar/PanicAtTheSchool/data_wrangling/bucket_1_ep/b_1_clean_data/clean_teacher.csv", index=True)
+df_school_ids.to_csv("data_wrangling/cleaned_data/clean_teacher.csv", index=True)

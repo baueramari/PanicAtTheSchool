@@ -2,19 +2,19 @@
 import pandas as pd
 
 sch_geo = pd.read_csv(
-    "/home/eshanprashar/PanicAtTheSchool/raw_data/geo_map_ep/school_locs_polygon_shape.csv"
+    "raw_data/geo_map_ep/school_locs_polygon_shape.csv"
 )
 sch_profile = pd.read_csv(
-    "/home/eshanprashar/PanicAtTheSchool/data_wrangling/bucket_1_2/b_1_2_clean_data/clean_school_admin_ep.csv"
+    "data_wrangling/cleaned_data/clean_school_admin.csv"
 )
 sch_att = pd.read_csv(
-    "/home/eshanprashar/PanicAtTheSchool/data_wrangling/bucket_1_2/b_1_2_clean_data/clean_attendance_ep.csv"
+    "data_wrangling/cleaned_data/clean_attendance.csv"
 )
 sch_finance = pd.read_csv(
-    "/home/eshanprashar/PanicAtTheSchool/data_wrangling/bucket_1_2/b_1_2_clean_data/clean_school_budget.csv"
+    "data_wrangling/cleaned_data/clean_school_budget.csv"
 )
 sch_teachers = pd.read_csv(
-    "/home/eshanprashar/PanicAtTheSchool/data_wrangling/bucket_1_2/b_1_2_clean_data//clean_teacher.csv"
+    "data_wrangling/cleaned_data/clean_teacher.csv"
 )
 
 school_merged = sch_geo.merge(sch_profile, left_on="School_ID", right_on="sch_id")
@@ -44,7 +44,7 @@ cols_to_drop = [
 ]
 school_merged = school_merged.drop(cols_to_drop, axis=1)
 school_merged.to_csv(
-    "/home/eshanprashar/PanicAtTheSchool/data_wrangling/bucket_1_2/b1_2_analysis/b2_school_merged.csv"
+    "data_wrangling/merged_data/school_all_data_merged.csv"
 )
 
 # Saving CSV for Analysis 1,2
@@ -70,3 +70,4 @@ att_matrix_plot.to_csv(
     "/home/eshanprashar/PanicAtTheSchool/data_wrangling/bucket_1_2/b1_2_analysis/final_clean_data/pre_vs_post_att.csv",
     index=False,
 )
+## Maybe just add columns in the merged file; separate file is not needed

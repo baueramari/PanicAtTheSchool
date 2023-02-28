@@ -14,7 +14,7 @@ att_df = att_df.loc[
 ]
 # Clean dataset
 # Too many values to impute; will drop rows with NAs. But first, extract columns that make sense
-grades_to_filter = ["Pre-K", "9", "10", "11", "12"]
+grades_to_filter = ["9", "10", "11", "12"]
 att_df = att_df.loc[att_df["Grade"].isin(grades_to_filter)]
 att_df = att_df.dropna()
 
@@ -51,7 +51,6 @@ school_prf_df = school_prf_df.loc[
         "School_ID",
         "Community Areas",
         "Finance_ID",
-        "Network",
         "Student_Count_Total",
         "Student_Count_Low_Income",
         "Student_Count_Black",
@@ -70,7 +69,7 @@ school_prf_df["bus_count"] = school_prf_df["Transportation_Bus"].apply(
     lambda x: len(str(x).split(",")) if pd.notna(x) else 0
 )
 
-# filtering schools that don't have minimum threshold of children
+#filtering schools that don't have minimum threshold of children
 min_stu_count = 50
 school_prf_df = school_prf_df[school_prf_df["Student_Count_Total"] > min_stu_count]
 
@@ -84,7 +83,6 @@ school_prf_df = school_prf_df.loc[
         "Student_Count_Total",
         "perc_low_income",
         "perc_black_his_stu",
-        "bus_count",
     ],
 ]
 school_prf_df = school_prf_df.rename(
