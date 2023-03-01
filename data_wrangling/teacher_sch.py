@@ -1,13 +1,12 @@
 from pathlib import Path
 import pandas as pd
-import recordlinkage
 from pyjarowinkler import distance
 
 cwd = Path.cwd()
 parent_dir = cwd.parent
 
 df_school = pd.read_csv(parent_dir/"raw_data/school_info/admin_demog.csv")
-df_school = df_school[["School_ID", "Long_Name", "Student_Count_Total"]]
+df_school = df_school[["School_ID", "Short_Name", "Long_Name", "Student_Count_Total"]]
 df_teacher = pd.read_csv(parent_dir/"raw_data/school_info/EducationDataPortal_02.16.2023_Schools.csv")
 df_teacher = df_teacher[df_teacher["lea_name"].str.contains("Chicago")]
 df_teacher = df_teacher[
@@ -23,17 +22,17 @@ df_teacher = df_teacher[
 ]
 
 school_ids = {}
-
 for index, row in df_teacher.iterrows():
     max_score = 0
     match_id = None
 
-    for id, name, student in zip(
-        df_school["School_ID"], df_school["Long_Name"], df_school["Student_Count_Total"] #student testing pending
+    for id, s_name, l_name, student in zip(
+        df_school["School_ID"], df_school["Short_Name"], df_school["Long_Name"], df_school["Student_Count_Total"]
     ):
-        score = distance.get_jaro_distance(row["school_name"], name, winkler=True)
-        if score > max_score:
-            max_score = score
+        score_1 = distance.get_jaro_distance(row["school_name"], s_name, winkler=True)
+        score_2 = distance.get_jaro_distance(row["school_name"], l_name, winkler=True)
+        if score_1 > max_score and score_2 > max_score:
+            max_score = (score_1 + score_2)/2 
             match_id = id
     school_ids[row["school_name"]] = (
         match_id,
@@ -54,7 +53,11 @@ df_school_ids = pd.DataFrame.from_dict(
         "teacher_salary",
     ],
 )
-threshold_score = 0.89
+threshold_score = 0.85
 df_school_ids = df_school_ids[df_school_ids["match_score"] > threshold_score]
 df_school_ids = df_school_ids.dropna()
+#To tackle duplicates, group by school ID and use max(match_probability)
+idx = df_school_ids.groupby("School_ID")["match_score"].idxmax()
+df_school_ids = df_school_ids.loc[idx]
 df_school_ids.to_csv(parent_dir/"data_wrangling/cleaned_data/clean_teacher.csv", index=True)
+#Come back to this - some cleaning can be done here

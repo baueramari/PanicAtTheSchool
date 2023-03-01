@@ -42,6 +42,9 @@ admin_cols = [
     "Student_Count_Low_Income",
     "Student_Count_Black",
     "Student_Count_Hispanic",
+    "School_Latitude",
+    "School_Longitude",
+    "Location"
 ]
 admin_filename = parent_dir/"raw_data/school_info/admin_demog.csv"
 admin = pd.read_csv(admin_filename, usecols=admin_cols)
@@ -67,7 +70,7 @@ school_prf_df = admin.loc[
         "Finance_ID",
         "Student_Count_Total",
         "perc_low_income",
-        "perc_black_his_stu",
+        "perc_black_his_stu"
     ],
 ]
 school_prf_df = school_prf_df.rename(
@@ -76,6 +79,10 @@ school_prf_df = school_prf_df.rename(
         "Community Areas": "ca_id",
         "Finance_ID": "fin_id",
         "Student_Count_Total": "tot_student",
+        "School_Latitude" : "lat",
+        "School_Longitude" : "long",
+        "Location": "loc"
+
     }
 )
 school_prf_df.to_csv(parent_dir/"data_wrangling/cleaned_data/clean_school_admin.csv", index=False)
@@ -86,15 +93,14 @@ schoolid_ward_map = admin[
 ]  # If planning to look at other variables from file, add them in here
 schoolid_ward_map.to_csv(parent_dir/"data_wrangling/cleaned_data/schoolid_ward_map.csv")
 
-# Load in attendance data; split it into subsets for team
+#Load in attendance data; split it into subsets for team
 attend_filename = parent_dir/"raw_data/school_info/attendance.csv"
 attend = pd.read_csv(attend_filename, usecols=lambda x: x not in ["Group"])
 year_range = list(range(2012, 2023))
 year_range = list(map(str, year_range))
 year_range.remove("2020")  # no attendance data for 2020 - covid.
 
-
-# For Amari's citywide crime analysis: pending
+#For Amari's citywide crime analysis: pending
 citywide = attend[attend["School Name"] == "CITYWIDE"]
 citywide = citywide[citywide["Grade"].isin(["9", "10", "11", "12"])]
 citywide = pd.melt(
@@ -136,6 +142,8 @@ cols_to_select = [
     "post_cov_att",
     "att_diff_pp",
 ]
+att_df_group_sid.dropna(how = "any", inplace = True)
+print(att_df_group_sid)
 att_df_group_sid[cols_to_select].to_csv(
     parent_dir/"data_wrangling/cleaned_data/clean_attendance.csv", index=False
 )

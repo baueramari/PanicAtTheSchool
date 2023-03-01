@@ -96,16 +96,12 @@ avg_suspension_attend.to_csv(parent_dir/"data_wrangling/merged_data/suspension_a
 
 #Eshan's school merge/analysis code (initially bucket-2)
 #Objective is to merge all school data, then create csvs for Sarah that she can use to plot
-
-
-sch_geo = pd.read_csv(parent_dir/"raw_data/geo_map/school_locs_polygon_shape.csv")
 sch_profile = pd.read_csv(parent_dir/"data_wrangling/cleaned_data/clean_school_admin.csv")
 sch_att = pd.read_csv(parent_dir/"data_wrangling/cleaned_data/clean_attendance.csv")
 sch_finance = pd.read_csv(parent_dir/"data_wrangling/cleaned_data/clean_school_budget.csv")
 sch_teachers = pd.read_csv(parent_dir/"data_wrangling/cleaned_data/clean_teacher.csv")
 
-school_merged = sch_geo.merge(sch_profile, left_on="School_ID", right_on="sch_id")
-school_merged = school_merged.merge(sch_att, left_on="sch_id", right_on="School ID")
+school_merged = sch_profile.merge(sch_att, left_on="sch_id", right_on="School ID")
 school_merged = school_merged.merge(
     sch_finance, left_on="fin_id", right_on="finance_id"
 )
@@ -121,8 +117,6 @@ school_merged["salary_per_teacher"] = school_merged["teacher_salary"].divide(
     school_merged["teachers"]
 )
 cols_to_drop = [
-    "School_ID_x",
-    "School_ID_y",
     "School Name",
     "Unnamed: 0",
     "School ID",
@@ -161,7 +155,7 @@ att_demo = att_demo.rename(columns={"ca_id": "count_schools"})
 att_demo = att_demo.reset_index()
 
 # Threshold for number of schools
-num_schools = 3
+num_schools = 2
 att_demo = att_demo[att_demo["count_schools"] >= num_schools]
 
 #School data ready, now merge demographic and health data with this
@@ -169,5 +163,5 @@ merged_att_demo = pd.merge(att_demo, demog_info, on="ca_id")
 merged_att_demo = pd.merge(merged_att_demo, health_info, on="ca_id")
 cols_to_drop = ["comm_area_y"]
 merged_att_demo = merged_att_demo.drop(cols_to_drop, axis=1)
-#print(merged_att_demo.columns)
+print(merged_att_demo.columns)
 merged_att_demo.to_csv(parent_dir/"data_wrangling/merged_data/school_demo_merged.csv", index=False)
