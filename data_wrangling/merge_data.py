@@ -41,68 +41,64 @@ attend_by_crime = attend_id_crime.groupby(
 ).mean("Attendance")
 attend_by_crime = attend_by_crime[["crime_class", "Year", "Attendance"]]
 
-attend_id_crime.to_csv("data_wrangling/cleaned_data/attend_id_crime.csv")
-attend_by_crime.to_csv("data_wrangling/cleaned_data/attend_by_crime.csv")
+attend_id_crime.to_csv("data_wrangling/merged_data/attend_id_crime.csv")
+attend_by_crime.to_csv("data_wrangling/merged_data/attend_by_crime.csv")
 
 
-#Sarah's data merge needed for her visuals
+# Sarah's data merge needed for her visuals
 
 crime_cols = [
     "School_ID",
-    "crime_class",  
+    "crime_class",
     "Attendance",
 ]
-ID_crimeclass = pd.read_csv("data_wrangling/cleaned_data/attend_id_crime.csv", usecols=crime_cols)
+ID_crimeclass = pd.read_csv(
+    "data_wrangling/cleaned_data/attend_id_crime.csv", usecols=crime_cols
+)
 suspensions = pd.read_csv("data_wrangling/cleaned_data/suspension_data.csv")
 
 high_schools = suspensions["School ID"].unique().tolist()
 ID_crimeclass = ID_crimeclass[ID_crimeclass["School_ID"].isin(high_schools)]
 
-#merge csv to compare suspensions and crime_class
-suspension_crime_merge = pd.merge(suspensions, ID_crimeclass,
-     left_on = "School ID", right_on = "School_ID"
+# merge csv to compare suspensions and crime_class
+suspension_crime_merge = pd.merge(
+    suspensions, ID_crimeclass, left_on="School ID", right_on="School_ID"
 )
-suspension_crime_merge.drop('School_ID', axis=1, inplace=True)
-suspension_crime_merge.drop('Attendance', axis=1, inplace=True)
+suspension_crime_merge.drop("School_ID", axis=1, inplace=True)
+suspension_crime_merge.drop("Attendance", axis=1, inplace=True)
 suspension_crime_merge.drop_duplicates(inplace=True)
 suspension_crime_merge.dropna(how="all", inplace=True)
 
-avg_suspension_crime = suspension_crime_merge.groupby(by="crime_class", as_index=False).mean(numeric_only=True)
-avg_suspension_crime.drop('School ID', axis=1, inplace=True)
+avg_suspension_crime = suspension_crime_merge.groupby(
+    by="crime_class", as_index=False
+).mean(numeric_only=True)
+avg_suspension_crime.drop("School ID", axis=1, inplace=True)
 avg_suspension_crime.to_csv("data_wrangling/cleaned_data/avg_suspension_crime.csv")
 
-#merge csv to compare suspensions and attendance
-suspension_attend_merge = pd.merge(suspensions, ID_crimeclass,
-     left_on = "School ID", right_on = "School_ID"
+# merge csv to compare suspensions and attendance
+suspension_attend_merge = pd.merge(
+    suspensions, ID_crimeclass, left_on="School ID", right_on="School_ID"
 )
-suspension_attend_merge.drop('School_ID', axis=1, inplace=True)
-suspension_attend_merge.drop('crime_class', axis=1, inplace=True)
+suspension_attend_merge.drop("School_ID", axis=1, inplace=True)
+suspension_attend_merge.drop("crime_class", axis=1, inplace=True)
 suspension_attend_merge.drop_duplicates(inplace=True)
 suspension_attend_merge.dropna(how="all", inplace=True)
 
-avg_suspension_attend = suspension_attend_merge.groupby(by="School ID", as_index=False).mean(numeric_only=True)
+avg_suspension_attend = suspension_attend_merge.groupby(
+    by="School ID", as_index=False
+).mean(numeric_only=True)
 
 avg_suspension_attend.to_csv("data_wrangling/cleaned_data/suspension_attendance.csv")
 
 
 ###Eshan's school merge/analysis code (initially bucket-2)
-#Objective is to merge all school data, then create csvs for Sarah that she can use to plot
+# Objective is to merge all school data, then create csvs for Sarah that she can use to plot
 
-sch_geo = pd.read_csv(
-    "raw_data/geo_map_ep/school_locs_polygon_shape.csv"
-)
-sch_profile = pd.read_csv(
-    "data_wrangling/cleaned_data/clean_school_admin.csv"
-)
-sch_att = pd.read_csv(
-    "data_wrangling/cleaned_data/clean_attendance.csv"
-)
-sch_finance = pd.read_csv(
-    "data_wrangling/cleaned_data/clean_school_budget.csv"
-)
-sch_teachers = pd.read_csv(
-    "data_wrangling/cleaned_data/clean_teacher.csv"
-)
+sch_geo = pd.read_csv("raw_data/geo_map_ep/school_locs_polygon_shape.csv")
+sch_profile = pd.read_csv("data_wrangling/cleaned_data/clean_school_admin.csv")
+sch_att = pd.read_csv("data_wrangling/cleaned_data/clean_attendance.csv")
+sch_finance = pd.read_csv("data_wrangling/cleaned_data/clean_school_budget.csv")
+sch_teachers = pd.read_csv("data_wrangling/cleaned_data/clean_teacher.csv")
 
 school_merged = sch_geo.merge(sch_profile, left_on="School_ID", right_on="sch_id")
 school_merged = school_merged.merge(sch_att, left_on="sch_id", right_on="School ID")
@@ -171,12 +167,8 @@ school_merged.to_csv(
 cols_to_keep = ["ca_id", "pre_cov_att","post_cov_att","att_diff_pp"]
 att_demo = school_merged.loc[:,cols_to_keep]
 
-demog_info = pd.read_csv(
-    "data_wrangling/cleaned_data/clean_demog.csv"
-)
-health_info = pd.read_csv(
-    "data_wrangling/cleaned_data/clean_health_atlas.csv"
-)
+demog_info = pd.read_csv("data_wrangling/cleaned_data/clean_demog.csv")
+health_info = pd.read_csv("data_wrangling/cleaned_data/clean_health_atlas.csv")
 # Note: Check the keys in each file before merging
 # Now group data by ca_id but also take count of schools for each ca_id
 cols_grouping = {"ca_id": "count"}
