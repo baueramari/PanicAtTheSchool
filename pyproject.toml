@@ -21,6 +21,7 @@ urlopen = "^1.0.0"
 loads = "^0.3"
 pyjarowinkler = "^1.8"
 recordlinkage = "^0.15"
+pathlib = "^1.0.1"
 
 
 [build-system]
