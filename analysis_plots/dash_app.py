@@ -56,8 +56,8 @@ def project_intro(dropdown):
 
 
 # @app.callback(
-#    Output(component_id="plot", component_property="figure"),
-#    [Input(component_id="dropdown", component_property="value")],
+#    Output(component_id="plot", component_property="figure"), HERE I NEED MULTIPLE OUTPUT CALLS WHICH WILL BE IN LIST BRACKETS, AND I NEED TO RETURN A LIST OF THE PLOTS
+#    [Input(component_id="dropdown", component_property="value")], #GO THROUGH AND MAKE A TOTALLY SEPARATE CALLBACK FOR EACH BUCKET THAT WE ARE DOING. GET THE MISCONDUCT ONE TO WORK FIRST.
 # )
 # def display_plots(dropdown):
 #    plot_dict = {
