@@ -3,7 +3,7 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 
-
+# Question: do we want to add hovers?
 def plot_crime():
     attend_by_crime = pd.read_csv("data_wrangling/cleaned_data/attend_by_crime.csv")
     order = ["High", "Medium", "Low"]
@@ -80,19 +80,35 @@ def scatter_SSrate_attendance():
 
 
 # Still need to fix this 
-def bar_SSrate_OSS_ISS():
+def bar_crime_OSS_ISS():
     avg_SS_crime = pd.read_csv("data_wrangling/cleaned_data/suspension_crime.csv")
-    fig = go.Figure(go.Bar(x="crime_class", y="% of Unique Students Receiving OSS"))
-    fig.add_trace(go.Bar(x="crime_class", y="% of Unique Students Receiving ISS"))
-    fig.update_layout(barmode='stack')
+    order = ["High", "Medium", "Low"]
+    avg_SS_crime["crime_class"] = pd.Categorical(
+        avg_SS_crime["crime_class"], categories=order
+    )
+    avg_SS_crime = avg_SS_crime.sort_values("crime_class")
 
-    # px.bar(
+    fig_ISS = px.bar(avg_SS_crime, x="crime_class", y="% of Unique Students Receiving ISS")
+    fig_OSS = px.bar(avg_SS_crime, x="crime_class", y="% of Unique Students Receiving OSS")
+
+    # fig = px.bar(
     #     avg_SS_crime,
     #     x="crime_class",
-    #     y="% of Misconducts Resulting in a Suspension\n(includes ISS and OSS)",
-    #     color="% of Unique Students Receiving ISS",
+    #     y="% of Unique Students Receiving ISS",
+    #     #color="% of Unique Students Receiving ISS",
     # )
-    fig.show()
+    # fig.add_bar(avg_SS_crime,
+    #     x="crime_class", y = "% of Unique Students Receiving OSS")
+
+    # fig.add_trace(y = "% of Unique Students Receiving OSS")
+    # fig.layout(yaxis = list(title = "percent"), barmode = "group")
+    # fig = go.Figure(go.Bar(x="crime_class", y="% of Unique Students Receiving OSS"))
+    # fig.add_trace(go.Bar(x="crime_class", y="% of Unique Students Receiving ISS"))
+    # fig.update_layout(barmode='stack')
+
+    # 
+    #fig_OSS.show()
+    fig_ISS.show()
 
 
 #     import plotly.graph_objects as go
