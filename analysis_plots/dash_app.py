@@ -28,13 +28,13 @@ app.layout = html.Div(
             ],
             value="project_intro",
         ),
-        html.Div(dcc.Textarea(id="Text Area", value={})),
+        html.Div(dcc.Textarea(id="Text Area")),
     ],
 )
 
 
 @app.callback(
-    Output(component_id="Text Area", component_property="value"),
+    Output(component_id="Text Area", component_property="children"),
     [Input(component_id="dropdown", component_property="value")],
 )
 def project_intro(dropdown):
@@ -55,28 +55,27 @@ def project_intro(dropdown):
         return text
 
 
-"""
-@app.callback(
-    Output(component_id="plot", component_property="figure"),
-    [Input(component_id="dropdown", component_property="value")],
-)
-def display_plots(dropdown):
-    plot_dict = {
-        "Misconduct": [
-            plot_crime,  # eventually turn this into a dictionary of dictionaries, with the text analysis written in as the values
-            scatter_OSS_attendance,
-        ],  # list of our plotting functions for each dropdown
-        "Demographic": [],
-        "Health": [],
-    }
-    figures = []
-    for graphing_f in plot_dict[dropdown]:
-        figures.append(html.Div(dcc.Graph(id="plot", figure=graphing_f())))
-    # text = dcc.Textarea(id="Text Area", value="INSERT CRIME PLOT ANALYSIS")
-    # dcc.Graph(id="line_plot", figure=scatter_OSS_attendance())
-    # dcc.Textarea(id="Text Area", value="INSERT SUSPENSION PLOT ANALYSIS")
-    return figures
-"""
+# @app.callback(
+#    Output(component_id="plot", component_property="figure"), HERE I NEED MULTIPLE OUTPUT CALLS WHICH WILL BE IN LIST BRACKETS, AND I NEED TO RETURN A LIST OF THE PLOTS
+#    [Input(component_id="dropdown", component_property="value")], #GO THROUGH AND MAKE A TOTALLY SEPARATE CALLBACK FOR EACH BUCKET THAT WE ARE DOING. GET THE MISCONDUCT ONE TO WORK FIRST.
+# )
+# def display_plots(dropdown):
+#    plot_dict = {
+#        "Misconduct": [
+#            plot_crime,  # eventually turn this into a dictionary of dictionaries, with the text analysis written in as the values
+#            scatter_OSS_attendance,
+#        ],  # list of our plotting functions for each dropdown
+#        "Demographic": [],
+#        "Health": [],
+#    }
+#    figures = []
+#    for graphing_f in plot_dict[dropdown]:
+#        figures.append(html.Div(dcc.Graph(id="plot", figure=graphing_f())))
+#    # text = dcc.Textarea(id="Text Area", value="INSERT CRIME PLOT ANALYSIS")
+#    # dcc.Graph(id="line_plot", figure=scatter_OSS_attendance())
+#    # dcc.Textarea(id="Text Area", value="INSERT SUSPENSION PLOT ANALYSIS")
+#    return figures
+#
 
 if __name__ == "__main__":
-    app.run_server(port=6036)
+    app.run_server(port=6041)
