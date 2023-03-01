@@ -137,7 +137,10 @@ school_merged["pre_att_bucket"] = school_merged.apply(
 school_merged["post_att_bucket"] = school_merged.apply(
     lambda row: "low" if row["post_cov_att"] < mean_post_cov_att else "high", axis=1
 )
+
+
 school_merged.to_csv(parent_dir/"data_wrangling/merged_data/all_school_merged.csv")
+
 #Eshan-Other analysis pending
 #Eshan's merge/analysis of school attendance-demographic data
 
