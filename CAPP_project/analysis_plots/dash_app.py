@@ -118,4 +118,4 @@ def display_plots(value):
 
 # NEED TO FIGURE OUT HOW TO ADD TEXT DESCRIPTION IN HERE, WRITE THEM IN ANOTHER FILE AND LOAD THEM IN?
 if __name__ == "__main__":
-    app.run_server(port=6012)
+    app.run_server(port=6014)
