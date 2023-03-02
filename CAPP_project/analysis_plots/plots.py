@@ -45,7 +45,7 @@ def scatter_SSrate_attendance():
         labels={
             "Attendance": "Average Attendance Rate",
         },
-        title="School's Average Attendance Rate by Percent of Misconducts Resulting in a Suspension",
+        title="Average Attendance Rate by Percent of Misconducts Resulting in a Suspension",
     )
 
     return SSrate_attend_scatter
@@ -59,7 +59,7 @@ def scatter_OSS_attendance():
         labels={
             "Attendance": "Average Attendance Rate",
         },
-        title="School's Average Attendance Rate by Percent of Unique Students Receiving Out of School Suspension",
+        title="Average Attendance Rate by Percent of Unique Students Receiving Out of School Suspension",
     )
 
     # scatter.show()
@@ -75,7 +75,7 @@ def scatter_ISS_attendance():
         labels={
             "Attendance": "Average Attendance Rate",
         },
-        title="School's Average Attendance Rate by Percent of Unique Students Receiving In School Suspension",
+        title="Average Attendance Rate by Percent of Unique Students Receiving In School Suspension",
     )
 
     return ISS_attend_scatter
@@ -100,7 +100,12 @@ def bar_crime_OSS_ISS():
 
     groups_df = pd.DataFrame(groups)
 
-    fig = px.bar(groups_df, x="Crime Class", y="Percent Unique Suspensions", color = "Suspension Type", barmode = "group")
+    fig = px.bar(groups_df, 
+                x="Crime Class", 
+                y="Percent Unique Suspensions",
+                title="Percent Unique Suspensions by Crime Class",
+                color = "Suspension Type", 
+                barmode = "group")
     return fig
 
 
@@ -121,7 +126,7 @@ def bar_police_crime():
         labels={
             "crime_class": "Crime Class",
         },
-        title="School's Percent of Misconducts Resulting in a Police Notification by Crime Class",
+        title="Percent of Misconducts Resulting in a Police Notification by Crime Class",
     )
     bar_police_crime.update_layout(yaxis_range=[0, 10])
 
@@ -136,6 +141,11 @@ def scatter_pre_post_grid():
         school_df,
         x="pre_cov_att",
         y="post_cov_att",
+        labels={
+            "pre_cov_att": "Average Attendance Rate in Pre-COVID",
+            "post_cov_att": "Average Attendance Rate in Post-COVID",
+        },
+        title="Average Attendance Rate in Pre versus Post COVID Time Period",
         hover_data=["pre_att_bucket", "post_att_bucket"]
     )
 
@@ -152,15 +162,16 @@ def scatter_pre_post_grid():
     return scatter
 
 
-#I'm gonna say this is not super useful 
+#Is there enough data points to make this useful? 
 def scatter_teachers_pre_post():
     school_df = pd.read_csv("data_wrangling/merged_data/all_school_merged.csv")
-    ## create a scatterplot with trendline
+    
     scatter = px.scatter(
         school_df,
         x="pre_cov_att",
         y="post_cov_att",
         color = "teachers_per_100stu"
+        #title and label here
     )
 
     avg_x = school_df["pre_cov_att"].mean()
@@ -169,22 +180,19 @@ def scatter_teachers_pre_post():
     scatter.add_hline(y= avg_y, line_width = 1, line_color = "red")
     scatter.add_vline(x = avg_x, line_width = 1, line_color = "red")
 
-    ### This part is not needed- will go in dash.py file
-    # app = dash.Dash(__name__)
-    # app.layout = html.Div([dcc.Graph(id="scatterplot", figure=scatter)])
-
     return scatter
 
-#this is cool... but will we use it? 
+#Is this useful?
 def scatter_race_pre_post():
     school_df = pd.read_csv("data_wrangling/merged_data/all_school_merged.csv")
-    ## create a scatterplot with trendline
+    
     scatter = px.scatter(
         school_df,
         x="pre_cov_att",
         y="post_cov_att",
         color = "perc_black_his_stu", 
         color_continuous_scale='Bluered_r',
+        #label and title
         
     )
     scatter.update_traces(marker=dict(size=8))
@@ -195,22 +203,19 @@ def scatter_race_pre_post():
     scatter.add_hline(y= avg_y, line_width = 1, line_color = "red")
     scatter.add_vline(x = avg_x, line_width = 1, line_color = "red")
 
-    ### This part is not needed- will go in dash.py file
-    # app = dash.Dash(__name__)
-    # app.layout = html.Div([dcc.Graph(id="scatterplot", figure=scatter)])
-
     return scatter
 
-#again, cool but credible? 
+#will we use this? 
 def scatter_income_pre_post():
     school_df = pd.read_csv("data_wrangling/merged_data/all_school_merged.csv")
-    ## create a scatterplot with trendline
+
     scatter = px.scatter(
         school_df,
         x="pre_cov_att",
         y="post_cov_att",
         color = "perc_low_income", 
         color_continuous_scale='Bluered_r',
+        #title and labels
         
     )
     scatter.update_traces(marker=dict(size=8))
@@ -220,10 +225,6 @@ def scatter_income_pre_post():
 
     scatter.add_hline(y= avg_y, line_width = 1, line_color = "red")
     scatter.add_vline(x = avg_x, line_width = 1, line_color = "red")
-
-    ### This part is not needed- will go in dash.py file
-    # app = dash.Dash(__name__)
-    # app.layout = html.Div([dcc.Graph(id="scatterplot", figure=scatter)])
 
     return scatter
 
@@ -253,7 +254,16 @@ def bar_att_diff_buckets():
             }
     groups_df = pd.DataFrame(groups)
 
-    fig = px.bar(groups_df, x="Buckets", y="Average Attendance Rates", color = "Time Period", barmode = "group")
+    fig = px.bar(groups_df, 
+                x="Buckets", 
+                y="Average Attendance Rates", 
+                labels={
+                    "Buckets": "Pre vs Post COVID Average Attendance Rates",
+                },
+                title="Change in Average Attendance in Schools by their Pre vs. Post COVID Attendance Rates",
+                color = "Time Period", 
+                barmode = "group",
+                )
     return fig
 
 
@@ -267,10 +277,15 @@ def bar_finance_buckets():
     dollars_HH = school_df.groupby(["pre_att_bucket", "post_att_bucket"])["dolla_per_student"].mean()[0]
 
     groups = {"Average Dollars Spent per Student" : [dollars_LL, dollars_LH, dollars_HL, dollars_HH],
-                "Pre vs. Post Attendance Rates" : ["Low_Low", "Low_High", "High_Low", "High_High"]}
+                "Pre vs. Post COVID Attendance Rates" : ["Low_Low", "Low_High", "High_Low", "High_High"]}
     groups_df = pd.DataFrame(groups)
 
-    fig = px.bar(groups_df, x="Pre vs. Post Attendance Rates", y="Average Dollars Spent per Student")
+    fig = px.bar(groups_df, 
+                x="Pre vs. Post COVID Attendance Rates", 
+                y="Average Dollars Spent per Student",
+                title="Average Dollars Spent on Students in Schools with Pre vs. Post COVID Attendance Rates",
+                )
+
     avg_dollars = groups_df["Average Dollars Spent per Student"].mean()
     fig.add_hline(y= avg_dollars, line_width = 1, line_color = "red")
 
