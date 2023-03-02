@@ -46,11 +46,10 @@ admin_cols = [
     "School_Longitude",
     "Location",
 ]
-admin_filename = parent_dir / "CAPP_project/raw_data/school_info/admin_demog.csv"
 admin = pd.read_csv(
     "CAPP_project/raw_data/school_info/admin_demog.csv", usecols=admin_cols
 )
-admin_filename,  #
+# admin_filename,  #
 # filtering schools that don't have minimum threshold of children
 min_stu_count = 50
 admin = admin[admin["Student_Count_Total"] > min_stu_count]
@@ -87,7 +86,7 @@ school_prf_df = school_prf_df.rename(
     }
 )
 school_prf_df.to_csv(
-    parent_dir / "data_wrangling/cleaned_data/clean_school_admin.csv", index=False
+    "CAPP_project/data_wrangling/cleaned_data/clean_school_admin.csv", index=False
 )
 
 # Amari's output from admin demog file
@@ -95,28 +94,17 @@ schoolid_ward_map = admin[
     ["School_ID", "Wards"]
 ]  # If planning to look at other variables from file, add them in here
 schoolid_ward_map.to_csv(
-    parent_dir / "data_wrangling/cleaned_data/schoolid_ward_map.csv"
+    "CAPP_project/data_wrangling/cleaned_data/schoolid_ward_map.csv"
 )
 
 # Load in attendance data; split it into subsets for team
-attend_filename = parent_dir / "raw_data/school_info/attendance.csv"
-attend = pd.read_csv(attend_filename, usecols=lambda x: x not in ["Group"])
+attend = pd.read_csv(
+    "CAPP_project/raw_data/school_info/attendance.csv",
+    usecols=lambda x: x not in ["Group"],
+)
 year_range = list(range(2012, 2023))
 year_range = list(map(str, year_range))
 year_range.remove("2020")  # no attendance data for 2020 - covid.
-
-# For Amari's citywide crime analysis: pending
-citywide = attend[attend["School Name"] == "CITYWIDE"]
-citywide = citywide[citywide["Grade"].isin(["9", "10", "11", "12"])]
-citywide = pd.melt(
-    citywide,
-    id_vars=["Grade"],
-    var_name="Year",
-    value_vars=year_range[1:],
-    value_name="Attendance",
-)
-citywide_attend = citywide.groupby(by="Year").mean("Attendance")
-citywide_attend.to_csv(parent_dir / "data_wrangling/cleaned_data/citywide_attend.csv")
 
 attend = attend[attend["School Name"] != "CITYWIDE"]
 attend["School ID"] = attend["School ID"].astype(int)
@@ -150,7 +138,7 @@ cols_to_select = [
 att_df_group_sid.dropna(how="any", inplace=True)
 print(att_df_group_sid)
 att_df_group_sid[cols_to_select].to_csv(
-    parent_dir / "data_wrangling/cleaned_data/clean_attendance.csv", index=False
+    "CAPP_project/data_wrangling/cleaned_data/clean_attendance.csv", index=False
 )
 
 # Amari's analysis: pivot columns - to be edited
@@ -171,10 +159,10 @@ avg_attend = attend.groupby(by=["School ID", "Year", "Network"], as_index=False)
 avg_attend.dropna(subset="Attendance", inplace=True)
 high_schools = avg_attend["School ID"].unique().tolist()  # Sarah wants this
 
-avg_attend.to_csv(parent_dir / "data_wrangling/cleaned_data/avg_attend.csv")
+avg_attend.to_csv("CAPP_project/data_wrangling/cleaned_data/avg_attend.csv")
 
 # Eshan's code: Cleaning finance data
-fin_filename = parent_dir / "raw_data/school_info/FY_21_22_budget_data.csv"
+fin_filename = parent_dir / "CAPP_project/raw_data/school_info/FY_21_22_budget_data.csv"
 sch_finance = pd.read_csv(fin_filename)
 
 # Columns have whitespace: remove and convert to lower
