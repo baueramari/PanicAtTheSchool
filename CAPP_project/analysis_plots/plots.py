@@ -8,7 +8,7 @@ import plotly.express as px
 
 #Amari wrote plot_crime()
 def plot_crime():
-    attend_by_crime = pd.read_csv("data_wrangling/merged_data/attend_by_crime.csv")
+    attend_by_crime = pd.read_csv("CAPP_project/data_wrangling/merged_data/attend_by_crime.csv")
     order = ["High", "Medium", "Low"]
     attend_by_crime["crime_class"] = pd.Categorical(
         attend_by_crime["crime_class"], categories=order
@@ -37,7 +37,7 @@ def plot_crime():
 
 # Sarah's plots for suspension data
 def scatter_SSrate_attendance():
-    avg_SS_attend = pd.read_csv("data_wrangling/merged_data/suspension_attendance.csv")
+    avg_SS_attend = pd.read_csv("CAPP_project/data_wrangling/merged_data/suspension_attendance.csv")
     SSrate_attend_scatter = px.scatter(
         avg_SS_attend,
         x="% of Misconducts Resulting in a Suspension\n(includes ISS and OSS)",
@@ -51,7 +51,7 @@ def scatter_SSrate_attendance():
     return SSrate_attend_scatter
 
 def scatter_OSS_attendance():
-    avg_SS_attend = pd.read_csv("data_wrangling/merged_data/suspension_attendance.csv")
+    avg_SS_attend = pd.read_csv("CAPP_project/data_wrangling/merged_data/suspension_attendance.csv")
     OSS_attend_scatter = px.scatter(
         avg_SS_attend,
         x="% of Unique Students Receiving OSS",
@@ -67,7 +67,7 @@ def scatter_OSS_attendance():
 
 
 def scatter_ISS_attendance():
-    avg_SS_attend = pd.read_csv("data_wrangling/merged_data/suspension_attendance.csv")
+    avg_SS_attend = pd.read_csv("CAPP_project/data_wrangling/merged_data/suspension_attendance.csv")
     ISS_attend_scatter = px.scatter(
         avg_SS_attend,
         x="% of Unique Students Receiving ISS",
@@ -84,7 +84,7 @@ def scatter_ISS_attendance():
 
 def bar_crime_OSS_ISS():
 
-    avg_SS_crime = pd.read_csv("data_wrangling/merged_data/avg_suspension_crime.csv")
+    avg_SS_crime = pd.read_csv("CAPP_project/data_wrangling/merged_data/avg_suspension_crime.csv")
 
     High_ISS = avg_SS_crime.groupby(["crime_class"])["% of Unique Students Receiving ISS"].mean()["High"]
     Medium_ISS = avg_SS_crime.groupby(["crime_class"])["% of Unique Students Receiving ISS"].mean()["Medium"]
@@ -111,7 +111,7 @@ def bar_crime_OSS_ISS():
 
 
 def bar_police_crime():
-    avg_SS_crime = pd.read_csv("data_wrangling/merged_data/avg_suspension_crime.csv")
+    avg_SS_crime = pd.read_csv("CAPP_project/data_wrangling/merged_data/avg_suspension_crime.csv")
 
     order = ["High", "Medium", "Low"]
     avg_SS_crime["crime_class"] = pd.Categorical(
@@ -135,7 +135,7 @@ def bar_police_crime():
 
 ##Eshan's code to plot
 def scatter_pre_post_grid():
-    school_df = pd.read_csv("data_wrangling/merged_data/all_school_merged.csv")
+    school_df = pd.read_csv("CAPP_project/data_wrangling/merged_data/all_school_merged.csv")
     ## create a scatterplot with trendline
     scatter = px.scatter(
         school_df,
@@ -164,7 +164,7 @@ def scatter_pre_post_grid():
 
 #Is there enough data points to make this useful? 
 def scatter_teachers_pre_post():
-    school_df = pd.read_csv("data_wrangling/merged_data/all_school_merged.csv")
+    school_df = pd.read_csv("CAPP_project/data_wrangling/merged_data/all_school_merged.csv")
     
     scatter = px.scatter(
         school_df,
@@ -184,7 +184,7 @@ def scatter_teachers_pre_post():
 
 #Is this useful?
 def scatter_race_pre_post():
-    school_df = pd.read_csv("data_wrangling/merged_data/all_school_merged.csv")
+    school_df = pd.read_csv("CAPP_project/data_wrangling/merged_data/all_school_merged.csv")
     
     scatter = px.scatter(
         school_df,
@@ -207,7 +207,7 @@ def scatter_race_pre_post():
 
 #will we use this? 
 def scatter_income_pre_post():
-    school_df = pd.read_csv("data_wrangling/merged_data/all_school_merged.csv")
+    school_df = pd.read_csv("CAPP_project/data_wrangling/merged_data/all_school_merged.csv")
 
     scatter = px.scatter(
         school_df,
@@ -232,7 +232,7 @@ def scatter_income_pre_post():
 def bar_att_diff_buckets():
     '''
     '''
-    school_df = pd.read_csv("data_wrangling/merged_data/all_school_merged.csv")
+    school_df = pd.read_csv("CAPP_project/data_wrangling/merged_data/all_school_merged.csv")
 
     pre_att_LL = school_df.groupby(["pre_att_bucket", "post_att_bucket"])["pre_cov_att"].mean()[3]
     post_att_LL = school_df.groupby(["pre_att_bucket", "post_att_bucket"])["post_cov_att"].mean()[3]
@@ -268,7 +268,7 @@ def bar_att_diff_buckets():
 
 
 def bar_finance_buckets():
-    school_df = pd.read_csv("data_wrangling/merged_data/all_school_merged.csv")
+    school_df = pd.read_csv("CAPP_project/data_wrangling/merged_data/all_school_merged.csv")
 
 
     dollars_LL = school_df.groupby(["pre_att_bucket", "post_att_bucket"])["dolla_per_student"].mean()[3]
