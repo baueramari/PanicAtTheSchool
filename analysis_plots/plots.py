@@ -6,7 +6,8 @@ import plotly.express as px
 # from dash import dcc, html
 # from dash.dependencies import Input, Output
 
-#Amari wrote plot_crime()
+
+# Amari wrote plot_crime()
 def plot_crime():
     attend_by_crime = pd.read_csv("data_wrangling/merged_data/attend_by_crime.csv")
     order = ["High", "Medium", "Low"]
@@ -50,6 +51,7 @@ def scatter_SSrate_attendance():
 
     return SSrate_attend_scatter
 
+
 def scatter_OSS_attendance():
     avg_SS_attend = pd.read_csv("data_wrangling/merged_data/suspension_attendance.csv")
     OSS_attend_scatter = px.scatter(
@@ -81,28 +83,59 @@ def scatter_ISS_attendance():
     return ISS_attend_scatter
 
 
-
 def bar_crime_OSS_ISS():
-
     avg_SS_crime = pd.read_csv("data_wrangling/merged_data/avg_suspension_crime.csv")
 
-    High_ISS = avg_SS_crime.groupby(["crime_class"])["% of Unique Students Receiving ISS"].mean()["High"]
-    Medium_ISS = avg_SS_crime.groupby(["crime_class"])["% of Unique Students Receiving ISS"].mean()["Medium"]
-    Low_ISS = avg_SS_crime.groupby(["crime_class"])["% of Unique Students Receiving ISS"].mean()["Medium"]
+    High_ISS = avg_SS_crime.groupby(["crime_class"])[
+        "% of Unique Students Receiving ISS"
+    ].mean()["High"]
+    Medium_ISS = avg_SS_crime.groupby(["crime_class"])[
+        "% of Unique Students Receiving ISS"
+    ].mean()["Medium"]
+    Low_ISS = avg_SS_crime.groupby(["crime_class"])[
+        "% of Unique Students Receiving ISS"
+    ].mean()["Medium"]
 
-    High_OSS = avg_SS_crime.groupby(["crime_class"])["% of Unique Students Receiving OSS"].mean()["High"]
-    Medium_OSS = avg_SS_crime.groupby(["crime_class"])["% of Unique Students Receiving OSS"].mean()["Medium"]
-    Low_OSS = avg_SS_crime.groupby(["crime_class"])["% of Unique Students Receiving OSS"].mean()["Medium"]
+    High_OSS = avg_SS_crime.groupby(["crime_class"])[
+        "% of Unique Students Receiving OSS"
+    ].mean()["High"]
+    Medium_OSS = avg_SS_crime.groupby(["crime_class"])[
+        "% of Unique Students Receiving OSS"
+    ].mean()["Medium"]
+    Low_OSS = avg_SS_crime.groupby(["crime_class"])[
+        "% of Unique Students Receiving OSS"
+    ].mean()["Medium"]
 
-    groups = {"Crime Class": ["Low", "Low", "Medium", "Medium", "High", "High"],
-                "Percent Unique Suspensions": [Low_ISS, Low_OSS, Medium_ISS, Medium_OSS, High_ISS, High_OSS],
-                "Suspension Type":["In School Suspension", "Out of School Suspension", "In School Suspension", "Out of School Suspension", "In School Suspension", "Out of School Suspension"]}
+    groups = {
+        "Crime Class": ["Low", "Low", "Medium", "Medium", "High", "High"],
+        "Percent Unique Suspensions": [
+            Low_ISS,
+            Low_OSS,
+            Medium_ISS,
+            Medium_OSS,
+            High_ISS,
+            High_OSS,
+        ],
+        "Suspension Type": [
+            "In School Suspension",
+            "Out of School Suspension",
+            "In School Suspension",
+            "Out of School Suspension",
+            "In School Suspension",
+            "Out of School Suspension",
+        ],
+    }
 
     groups_df = pd.DataFrame(groups)
 
-    fig = px.bar(groups_df, x="Crime Class", y="Percent Unique Suspensions", color = "Suspension Type", barmode = "group")
+    fig = px.bar(
+        groups_df,
+        x="Crime Class",
+        y="Percent Unique Suspensions",
+        color="Suspension Type",
+        barmode="group",
+    )
     return fig
-
 
 
 def bar_police_crime():
@@ -136,14 +169,14 @@ def scatter_pre_post_grid():
         school_df,
         x="pre_cov_att",
         y="post_cov_att",
-        hover_data=["pre_att_bucket", "post_att_bucket"]
+        hover_data=["pre_att_bucket", "post_att_bucket"],
     )
 
     avg_x = school_df["pre_cov_att"].mean()
     avg_y = school_df["post_cov_att"].mean()
 
-    scatter.add_hline(y= avg_y, line_width = 1, line_color = "red")
-    scatter.add_vline(x = avg_x, line_width = 1, line_color = "red")
+    scatter.add_hline(y=avg_y, line_width=1, line_color="red")
+    scatter.add_vline(x=avg_x, line_width=1, line_color="red")
 
     ### This part is not needed- will go in dash.py file
     # app = dash.Dash(__name__)
@@ -152,22 +185,19 @@ def scatter_pre_post_grid():
     return scatter
 
 
-#I'm gonna say this is not super useful 
+# I'm gonna say this is not super useful
 def scatter_teachers_pre_post():
     school_df = pd.read_csv("data_wrangling/merged_data/all_school_merged.csv")
     ## create a scatterplot with trendline
     scatter = px.scatter(
-        school_df,
-        x="pre_cov_att",
-        y="post_cov_att",
-        color = "teachers_per_100stu"
+        school_df, x="pre_cov_att", y="post_cov_att", color="teachers_per_100stu"
     )
 
     avg_x = school_df["pre_cov_att"].mean()
     avg_y = school_df["post_cov_att"].mean()
 
-    scatter.add_hline(y= avg_y, line_width = 1, line_color = "red")
-    scatter.add_vline(x = avg_x, line_width = 1, line_color = "red")
+    scatter.add_hline(y=avg_y, line_width=1, line_color="red")
+    scatter.add_vline(x=avg_x, line_width=1, line_color="red")
 
     ### This part is not needed- will go in dash.py file
     # app = dash.Dash(__name__)
@@ -175,7 +205,8 @@ def scatter_teachers_pre_post():
 
     return scatter
 
-#this is cool... but will we use it? 
+
+# this is cool... but will we use it?
 def scatter_race_pre_post():
     school_df = pd.read_csv("data_wrangling/merged_data/all_school_merged.csv")
     ## create a scatterplot with trendline
@@ -183,17 +214,16 @@ def scatter_race_pre_post():
         school_df,
         x="pre_cov_att",
         y="post_cov_att",
-        color = "perc_black_his_stu", 
-        color_continuous_scale='Bluered_r',
-        
+        color="perc_black_his_stu",
+        color_continuous_scale="Bluered_r",
     )
     scatter.update_traces(marker=dict(size=8))
 
     avg_x = school_df["pre_cov_att"].mean()
     avg_y = school_df["post_cov_att"].mean()
 
-    scatter.add_hline(y= avg_y, line_width = 1, line_color = "red")
-    scatter.add_vline(x = avg_x, line_width = 1, line_color = "red")
+    scatter.add_hline(y=avg_y, line_width=1, line_color="red")
+    scatter.add_vline(x=avg_x, line_width=1, line_color="red")
 
     ### This part is not needed- will go in dash.py file
     # app = dash.Dash(__name__)
@@ -201,7 +231,8 @@ def scatter_race_pre_post():
 
     return scatter
 
-#again, cool but credible? 
+
+# again, cool but credible?
 def scatter_income_pre_post():
     school_df = pd.read_csv("data_wrangling/merged_data/all_school_merged.csv")
     ## create a scatterplot with trendline
@@ -209,17 +240,16 @@ def scatter_income_pre_post():
         school_df,
         x="pre_cov_att",
         y="post_cov_att",
-        color = "perc_low_income", 
-        color_continuous_scale='Bluered_r',
-        
+        color="perc_low_income",
+        color_continuous_scale="Bluered_r",
     )
     scatter.update_traces(marker=dict(size=8))
 
     avg_x = school_df["pre_cov_att"].mean()
     avg_y = school_df["post_cov_att"].mean()
 
-    scatter.add_hline(y= avg_y, line_width = 1, line_color = "red")
-    scatter.add_vline(x = avg_x, line_width = 1, line_color = "red")
+    scatter.add_hline(y=avg_y, line_width=1, line_color="red")
+    scatter.add_vline(x=avg_x, line_width=1, line_color="red")
 
     ### This part is not needed- will go in dash.py file
     # app = dash.Dash(__name__)
@@ -229,53 +259,122 @@ def scatter_income_pre_post():
 
 
 def bar_att_diff_buckets():
-    '''
-    '''
+    """ """
     school_df = pd.read_csv("data_wrangling/merged_data/all_school_merged.csv")
 
-    pre_att_LL = school_df.groupby(["pre_att_bucket", "post_att_bucket"])["pre_cov_att"].mean()[3]
-    post_att_LL = school_df.groupby(["pre_att_bucket", "post_att_bucket"])["post_cov_att"].mean()[3]
+    pre_att_LL = school_df.groupby(["pre_att_bucket", "post_att_bucket"])[
+        "pre_cov_att"
+    ].mean()[3]
+    post_att_LL = school_df.groupby(["pre_att_bucket", "post_att_bucket"])[
+        "post_cov_att"
+    ].mean()[3]
 
-    pre_att_LH = school_df.groupby(["pre_att_bucket", "post_att_bucket"])["pre_cov_att"].mean()[2]
-    post_att_LH = school_df.groupby(["pre_att_bucket", "post_att_bucket"])["post_cov_att"].mean()[2]
-    
-    pre_att_HL = school_df.groupby(["pre_att_bucket", "post_att_bucket"])["pre_cov_att"].mean()[1]
-    post_att_HL = school_df.groupby(["pre_att_bucket", "post_att_bucket"])["post_cov_att"].mean()[1]
+    pre_att_LH = school_df.groupby(["pre_att_bucket", "post_att_bucket"])[
+        "pre_cov_att"
+    ].mean()[2]
+    post_att_LH = school_df.groupby(["pre_att_bucket", "post_att_bucket"])[
+        "post_cov_att"
+    ].mean()[2]
 
-    pre_att_HH = school_df.groupby(["pre_att_bucket", "post_att_bucket"])["pre_cov_att"].mean()[0]
-    post_att_HH = school_df.groupby(["pre_att_bucket", "post_att_bucket"])["post_cov_att"].mean()[0]
+    pre_att_HL = school_df.groupby(["pre_att_bucket", "post_att_bucket"])[
+        "pre_cov_att"
+    ].mean()[1]
+    post_att_HL = school_df.groupby(["pre_att_bucket", "post_att_bucket"])[
+        "post_cov_att"
+    ].mean()[1]
 
-    
+    pre_att_HH = school_df.groupby(["pre_att_bucket", "post_att_bucket"])[
+        "pre_cov_att"
+    ].mean()[0]
+    post_att_HH = school_df.groupby(["pre_att_bucket", "post_att_bucket"])[
+        "post_cov_att"
+    ].mean()[0]
 
-    groups = {"Average Attendance Rates" : [pre_att_LL, post_att_LL, pre_att_LH, post_att_LH, pre_att_HL, post_att_HL, pre_att_HH, post_att_HH],
-                "Buckets" : ["Low_Low", "Low_Low", "Low_High", "Low_High", "High_Low", "High_Low", "High_High", "High_High"],
-                "Time Period" : ["Pre-COVID", "Post-COVID", "Pre-COVID", "Post-COVID", "Pre-COVID", "Post-COVID", "Pre-COVID", "Post-COVID"]
-            }
+    groups = {
+        "Average Attendance Rates": [
+            pre_att_LL,
+            post_att_LL,
+            pre_att_LH,
+            post_att_LH,
+            pre_att_HL,
+            post_att_HL,
+            pre_att_HH,
+            post_att_HH,
+        ],
+        "Buckets": [
+            "Low_Low",
+            "Low_Low",
+            "Low_High",
+            "Low_High",
+            "High_Low",
+            "High_Low",
+            "High_High",
+            "High_High",
+        ],
+        "Time Period": [
+            "Pre-COVID",
+            "Post-COVID",
+            "Pre-COVID",
+            "Post-COVID",
+            "Pre-COVID",
+            "Post-COVID",
+            "Pre-COVID",
+            "Post-COVID",
+        ],
+    }
     groups_df = pd.DataFrame(groups)
 
-    fig = px.bar(groups_df, x="Buckets", y="Average Attendance Rates", color = "Time Period", barmode = "group")
+    fig = px.bar(
+        groups_df,
+        x="Buckets",
+        y="Average Attendance Rates",
+        color="Time Period",
+        barmode="group",
+    )
     return fig
 
 
 def bar_finance_buckets():
     school_df = pd.read_csv("data_wrangling/merged_data/all_school_merged.csv")
 
+    dollars_LL = school_df.groupby(["pre_att_bucket", "post_att_bucket"])[
+        "dolla_per_student"
+    ].mean()[3]
+    dollars_LH = school_df.groupby(["pre_att_bucket", "post_att_bucket"])[
+        "dolla_per_student"
+    ].mean()[2]
+    dollars_HL = school_df.groupby(["pre_att_bucket", "post_att_bucket"])[
+        "dolla_per_student"
+    ].mean()[1]
+    dollars_HH = school_df.groupby(["pre_att_bucket", "post_att_bucket"])[
+        "dolla_per_student"
+    ].mean()[0]
 
-    dollars_LL = school_df.groupby(["pre_att_bucket", "post_att_bucket"])["dolla_per_student"].mean()[3]
-    dollars_LH = school_df.groupby(["pre_att_bucket", "post_att_bucket"])["dolla_per_student"].mean()[2]
-    dollars_HL = school_df.groupby(["pre_att_bucket", "post_att_bucket"])["dolla_per_student"].mean()[1]
-    dollars_HH = school_df.groupby(["pre_att_bucket", "post_att_bucket"])["dolla_per_student"].mean()[0]
-
-    groups = {"Average Dollars Spent per Student" : [dollars_LL, dollars_LH, dollars_HL, dollars_HH],
-                "Pre vs. Post Attendance Rates" : ["Low_Low", "Low_High", "High_Low", "High_High"]}
+    groups = {
+        "Average Dollars Spent per Student": [
+            dollars_LL,
+            dollars_LH,
+            dollars_HL,
+            dollars_HH,
+        ],
+        "Pre vs. Post Attendance Rates": [
+            "Low_Low",
+            "Low_High",
+            "High_Low",
+            "High_High",
+        ],
+    }
     groups_df = pd.DataFrame(groups)
 
-    fig = px.bar(groups_df, x="Pre vs. Post Attendance Rates", y="Average Dollars Spent per Student")
+    fig = px.bar(
+        groups_df,
+        x="Pre vs. Post Attendance Rates",
+        y="Average Dollars Spent per Student",
+    )
     avg_dollars = groups_df["Average Dollars Spent per Student"].mean()
-    fig.add_hline(y= avg_dollars, line_width = 1, line_color = "red")
+    fig.add_hline(y=avg_dollars, line_width=1, line_color="red")
 
     return fig
-
 
 
 if __name__ == "__main__":
