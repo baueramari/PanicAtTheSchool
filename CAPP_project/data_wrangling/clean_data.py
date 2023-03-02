@@ -17,18 +17,18 @@ crime_cols = [
     "year",
     "updated_on",
 ]
-#crime = pd.read_csv("raw_data/crime.csv", usecols=crime_cols)
+# crime = pd.read_csv("raw_data/crime.csv", usecols=crime_cols)
 
-#crime = crime[crime["year"] > 2011]
-#crime = crime[crime["year"] != 2023]
-#crime.dropna(subset="ward", inplace=True)
-#crime.drop_duplicates(inplace=True)
-#crime["ward"] = crime["ward"].astype(int)
-#crime_by_ward = crime.groupby(by=["ward", "year"], as_index=False).size()
-#crime_by_ward["crime_capita"] = (
+# crime = crime[crime["year"] > 2011]
+# crime = crime[crime["year"] != 2023]
+# crime.dropna(subset="ward", inplace=True)
+# crime.drop_duplicates(inplace=True)
+# crime["ward"] = crime["ward"].astype(int)
+# crime_by_ward = crime.groupby(by=["ward", "year"], as_index=False).size()
+# crime_by_ward["crime_capita"] = (
 #    crime_by_ward["size"] / 55000
-#)  # average population in Chicago wards interpret: crime reports per person in ward.
-#crime_by_ward.to_csv("data_wrangling/cleaned_data/crime_by_ward.csv")
+# )  # average population in Chicago wards interpret: crime reports per person in ward.
+# crime_by_ward.to_csv("data_wrangling/cleaned_data/crime_by_ward.csv")
 
 # Amari's code for mapping schools
 admin_cols = [
@@ -44,11 +44,12 @@ admin_cols = [
     "Student_Count_Hispanic",
     "School_Latitude",
     "School_Longitude",
-    "Location"
+    "Location",
 ]
-admin_filename = parent_dir/"raw_data/school_info/admin_demog.csv"
-admin = pd.read_csv(admin_filename, usecols=admin_cols)
-
+admin = pd.read_csv(
+    "CAPP_project/raw_data/school_info/admin_demog.csv", usecols=admin_cols
+)
+# admin_filename,  #
 # filtering schools that don't have minimum threshold of children
 min_stu_count = 50
 admin = admin[admin["Student_Count_Total"] > min_stu_count]
@@ -70,7 +71,7 @@ school_prf_df = admin.loc[
         "Finance_ID",
         "Student_Count_Total",
         "perc_low_income",
-        "perc_black_his_stu"
+        "perc_black_his_stu",
     ],
 ]
 school_prf_df = school_prf_df.rename(
@@ -79,39 +80,31 @@ school_prf_df = school_prf_df.rename(
         "Community Areas": "ca_id",
         "Finance_ID": "fin_id",
         "Student_Count_Total": "tot_student",
-        "School_Latitude" : "lat",
-        "School_Longitude" : "long",
-        "Location": "loc"
-
+        "School_Latitude": "lat",
+        "School_Longitude": "long",
+        "Location": "loc",
     }
 )
-school_prf_df.to_csv(parent_dir/"data_wrangling/cleaned_data/clean_school_admin.csv", index=False)
+school_prf_df.to_csv(
+    "CAPP_project/data_wrangling/cleaned_data/clean_school_admin.csv", index=False
+)
 
 # Amari's output from admin demog file
 schoolid_ward_map = admin[
     ["School_ID", "Wards"]
 ]  # If planning to look at other variables from file, add them in here
-schoolid_ward_map.to_csv(parent_dir/"data_wrangling/cleaned_data/schoolid_ward_map.csv")
+schoolid_ward_map.to_csv(
+    "CAPP_project/data_wrangling/cleaned_data/schoolid_ward_map.csv"
+)
 
-#Load in attendance data; split it into subsets for team
-attend_filename = parent_dir/"raw_data/school_info/attendance.csv"
-attend = pd.read_csv(attend_filename, usecols=lambda x: x not in ["Group"])
+# Load in attendance data; split it into subsets for team
+attend = pd.read_csv(
+    "CAPP_project/raw_data/school_info/attendance.csv",
+    usecols=lambda x: x not in ["Group"],
+)
 year_range = list(range(2012, 2023))
 year_range = list(map(str, year_range))
 year_range.remove("2020")  # no attendance data for 2020 - covid.
-
-#For Amari's citywide crime analysis: pending
-citywide = attend[attend["School Name"] == "CITYWIDE"]
-citywide = citywide[citywide["Grade"].isin(["9", "10", "11", "12"])]
-citywide = pd.melt(
-    citywide,
-    id_vars=["Grade"],
-    var_name="Year",
-    value_vars=year_range[1:],
-    value_name="Attendance",
-)
-citywide_attend = citywide.groupby(by="Year").mean("Attendance")
-citywide_attend.to_csv(parent_dir/"data_wrangling/cleaned_data/citywide_attend.csv")
 
 attend = attend[attend["School Name"] != "CITYWIDE"]
 attend["School ID"] = attend["School ID"].astype(int)
@@ -142,10 +135,10 @@ cols_to_select = [
     "post_cov_att",
     "att_diff_pp",
 ]
-att_df_group_sid.dropna(how = "any", inplace = True)
+att_df_group_sid.dropna(how="any", inplace=True)
 print(att_df_group_sid)
 att_df_group_sid[cols_to_select].to_csv(
-    parent_dir/"data_wrangling/cleaned_data/clean_attendance.csv", index=False
+    "CAPP_project/data_wrangling/cleaned_data/clean_attendance.csv", index=False
 )
 
 # Amari's analysis: pivot columns - to be edited
@@ -166,10 +159,10 @@ avg_attend = attend.groupby(by=["School ID", "Year", "Network"], as_index=False)
 avg_attend.dropna(subset="Attendance", inplace=True)
 high_schools = avg_attend["School ID"].unique().tolist()  # Sarah wants this
 
-avg_attend.to_csv(parent_dir/"data_wrangling/cleaned_data/avg_attend.csv")
+avg_attend.to_csv("CAPP_project/data_wrangling/cleaned_data/avg_attend.csv")
 
 # Eshan's code: Cleaning finance data
-fin_filename = parent_dir/"raw_data/school_info/FY_21_22_budget_data.csv"
+fin_filename = parent_dir / "CAPP_project/raw_data/school_info/FY_21_22_budget_data.csv"
 sch_finance = pd.read_csv(fin_filename)
 
 # Columns have whitespace: remove and convert to lower
@@ -192,7 +185,9 @@ budget_threshold = 10000
 sch_finance = sch_finance.loc[
     (sch_finance["fy_2022_proposed_budget"] > budget_threshold)
 ]
-sch_finance.to_csv(parent_dir/"data_wrangling/cleaned_data/clean_school_budget.csv", index=False)
+sch_finance.to_csv(
+    parent_dir / "data_wrangling/cleaned_data/clean_school_budget.csv", index=False
+)
 
 
 # Sarah's Data Cleaning: School suspension data
@@ -207,10 +202,8 @@ suspension_cols = [
     "% of Unique Students Receiving OSS",
     "% of Misconducts Resulting in a Police Notification",
 ]
-susp_filename = parent_dir/"raw_data/suspensions/suspension_data.csv"
-suspensions = pd.read_csv(
-    susp_filename, usecols=suspension_cols
-)
+susp_filename = parent_dir / "raw_data/suspensions/suspension_data.csv"
+suspensions = pd.read_csv(susp_filename, usecols=suspension_cols)
 
 # avg_attend = pd.read_csv("data_wrangling/cleaned_data/avg_attend.csv")
 # high_schools = avg_attend["School ID"].unique().tolist()
@@ -247,14 +240,12 @@ suspensions["% of Misconducts Resulting in a Police Notification"] = suspensions
     "% of Misconducts Resulting in a Police Notification"
 ].astype(float)
 
-suspensions.to_csv(parent_dir/"data_wrangling/cleaned_data/suspension_data.csv")
+suspensions.to_csv(parent_dir / "data_wrangling/cleaned_data/suspension_data.csv")
 
 # Eshan's code: Cleaning health data
 # Check final location and name of file- will definitely lead to bugs in case of incorrect pathname
-ha_filename = parent_dir/"raw_data/health_data/health_indicators_atlas_v2.csv"
-ha_df = pd.read_csv(
-    ha_filename, skiprows=range(4)
-)
+ha_filename = parent_dir / "raw_data/health_data/health_indicators_atlas_v2.csv"
+ha_df = pd.read_csv(ha_filename, skiprows=range(4))
 ha_df = ha_df.loc[
     :,
     [
@@ -302,11 +293,13 @@ ha_df = ha_df.rename(
 # comm_belong_16_18 has 1 missing value; will impute average of remaining
 col_impute_val = ha_df["comm_belong_16_18"].mean()
 ha_df["comm_belong_16_18"].fillna(col_impute_val, inplace=True)
-ha_df.to_csv(parent_dir/"data_wrangling/cleaned_data/clean_health_atlas.csv", index=False)
+ha_df.to_csv(
+    parent_dir / "data_wrangling/cleaned_data/clean_health_atlas.csv", index=False
+)
 
 # Eshan's code: Cleaning demographic data
 # Check final location and name of file- will definitely lead to bugs in case of incorrect pathname
-demo_filename = parent_dir/"raw_data/demographic_data/cmap_demog_data.csv"
+demo_filename = parent_dir / "raw_data/demographic_data/cmap_demog_data.csv"
 demo_df = pd.read_csv(demo_filename)
 demo_df = demo_df.loc[
     :,
@@ -376,4 +369,4 @@ demo_df = demo_df.rename(
         "MED_RENT": "med_rent",
     }
 )
-demo_df.to_csv(parent_dir/"data_wrangling/cleaned_data/clean_demog.csv", index=False)
+demo_df.to_csv(parent_dir / "data_wrangling/cleaned_data/clean_demog.csv", index=False)
