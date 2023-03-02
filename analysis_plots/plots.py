@@ -82,40 +82,26 @@ def scatter_ISS_attendance():
 
 
 
-# OH with James -- how can I get these side by side? 
-def bar_crime_ISS():
+def bar_crime_OSS_ISS():
 
-    avg_SS_crime = pd.read_csv("data_wrangling/merged_data/avg_suspension_crime.csv", use_cols)
+    avg_SS_crime = pd.read_csv("data_wrangling/merged_data/avg_suspension_crime.csv")
 
-    order = ["High", "Medium", "Low"]
-    avg_SS_crime["crime_class"] = pd.Categorical(
-        avg_SS_crime["crime_class"], categories=order
-    )
-    avg_SS_crime = avg_SS_crime.sort_values("crime_class")
+    High_ISS = avg_SS_crime.groupby(["crime_class"])["% of Unique Students Receiving ISS"].mean()["High"]
+    Medium_ISS = avg_SS_crime.groupby(["crime_class"])["% of Unique Students Receiving ISS"].mean()["Medium"]
+    Low_ISS = avg_SS_crime.groupby(["crime_class"])["% of Unique Students Receiving ISS"].mean()["Medium"]
 
-    fig_ISS = px.bar(avg_SS_crime, x="crime_class", y="% of Unique Students Receiving ISS")
+    High_OSS = avg_SS_crime.groupby(["crime_class"])["% of Unique Students Receiving OSS"].mean()["High"]
+    Medium_OSS = avg_SS_crime.groupby(["crime_class"])["% of Unique Students Receiving OSS"].mean()["Medium"]
+    Low_OSS = avg_SS_crime.groupby(["crime_class"])["% of Unique Students Receiving OSS"].mean()["Medium"]
 
+    groups = {"Crime Class": ["Low", "Low", "Medium", "Medium", "High", "High"],
+                "Percent Unique Suspensions": [Low_ISS, Low_OSS, Medium_ISS, Medium_OSS, High_ISS, High_OSS],
+                "Suspension Type":["In School Suspension", "Out of School Suspension", "In School Suspension", "Out of School Suspension", "In School Suspension", "Out of School Suspension"]}
 
-    # avg_SS_crime = pd.read_csv("data_wrangling/cleaned_data/suspension_crime.csv")
-    # fig = go.Figure(go.Bar(x="crime_class", y="% of Unique Students Receiving OSS"))
-    # fig.add_trace(go.Bar(x="crime_class", y="% of Unique Students Receiving ISS"))
-    # fig.update_layout(barmode="stack")
-    fig_ISS.show()
+    groups_df = pd.DataFrame(groups)
 
-
-def bar_crime_OSS():
-
-    avg_SS_crime = pd.read_csv("data_wrangling/merged_data/avg_suspension_crime.csv", use_cols)
-
-    order = ["High", "Medium", "Low"]
-    avg_SS_crime["crime_class"] = pd.Categorical(
-        avg_SS_crime["crime_class"], categories=order
-    )
-    avg_SS_crime = avg_SS_crime.sort_values("crime_class")
-    
-    fig_OSS = px.bar(avg_SS_crime, x="crime_class", y="% of Unique Students Receiving OSS")
-
-    return fig_OSS
+    fig = px.bar(groups_df, x="Crime Class", y="Percent Unique Suspensions", color = "Suspension Type", barmode = "group")
+    return fig
 
 
 
@@ -242,46 +228,54 @@ def scatter_income_pre_post():
     return scatter
 
 
-def sarahs_merge_edit():
+def bar_att_diff_buckets():
     '''
     '''
     school_df = pd.read_csv("data_wrangling/merged_data/all_school_merged.csv")
 
-    school_df["pre_post"] = ""
+    pre_att_LL = school_df.groupby(["pre_att_bucket", "post_att_bucket"])["pre_cov_att"].mean()[3]
+    post_att_LL = school_df.groupby(["pre_att_bucket", "post_att_bucket"])["post_cov_att"].mean()[3]
 
-    # school_df.loc[(school_df["pre_att_bucket"] == "low" and school_df["post_att_bucket"] == "low"), ["pre_post"]] = 'LL'
+    pre_att_LH = school_df.groupby(["pre_att_bucket", "post_att_bucket"])["pre_cov_att"].mean()[2]
+    post_att_LH = school_df.groupby(["pre_att_bucket", "post_att_bucket"])["post_cov_att"].mean()[2]
     
-    for _, row in school_df.iterrows():
-        if row["pre_att_bucket"] == "low" and row["post_att_bucket"] == "low":
-            row["pre_post"] = "LL"
-        elif row["pre_att_bucket"] == "low" and row["post_att_bucket"] == "high":
-            row["pre_post"] = "LH"
-        elif row["pre_att_bucket"] == "high" and row["post_att_bucket"] == "low":
-            row["pre_post"] = "HL"
-        else:
-            row["pre_post"] = "HH"
+    pre_att_HL = school_df.groupby(["pre_att_bucket", "post_att_bucket"])["pre_cov_att"].mean()[1]
+    post_att_HL = school_df.groupby(["pre_att_bucket", "post_att_bucket"])["post_cov_att"].mean()[1]
 
-    return school_df
+    pre_att_HH = school_df.groupby(["pre_att_bucket", "post_att_bucket"])["pre_cov_att"].mean()[0]
+    post_att_HH = school_df.groupby(["pre_att_bucket", "post_att_bucket"])["post_cov_att"].mean()[0]
 
+    
 
-def bar_att_diff_buckets():
-    df = sarahs_merge_edit()
+    groups = {"Average Attendance Rates" : [pre_att_LL, post_att_LL, pre_att_LH, post_att_LH, pre_att_HL, post_att_HL, pre_att_HH, post_att_HH],
+                "Buckets" : ["Low_Low", "Low_Low", "Low_High", "Low_High", "High_Low", "High_Low", "High_High", "High_High"],
+                "Time Period" : ["Pre-COVID", "Post-COVID", "Pre-COVID", "Post-COVID", "Pre-COVID", "Post-COVID", "Pre-COVID", "Post-COVID"]
+            }
+    groups_df = pd.DataFrame(groups)
 
-    fig = px.bar(df, x="pre_post", y="att_diff_pp")
-
+    fig = px.bar(groups_df, x="Buckets", y="Average Attendance Rates", color = "Time Period", barmode = "group")
     return fig
 
-def bar_finance_buckets():
-    df = sarahs_merge_edit()
 
-    fig = px.bar(df, x="pre_post", y="dolla_per_student")
-    avg_dollars = df["dolla_per_student"].mean()
+def bar_finance_buckets():
+    school_df = pd.read_csv("data_wrangling/merged_data/all_school_merged.csv")
+
+
+    dollars_LL = school_df.groupby(["pre_att_bucket", "post_att_bucket"])["dolla_per_student"].mean()[3]
+    dollars_LH = school_df.groupby(["pre_att_bucket", "post_att_bucket"])["dolla_per_student"].mean()[2]
+    dollars_HL = school_df.groupby(["pre_att_bucket", "post_att_bucket"])["dolla_per_student"].mean()[1]
+    dollars_HH = school_df.groupby(["pre_att_bucket", "post_att_bucket"])["dolla_per_student"].mean()[0]
+
+    groups = {"Average Dollars Spent per Student" : [dollars_LL, dollars_LH, dollars_HL, dollars_HH],
+                "Pre vs. Post Attendance Rates" : ["Low_Low", "Low_High", "High_Low", "High_High"]}
+    groups_df = pd.DataFrame(groups)
+
+    fig = px.bar(groups_df, x="Pre vs. Post Attendance Rates", y="Average Dollars Spent per Student")
+    avg_dollars = groups_df["Average Dollars Spent per Student"].mean()
     fig.add_hline(y= avg_dollars, line_width = 1, line_color = "red")
 
     return fig
 
-#update df s.t. new categorical column is made 
-#two graphs I can do 
 
 
 if __name__ == "__main__":
