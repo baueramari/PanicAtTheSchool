@@ -44,7 +44,7 @@ app.layout = html.Div(
             children="Panic at the Schools",
             style={"textAlign": "center", "marginTop": 40, "marginBottom": 40},
         ),
-        html.H2(id="H2", children="Eshan, Sarah, and Amari!"),
+        html.H2(id="H2", children="Eshan, Sarah, and Amari!", style={"textalign"}),
         dcc.Dropdown(
             id="dropdown",
             options=[
@@ -95,16 +95,16 @@ app.layout = html.Div(
 def display_plots(value):
     if value == "Misconduct":
         fig = plot_crime()
-        fig12 = descriptions["crime"]
+        fig_desc = descriptions["crime"]  # key here is specific to the graph
         fig2 = scatter_SSrate_attendance()
         fig3 = scatter_OSS_attendance()
         fig4 = scatter_ISS_attendance()
         fig5 = bar_crime_OSS_ISS()
         fig6 = bar_police_crime()
-        return [fig, fig12, fig2, fig3, fig4, fig5, fig6]
+        return [fig, fig_desc, fig2, fig3, fig4, fig5, fig6]
     if value == "Health":
         fig = scatter_pre_post_grid()
-        fig12 = descriptions["attend"]
+        fig_desc = descriptions["attend"]
 
         fig2 = blank_figure()  # insert  other health related ones here
         fig3 = blank_figure()
@@ -112,10 +112,10 @@ def display_plots(value):
         fig5 = blank_figure()
         fig6 = blank_figure()
 
-        return [fig, fig12, fig2, fig3, fig4, fig5, fig6]
+        return [fig, fig_desc, fig2, fig3, fig4, fig5, fig6]
     # add last option in here
 
 
 # NEED TO FIGURE OUT HOW TO ADD TEXT DESCRIPTION IN HERE, WRITE THEM IN ANOTHER FILE AND LOAD THEM IN?
 if __name__ == "__main__":
-    app.run_server(port=6010)
+    app.run_server(port=6012)
