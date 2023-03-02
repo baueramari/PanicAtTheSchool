@@ -12,11 +12,26 @@ from analysis_plots.plots import (
     scatter_ISS_attendance,
     bar_crime_OSS_ISS,
     bar_police_crime,
+    scatter_pre_post_grid,
 )
+
+
+def blank_figure():  # necessary to avoid displaying default blank graph when no dropdown option is selected
+    blank = go.Figure(
+        go.Scatter(x=[], y=[])
+    )  # https://stackoverflow.com/questions/66637861/how-to-not-show-default-dcc-graph-template-in-dash
+    blank.update_layout(template=None)
+    blank.update_xaxes(showgrid=False, showticklabels=False, zeroline=False)
+    blank.update_yaxes(showgrid=False, showticklabels=False, zeroline=False)
+    return blank
+
 
 app = dash.Dash()
 app.config.suppress_callback_exceptions = True
+
+
 # VERY INITIAL STAGE
+
 
 app.layout = html.Div(
     id="parent",
@@ -30,10 +45,9 @@ app.layout = html.Div(
         dcc.Dropdown(
             id="dropdown",
             options=[
-                {"label": "Project Introduction", "value": "Project Introduction"},
                 {"label": "Misconduct", "value": "Misconduct"},
-                {"label": "Demographic", "value": "Demographic"},  # at home factors
-                {"label": "Health", "value": "Health"},  # at school factors
+                {"label": "Demographic", "value": "Demographic"},  # at home factors?
+                {"label": "Health", "value": "Health"},  # at school factors?
             ],
             value="project_intro",
         ),
@@ -52,12 +66,13 @@ app.layout = html.Div(
                 },
             )
         ),
-        html.Div(dcc.Graph(id="crime", figure={})),
-        html.Div(dcc.Graph(id="SSRate", figure={})),
-        html.Div(dcc.Graph(id="ISS", figure={})),
-        html.Div(dcc.Graph(id="OSS", figure={})),
-        html.Div(dcc.Graph(id="ISS_OSS", figure={})),
-        html.Div(dcc.Graph(id="Police", figure={})),
+        html.Div(dcc.Graph(id="fig", figure=blank_figure())),
+        html.Div(dcc.Graph(id="fig2", figure=blank_figure())),
+        html.Div(dcc.Graph(id="fig3", figure=blank_figure())),
+        html.Div(dcc.Graph(id="fig4", figure=blank_figure())),
+        html.Div(dcc.Graph(id="fig5", figure=blank_figure())),
+        html.Div(dcc.Graph(id="fig6", figure=blank_figure())),
+        # html.Div(dcc.Graph(id="prepost", figure=blank_figure())),
     ],
 )
 
@@ -86,28 +101,38 @@ app.layout = html.Div(
 
 @app.callback(
     [
-        Output(component_id="crime", component_property="figure"),
-        Output(component_id="bacon", component_property="figure"),
-        Output(component_id="SSRate", component_property="figure"),
-        Output(component_id="ISS", component_property="figure"),
-        Output(component_id="OSS", component_property="figure"),
-        Output(component_id="ISS_OSS", component_property="figure"),
-        Output(component_id="Police", component_property="figure"),
+        Output(component_id="fig", component_property="figure"),
+        # Output(component_id="bacon", component_property="figure"),
+        Output(component_id="fig2", component_property="figure"),
+        Output(component_id="fig3", component_property="figure"),
+        Output(component_id="fig4", component_property="figure"),
+        Output(component_id="fig5", component_property="figure"),
+        Output(component_id="fig6", component_property="figure"),
     ],
     [Input(component_id="dropdown", component_property="value")],
 )
 def display_plots(value):
     if value == "Misconduct":
         fig = plot_crime()
-        fig12 = "bacon"
+        # fig12 = "bacon"
         fig2 = scatter_SSrate_attendance()
         fig3 = scatter_OSS_attendance()
         fig4 = scatter_ISS_attendance()
         fig5 = bar_crime_OSS_ISS()
         fig6 = bar_police_crime()
-        return [fig, fig12, fig2, fig3, fig4, fig5, fig6]
+        return [fig, fig2, fig3, fig4, fig5, fig6]
+    if value == "Health":
+        fig = scatter_pre_post_grid()
+        fig2 = blank_figure()  # insert  other health related ones here
+        fig3 = blank_figure()
+        fig4 = blank_figure()
+        fig5 = blank_figure()
+        fig6 = blank_figure()
+
+        return [fig, fig2, fig3, fig4, fig5, fig6]
+    # add last option in here
 
 
 # NEED TO FIGURE OUT HOW TO ADD TEXT DESCRIPTION IN HERE, WRITE THEM IN ANOTHER FILE AND LOAD THEM IN?
 if __name__ == "__main__":
-    app.run_server(port=6086)
+    app.run_server(port=6096)
