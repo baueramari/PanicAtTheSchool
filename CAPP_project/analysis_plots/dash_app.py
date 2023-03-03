@@ -44,7 +44,7 @@ app.layout = html.Div(
             children="Panic at the Schools",
             style={"textAlign": "center", "marginTop": 40, "marginBottom": 40},
         ),
-        html.H2(id="H2", children="Eshan, Sarah, and Amari!", style={"textalign"}),
+        html.H2(id="H2", children="Eshan, Sarah, and Amari!"),
         dcc.Dropdown(
             id="dropdown",
             options=[
@@ -118,4 +118,4 @@ def display_plots(value):
 
 # NEED TO FIGURE OUT HOW TO ADD TEXT DESCRIPTION IN HERE, WRITE THEM IN ANOTHER FILE AND LOAD THEM IN?
 if __name__ == "__main__":
-    app.run_server(port=6014)
+    app.run_server(port=6016)
