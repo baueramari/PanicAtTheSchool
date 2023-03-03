@@ -5,7 +5,13 @@ import matplotlib.pyplot as plt
 import os
 import pandas as pd
 
-# Question: do we want to add hovers?
+#Sarah 
+
+#https://www.kaggle.com/code/threadid/geopandas-mapping-chicago-crimes 
+#https://geopandas.org/en/stable/docs/user_guide/mapping.html 
+#https://www.youtube.com/watch?v=xxg4Vm-Xg9g 
+
+# We ended up not using these
 def chicago_map():
     '''
     '''
