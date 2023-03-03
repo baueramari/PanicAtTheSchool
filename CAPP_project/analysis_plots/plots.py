@@ -289,6 +289,7 @@ def bar_finance_buckets():
     avg_dollars = groups_df["Average Dollars Spent per Student"].mean()
     fig.add_hline(y= avg_dollars, line_width = 1, line_color = "red")
 
+
     return fig
 
 
