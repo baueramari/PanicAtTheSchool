@@ -3,11 +3,10 @@
 
 
 # To open your plots in ipython3:
-
-# %load_ext autoreload
-# %autoreload 2
-# from CAPP_project.analysis_plots import plots
-# plots._____
+#       %load_ext autoreload
+#       %autoreload 2
+#       from CAPP_project.analysis_plots import plots
+#       plots._____
 
 descriptions = {
     "crime": "Amari writes this", # plots.plot_crime()
@@ -39,6 +38,9 @@ descriptions = {
 
 
 # To do: 
-#     We each write our plot descriptions in dictionary above
-#     Introduction page - Sarah writes two plots and the descriptions for them 
-#     Conclusion/Further Research Opportunities - Eshan write description for this
+#     -We each write our plot descriptions in dictionary above
+#     -Introduction page - Sarah writes two plots and the descriptions for them 
+#     -Conclusion/Further Research Opportunities - Eshan write description for this
+#     -Eshan = __init__ and package details... Get the program running front to back how we will turn it in
+#     -Write documentation/update ReadMe
+#     -Check rubric and make sure we have everything
