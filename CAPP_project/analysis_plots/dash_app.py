@@ -7,12 +7,14 @@ import plotly.graph_objects as go
 import plotly.express as px
 from CAPP_project.analysis_plots.plots import (
     plot_crime,
-    scatter_OSS_attendance,
     scatter_SSrate_attendance,
     scatter_ISS_attendance,
     bar_crime_OSS_ISS,
     bar_police_crime,
     scatter_pre_post_grid,
+    scatter_income_pre_post,
+    bar_att_diff_buckets,
+    bar_finance_buckets,
 )
 from CAPP_project.analysis_plots.Graph_Descriptions.analysis_desc_dict import (
     descriptions,
@@ -33,9 +35,6 @@ app = dash.Dash()
 app.config.suppress_callback_exceptions = True
 
 
-# VERY INITIAL STAGE
-
-
 app.layout = html.Div(
     id="parent",
     children=[
@@ -44,13 +43,19 @@ app.layout = html.Div(
             children="Panic at the Schools",
             style={"textAlign": "center", "marginTop": 40, "marginBottom": 40},
         ),
-        html.H2(id="H2", children="Eshan, Sarah, and Amari!"),
+        html.H2(
+            id="H2", children="Eshan, Sarah, and Amari!", style={"textAlign": "center"}
+        ),
         dcc.Dropdown(
             id="dropdown",
             options=[
+                {"label": "Introduction", "value": "Introduction"},
                 {"label": "Misconduct", "value": "Misconduct"},
-                {"label": "Demographic", "value": "Demographic"},  # at home factors?
-                {"label": "Health", "value": "Health"},  # at school factors?
+                {
+                    "label": "Impact of COVID-19 in Schools",
+                    "value": "Impact of COVID-19 in Schools",
+                },
+                {"label": "Conclusion", "value": "Conclusion"},
             ],
             value="project_intro",
         ),
@@ -64,18 +69,20 @@ app.layout = html.Div(
     Our aim is to assess the drop in attendance observed by Chicago Public Schools in the last decade, but more specifically, in the time returning from COVID. Based on attendance data from CPS, pre-K and grades 9-12 have shown the most noticeable drop in attendance. For these grades, in 2018 and 2019, for example, the average attendance was 86.15% and 86.51% respectively. Post Covid, these numbers dropped to 79.72% and 78.79% respectively in 2021 and 2022. News agencies covering this issue have attributed these trends to the emergence and solidification of the Chicago Teachers Union. While we’re not looking into those claims through this project, we want to investigate other variables that might have impacted attendance. Specifically, we want to look at 3 buckets: a) Neighborhood indicators: These will cover: Demographic build up of school neighborhood Socioeconomic indicators - employment, income etc. Health indicators Accessibility indicators such as walkability score, access to public transport etc.
     b) Investment in school indicators: These will cover: Per pupil budget for schools Teacher distribution by race/qualification Attendance distribution by school type c) Crime and punishment indicators: Crime in the school neighborhood Suspensions/expulsions handed out by school authorities Through our analysis, we want to see which of these factors impacts attendance the most. Finally, we will visualize our results on a web-app and write down some potential next steps based on research of news articles/interviews with CPS employees.')""",
                 style={
+                    "textAlign": "center",
                     "width": "100%",
                     "height": 200,
                 },
             )
         ),
         html.Div(dcc.Graph(id="fig", figure=blank_figure())),
-        html.Div(dcc.Textarea(id="bacon")),
+        html.Div(dcc.Textarea(id="desc1"), style={"textAlign": "center"}),
         html.Div(dcc.Graph(id="fig2", figure=blank_figure())),
+        html.Div(dcc.Textarea(id="desc2"), style={"textAlign": "center"}),
         html.Div(dcc.Graph(id="fig3", figure=blank_figure())),
+        html.Div(dcc.Textarea(id="desc3"), style={"textAlign": "center"}),
         html.Div(dcc.Graph(id="fig4", figure=blank_figure())),
-        html.Div(dcc.Graph(id="fig5", figure=blank_figure())),
-        html.Div(dcc.Graph(id="fig6", figure=blank_figure())),
+        html.Div(dcc.Textarea(id="desc4"), style={"textAlign": "center"}),
     ],
 )
 
@@ -83,39 +90,75 @@ app.layout = html.Div(
 @app.callback(
     [
         Output(component_id="fig", component_property="figure"),
-        Output(component_id="bacon", component_property="value"),
+        Output(component_id="desc1", component_property="value"),
         Output(component_id="fig2", component_property="figure"),
+        Output(component_id="desc2", component_property="value"),
         Output(component_id="fig3", component_property="figure"),
+        Output(component_id="desc3", component_property="value"),
         Output(component_id="fig4", component_property="figure"),
-        Output(component_id="fig5", component_property="figure"),
-        Output(component_id="fig6", component_property="figure"),
+        Output(component_id="desc4", component_property="value"),
     ],
     [Input(component_id="dropdown", component_property="value")],
 )
 def display_plots(value):
+    if value == "Conclusion":
+        fig = plot_crime()
+        fig_desc = descriptions["attend"]
+        fig2 = blank_figure()
+        fig2_desc = descriptions["attend"]
+        fig3 = blank_figure()
+        fig3_desc = descriptions["ISS and OSS"]
+        fig4 = blank_figure()
+        fig4_desc = descriptions["police"]
+        return [fig, fig_desc, fig2, fig2_desc, fig3, fig3_desc, fig4, fig4_desc]
+
     if value == "Misconduct":
         fig = plot_crime()
-        fig_desc = descriptions["crime"]  # key here is specific to the graph
+        fig_desc = descriptions["crime"]
         fig2 = scatter_SSrate_attendance()
-        fig3 = scatter_OSS_attendance()
-        fig4 = scatter_ISS_attendance()
-        fig5 = bar_crime_OSS_ISS()
-        fig6 = bar_police_crime()
-        return [fig, fig_desc, fig2, fig3, fig4, fig5, fig6]
-    if value == "Health":
+        fig2_desc = descriptions["attend"]
+        fig3 = bar_crime_OSS_ISS()
+        fig3_desc = descriptions["ISS and OSS"]
+        fig4 = bar_police_crime()
+        fig4_desc = descriptions["police"]
+        return [fig, fig_desc, fig2, fig2_desc, fig3, fig3_desc, fig4, fig4_desc]
+
+    if value == "Impact of COVID-19 in Schools":
         fig = scatter_pre_post_grid()
+        fig_desc = descriptions["pre_post grid"]
+        fig2 = scatter_income_pre_post()
+        fig2_desc = descriptions["income"]
+        fig3 = bar_att_diff_buckets()
+        fig3_desc = descriptions["change"]
+        fig4 = bar_finance_buckets()
+        fig4_desc = descriptions["finance"]
+    else:  # display intro
+        fig = blank_figure()
         fig_desc = descriptions["attend"]
-
-        fig2 = blank_figure()  # insert  other health related ones here
+        fig2 = blank_figure()
+        fig2_desc = descriptions["attend"]
         fig3 = blank_figure()
+        fig3_desc = descriptions["ISS and OSS"]
         fig4 = blank_figure()
-        fig5 = blank_figure()
-        fig6 = blank_figure()
+        fig4_desc = descriptions["police"]
+        return [fig, fig_desc, fig2, fig2_desc, fig3, fig3_desc, fig4, fig4_desc]
 
-        return [fig, fig_desc, fig2, fig3, fig4, fig5, fig6]
-    # add last option in here
+        return [fig, fig_desc, fig2, fig2_desc, fig3, fig3_desc, fig4, fig4_desc]
+
+
+# @app.callback(
+#    [
+#        Output(component_id="fig", component_property="figure"),
+#    ],
+#    [Input(component_id="dropdown", component_property="value")],
+# )
+# def display_plots2(value):
+#    if value == "Introduction":
+#        fig = scatter_pre_post_grid()
+#        return [fig]
+#    # add last option in here
 
 
 # NEED TO FIGURE OUT HOW TO ADD TEXT DESCRIPTION IN HERE, WRITE THEM IN ANOTHER FILE AND LOAD THEM IN?
 if __name__ == "__main__":
-    app.run_server(port=6016)
+    app.run_server(port=6042)
