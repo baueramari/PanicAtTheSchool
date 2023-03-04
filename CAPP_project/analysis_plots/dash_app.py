@@ -70,19 +70,98 @@ app.layout = html.Div(
     b) Investment in school indicators: These will cover: Per pupil budget for schools Teacher distribution by race/qualification Attendance distribution by school type c) Crime and punishment indicators: Crime in the school neighborhood Suspensions/expulsions handed out by school authorities Through our analysis, we want to see which of these factors impacts attendance the most. Finally, we will visualize our results on a web-app and write down some potential next steps based on research of news articles/interviews with CPS employees.')""",
                 style={
                     "textAlign": "center",
-                    "width": "100%",
+                    "width": "85%",
+                    "marginTop": 50,
                     "height": 200,
+                    "border-style": "none",
+                    "margin-left": 105,
+                    "margin-right": 75,
                 },
             )
         ),
-        html.Div(dcc.Graph(id="fig", figure=blank_figure())),
-        html.Div(dcc.Textarea(id="desc1"), style={"textAlign": "center"}),
-        html.Div(dcc.Graph(id="fig2", figure=blank_figure())),
-        html.Div(dcc.Textarea(id="desc2"), style={"textAlign": "center"}),
-        html.Div(dcc.Graph(id="fig3", figure=blank_figure())),
-        html.Div(dcc.Textarea(id="desc3"), style={"textAlign": "center"}),
-        html.Div(dcc.Graph(id="fig4", figure=blank_figure())),
-        html.Div(dcc.Textarea(id="desc4"), style={"textAlign": "center"}),
+        html.Div(
+            dcc.Graph(id="fig", figure=blank_figure()),
+            style={
+                "margin-left": 75,
+                "margin-right": 75,
+            },
+        ),
+        html.Div(
+            dcc.Textarea(
+                id="desc1",
+                style={
+                    "border-style": "none",
+                    "width": "85%",
+                    "height": 40,
+                    "margin-left": 75,
+                    "margin-right": 75,
+                },
+            ),
+            style={"textAlign": "center"},
+        ),
+        html.Div(
+            dcc.Graph(
+                id="fig2",
+                figure=blank_figure(),
+            ),
+            style={
+                "margin-left": 75,
+                "margin-right": 75,
+            },
+        ),
+        html.Div(
+            dcc.Textarea(
+                id="desc2",
+                style={
+                    "border-style": "none",
+                    "width": "85%",
+                    "height": 40,
+                    "marginLeft": 75,
+                    "marginRight": 75,
+                },
+            ),
+            style={"textAlign": "center"},
+        ),
+        html.Div(
+            dcc.Graph(id="fig3", figure=blank_figure()),
+            style={
+                "margin-left": 75,
+                "margin-right": 75,
+            },
+        ),
+        html.Div(
+            dcc.Textarea(
+                id="desc3",
+                style={
+                    "border-style": "none",
+                    "width": "85%",
+                    "height": 40,
+                    "marginLeft": 75,
+                    "marginRight": 75,
+                },
+            ),
+            style={"textAlign": "center"},
+        ),
+        html.Div(
+            dcc.Graph(id="fig4", figure=blank_figure()),
+            style={
+                "margin-left": 75,
+                "margin-right": 75,
+            },
+        ),
+        html.Div(
+            dcc.Textarea(
+                id="desc4",
+                style={
+                    "border-style": "none",
+                    "width": "85%",
+                    "height": 40,
+                    "marginLeft": 75,
+                    "marginRight": 75,
+                },
+            ),
+            style={"textAlign": "center"},
+        ),
     ],
 )
 
@@ -103,13 +182,13 @@ app.layout = html.Div(
 def display_plots(value):
     if value == "Conclusion":
         fig = plot_crime()
-        fig_desc = descriptions["attend"]
+        fig_desc = descriptions["conclusion"]
         fig2 = blank_figure()
-        fig2_desc = descriptions["attend"]
+        fig2_desc = ""
         fig3 = blank_figure()
-        fig3_desc = descriptions["ISS and OSS"]
+        fig3_desc = ""
         fig4 = blank_figure()
-        fig4_desc = descriptions["police"]
+        fig4_desc = ""
         return [fig, fig_desc, fig2, fig2_desc, fig3, fig3_desc, fig4, fig4_desc]
 
     if value == "Misconduct":
@@ -132,33 +211,19 @@ def display_plots(value):
         fig3_desc = descriptions["change"]
         fig4 = bar_finance_buckets()
         fig4_desc = descriptions["finance"]
+        return [fig, fig_desc, fig2, fig2_desc, fig3, fig3_desc, fig4, fig4_desc]
+
     else:  # display intro
-        fig = blank_figure()
-        fig_desc = descriptions["attend"]
+        fig = blank_figure()  # two plots from Sarah
+        fig_desc = descriptions["somebody"]
         fig2 = blank_figure()
-        fig2_desc = descriptions["attend"]
+        fig2_desc = descriptions["somebody"]
         fig3 = blank_figure()
-        fig3_desc = descriptions["ISS and OSS"]
+        fig3_desc = descriptions["somebody"]
         fig4 = blank_figure()
-        fig4_desc = descriptions["police"]
+        fig4_desc = descriptions["somebody"]
         return [fig, fig_desc, fig2, fig2_desc, fig3, fig3_desc, fig4, fig4_desc]
 
-        return [fig, fig_desc, fig2, fig2_desc, fig3, fig3_desc, fig4, fig4_desc]
 
-
-# @app.callback(
-#    [
-#        Output(component_id="fig", component_property="figure"),
-#    ],
-#    [Input(component_id="dropdown", component_property="value")],
-# )
-# def display_plots2(value):
-#    if value == "Introduction":
-#        fig = scatter_pre_post_grid()
-#        return [fig]
-#    # add last option in here
-
-
-# NEED TO FIGURE OUT HOW TO ADD TEXT DESCRIPTION IN HERE, WRITE THEM IN ANOTHER FILE AND LOAD THEM IN?
 if __name__ == "__main__":
-    app.run_server(port=6042)
+    app.run_server(port=6069)
