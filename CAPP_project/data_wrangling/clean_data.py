@@ -1,6 +1,7 @@
 from pathlib import Path
 import pandas as pd
 
+
 cwd = Path.cwd()
 parent_dir = cwd.parent
 
@@ -241,6 +242,7 @@ suspensions["% of Misconducts Resulting in a Police Notification"] = suspensions
 ].astype(float)
 
 suspensions.to_csv(parent_dir / "data_wrangling/cleaned_data/suspension_data.csv")
+
 
 # Eshan's code: Cleaning health data
 # Check final location and name of file- will definitely lead to bugs in case of incorrect pathname
