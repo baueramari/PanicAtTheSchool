@@ -1,4 +1,9 @@
-# CODE TO GENERATE PLOTS
+"""
+Sarah wrote 
+Eshan wrote
+Amari wrote plot_crime()
+This file contains all code to create data visualizations. 
+"""
 import pandas as pd
 import plotly.express as px
 
@@ -67,7 +72,6 @@ def intro_two():
     return fig
 
 
-# Amari wrote this
 # using this on the misconduct page
 def plot_crime():
     attend_by_crime = pd.read_csv(
@@ -138,7 +142,6 @@ def scatter_OSS_attendance():
         title="Average Attendance Rate by Percent of Unique Students Receiving Out of School Suspension",
     )
 
-    # scatter.show()
     return OSS_attend_scatter
 
 
@@ -308,11 +311,7 @@ def scatter_teachers_pre_post():
     )
 
     scatter = px.scatter(
-        school_df,
-        x="pre_cov_att",
-        y="post_cov_att",
-        color="teachers_per_100stu"
-        # title and label here
+        school_df, x="pre_cov_att", y="post_cov_att", color="teachers_per_100stu"
     )
 
     avg_x = school_df["pre_cov_att"].mean()
@@ -534,5 +533,5 @@ def bar_finance_buckets():
     return fig
 
 
-if __name__ == "__main__":
+if __name__ == "__main__":  # delete?
     app.run_server(debug=True)

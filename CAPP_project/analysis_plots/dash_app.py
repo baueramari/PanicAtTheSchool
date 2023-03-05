@@ -1,3 +1,6 @@
+"""
+Amari wrote this file.
+"""
 import dash
 import dash_html_components as html
 import dash_core_components as dcc
@@ -31,6 +34,21 @@ def blank_figure():  # necessary to avoid displaying default blank graph when no
     blank.update_xaxes(showgrid=False, showticklabels=False, zeroline=False)
     blank.update_yaxes(showgrid=False, showticklabels=False, zeroline=False)
     return blank
+
+
+style_dict = {
+    "border-style": "none",
+    "width": "85%",
+    "height": 185,
+    "margin-left": 75,
+    "margin-right": 75,
+    "textAlign": "center",
+    "font-size": "16px",
+}
+graph_margins = {
+    "margin-left": 75,
+    "margin-right": 75,
+}
 
 
 app = dash.Dash()
@@ -84,24 +102,13 @@ app.layout = html.Div(
         ),
         html.Div(
             dcc.Graph(id="fig", figure=blank_figure()),
-            style={
-                "margin-left": 75,
-                "margin-right": 75,
-            },
+            style=graph_margins,
         ),
         html.Div(
             dcc.Textarea(
                 id="desc1",
                 readOnly=True,
-                style={
-                    "border-style": "none",
-                    "width": "85%",
-                    "height": 185,
-                    "margin-left": 75,
-                    "margin-right": 75,
-                    "textAlign": "center",
-                    "font-size": "16px",
-                },
+                style=style_dict,
             ),
             style={"textAlign": "center"},
         ),
@@ -110,70 +117,33 @@ app.layout = html.Div(
                 id="fig2",
                 figure=blank_figure(),
             ),
-            style={
-                "margin-left": 75,
-                "margin-right": 75,
-            },
+            style=graph_margins,
         ),
         html.Div(
-            dcc.Textarea(
-                id="desc2",
-                readOnly=True,
-                style={
-                    "border-style": "none",
-                    "width": "85%",
-                    "height": 160,
-                    "margin-left": 75,
-                    "margin-right": 75,
-                    "textAlign": "center",
-                    "font-size": "16px",
-                },
-            ),
+            dcc.Textarea(id="desc2", readOnly=True, style=style_dict),
             style={"textAlign": "center"},
         ),
         html.Div(
             dcc.Graph(id="fig3", figure=blank_figure()),
-            style={
-                "margin-left": 75,
-                "margin-right": 75,
-            },
+            style=graph_margins,
         ),
         html.Div(
             dcc.Textarea(
                 id="desc3",
                 readOnly=True,
-                style={
-                    "border-style": "none",
-                    "width": "85%",
-                    "height": 160,
-                    "margin-left": 75,
-                    "margin-right": 75,
-                    "textAlign": "center",
-                    "font-size": "16px",
-                },
+                style=style_dict,
             ),
             style={"textAlign": "center"},
         ),
         html.Div(
             dcc.Graph(id="fig4", figure=blank_figure()),
-            style={
-                "margin-left": 75,
-                "margin-right": 75,
-            },
+            style=graph_margins,
         ),
         html.Div(
             dcc.Textarea(
                 id="desc4",
                 readOnly=True,
-                style={
-                    "border-style": "none",
-                    "width": "85%",
-                    "height": 160,
-                    "margin-left": 75,
-                    "margin-right": 75,
-                    "textAlign": "center",
-                    "font-size": "16px",
-                },
+                style=style_dict,
             ),
             style={"textAlign": "center"},
         ),

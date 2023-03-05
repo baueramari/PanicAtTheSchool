@@ -1,3 +1,8 @@
+"""
+Amari wrote lines 13-55, 95-120, 147-166 to clean crime, attendance, and admin data.
+Sarah wrote
+Eshan wrote
+"""
 from pathlib import Path
 import pandas as pd
 
@@ -29,7 +34,7 @@ crime_by_ward["crime_capita"] = (
     crime_by_ward["size"] / 55000
 )  # average population in Chicago wards interpret: crime reports per person in ward.
 crime_by_ward.to_csv("data_wrangling/cleaned_data/crime_by_ward.csv")
-# Amari's code for mapping schools
+
 admin_cols = [
     "School_ID",
     "Community Areas",
@@ -48,8 +53,7 @@ admin_cols = [
 admin = pd.read_csv(
     "CAPP_project/raw_data/school_info/admin_demog.csv", usecols=admin_cols
 )
-# admin_filename,  #
-# filtering schools that don't have minimum threshold of children
+# filtering schools that don't have the minimum threshold of children
 min_stu_count = 50
 admin = admin[admin["Student_Count_Total"] > min_stu_count]
 
@@ -140,15 +144,15 @@ att_df_group_sid[cols_to_select].to_csv(
     "CAPP_project/data_wrangling/cleaned_data/clean_attendance.csv", index=False
 )
 
-# Amari's analysis: pivot columns - to be edited
+# Pivoting dataframe to achieve tidy form
 attend = pd.melt(
     attend,
     id_vars=["School ID", "Grade", "Network"],
     value_vars=year_range[1:],
     value_name="Attendance",
-)  # data is tidy.
+)
 attend = attend[attend["Attendance"] != 0.0]
-attend = attend[attend["Attendance"] != 100.0]  # untrustworthy reporting
+attend = attend[attend["Attendance"] != 100.0]  # suspicious reporting
 attend.rename(columns={"variable": "Year"}, inplace=True)
 attend["Year"] = attend["Year"].astype(int)
 

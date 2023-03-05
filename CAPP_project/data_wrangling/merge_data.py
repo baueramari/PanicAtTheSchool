@@ -1,3 +1,8 @@
+"""
+Amari wrote lines 12-59, 
+Sarah wrote
+Eshan wrote
+"""
 from pathlib import Path
 import pandas as pd
 
@@ -183,7 +188,6 @@ merged_att_demo = pd.merge(att_demo, demog_info, on="ca_id")
 merged_att_demo = pd.merge(merged_att_demo, health_info, on="ca_id")
 cols_to_drop = ["comm_area_y"]
 merged_att_demo = merged_att_demo.drop(cols_to_drop, axis=1)
-print(merged_att_demo.columns)
 merged_att_demo.to_csv(
     parent_dir / "data_wrangling/merged_data/school_demo_merged.csv", index=False
 )
