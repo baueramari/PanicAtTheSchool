@@ -64,7 +64,14 @@ app.layout = html.Div(
             style={"textAlign": "center", "marginTop": 40, "marginBottom": 40},
         ),
         html.H2(
-            id="H2", children="Eshan, Sarah, and Amari!", style={"textAlign": "center"}
+            id="H2",
+            children="Data Collection and Analysis Completed by Eshan, Sarah, and Amari",
+            style={"textAlign": "center"},
+        ),
+        html.H3(
+            id="H3",
+            children="With support from Professor Turk, our wonderful TA's, and classmates",
+            style={"textAlign": "center"},
         ),
         dcc.Dropdown(
             id="dropdown",
@@ -211,4 +218,4 @@ def display_plots(value):
 
 
 if __name__ == "__main__":
-    app.run_server(port=6091)
+    app.run_server(port=6093)

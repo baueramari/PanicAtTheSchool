@@ -531,7 +531,3 @@ def bar_finance_buckets():
     )
 
     return fig
-
-
-if __name__ == "__main__":  # delete?
-    app.run_server(debug=True)

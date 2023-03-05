@@ -7,9 +7,6 @@ from pathlib import Path
 import pandas as pd
 
 
-cwd = Path.cwd()
-parent_dir = cwd.parent
-
 crime_cols = [
     "id",
     "case_number",
@@ -33,7 +30,7 @@ crime_by_ward = crime.groupby(by=["ward", "year"], as_index=False).size()
 crime_by_ward["crime_capita"] = (
     crime_by_ward["size"] / 55000
 )  # average population in Chicago wards interpret: crime reports per person in ward.
-crime_by_ward.to_csv("data_wrangling/cleaned_data/crime_by_ward.csv")
+crime_by_ward.to_csv("CAPP_project/data_wrangling/cleaned_data/crime_by_ward.csv")
 
 admin_cols = [
     "School_ID",
@@ -139,7 +136,6 @@ cols_to_select = [
     "att_diff_pp",
 ]
 att_df_group_sid.dropna(how="any", inplace=True)
-print(att_df_group_sid)
 att_df_group_sid[cols_to_select].to_csv(
     "CAPP_project/data_wrangling/cleaned_data/clean_attendance.csv", index=False
 )
@@ -165,7 +161,7 @@ high_schools = avg_attend["School ID"].unique().tolist()  # Sarah wants this
 avg_attend.to_csv("CAPP_project/data_wrangling/cleaned_data/avg_attend.csv")
 
 # Eshan's code: Cleaning finance data
-fin_filename = parent_dir / "CAPP_project/raw_data/school_info/FY_21_22_budget_data.csv"
+fin_filename = "CAPP_project/raw_data/school_info/FY_21_22_budget_data.csv"
 sch_finance = pd.read_csv(fin_filename)
 
 # Columns have whitespace: remove and convert to lower
@@ -189,7 +185,7 @@ sch_finance = sch_finance.loc[
     (sch_finance["fy_2022_proposed_budget"] > budget_threshold)
 ]
 sch_finance.to_csv(
-    parent_dir / "data_wrangling/cleaned_data/clean_school_budget.csv", index=False
+    "CAPP_project/data_wrangling/cleaned_data/clean_school_budget.csv", index=False
 )
 
 
@@ -205,7 +201,7 @@ suspension_cols = [
     "% of Unique Students Receiving OSS",
     "% of Misconducts Resulting in a Police Notification",
 ]
-susp_filename = parent_dir / "raw_data/suspensions/suspension_data.csv"
+susp_filename = "CAPP_project/raw_data/suspensions/suspension_data.csv"
 suspensions = pd.read_csv(susp_filename, usecols=suspension_cols)
 
 # avg_attend = pd.read_csv("data_wrangling/cleaned_data/avg_attend.csv")
@@ -243,12 +239,12 @@ suspensions["% of Misconducts Resulting in a Police Notification"] = suspensions
     "% of Misconducts Resulting in a Police Notification"
 ].astype(float)
 
-suspensions.to_csv(parent_dir / "data_wrangling/cleaned_data/suspension_data.csv")
+suspensions.to_csv("CAPP_project/data_wrangling/cleaned_data/suspension_data.csv")
 
 
 # Eshan's code: Cleaning health data
 # Check final location and name of file- will definitely lead to bugs in case of incorrect pathname
-ha_filename = parent_dir / "raw_data/health_data/health_indicators_atlas_v2.csv"
+ha_filename = "CAPP_project/raw_data/health_data/health_indicators_atlas_v2.csv"
 ha_df = pd.read_csv(ha_filename, skiprows=range(4))
 ha_df = ha_df.loc[
     :,
@@ -298,12 +294,12 @@ ha_df = ha_df.rename(
 col_impute_val = ha_df["comm_belong_16_18"].mean()
 ha_df["comm_belong_16_18"].fillna(col_impute_val, inplace=True)
 ha_df.to_csv(
-    parent_dir / "data_wrangling/cleaned_data/clean_health_atlas.csv", index=False
+    "CAPP_project/data_wrangling/cleaned_data/clean_health_atlas.csv", index=False
 )
 
 # Eshan's code: Cleaning demographic data
 # Check final location and name of file- will definitely lead to bugs in case of incorrect pathname
-demo_filename = parent_dir / "raw_data/demographic_data/cmap_demog_data.csv"
+demo_filename = "CAPP_project/raw_data/demographic_data/cmap_demog_data.csv"
 demo_df = pd.read_csv(demo_filename)
 demo_df = demo_df.loc[
     :,
@@ -373,4 +369,4 @@ demo_df = demo_df.rename(
         "MED_RENT": "med_rent",
     }
 )
-demo_df.to_csv(parent_dir / "data_wrangling/cleaned_data/clean_demog.csv", index=False)
+demo_df.to_csv("CAPP_project/data_wrangling/cleaned_data/clean_demog.csv", index=False)
