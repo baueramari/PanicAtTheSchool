@@ -18,19 +18,17 @@ crime_cols = [
     "year",
     "updated_on",
 ]
-# crime = pd.read_csv("raw_data/crime.csv", usecols=crime_cols)
-
-# crime = crime[crime["year"] > 2011]
-# crime = crime[crime["year"] != 2023]
-# crime.dropna(subset="ward", inplace=True)
-# crime.drop_duplicates(inplace=True)
-# crime["ward"] = crime["ward"].astype(int)
-# crime_by_ward = crime.groupby(by=["ward", "year"], as_index=False).size()
-# crime_by_ward["crime_capita"] = (
-#    crime_by_ward["size"] / 55000
-# )  # average population in Chicago wards interpret: crime reports per person in ward.
-# crime_by_ward.to_csv("data_wrangling/cleaned_data/crime_by_ward.csv")
-
+crime = pd.read_csv("CAPP_project/raw_data/crime.csv", usecols=crime_cols)
+crime = crime[crime["year"] > 2011]
+crime = crime[crime["year"] != 2023]
+crime.dropna(subset="ward", inplace=True)
+crime.drop_duplicates(inplace=True)
+crime["ward"] = crime["ward"].astype(int)
+crime_by_ward = crime.groupby(by=["ward", "year"], as_index=False).size()
+crime_by_ward["crime_capita"] = (
+    crime_by_ward["size"] / 55000
+)  # average population in Chicago wards interpret: crime reports per person in ward.
+crime_by_ward.to_csv("data_wrangling/cleaned_data/crime_by_ward.csv")
 # Amari's code for mapping schools
 admin_cols = [
     "School_ID",

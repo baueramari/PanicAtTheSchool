@@ -6,16 +6,13 @@ import plotly.express as px
 # from dash import dcc, html
 # from dash.dependencies import Input, Output
 
-#Sarah wrote these
-#clean introduction data (last minute addition)
+
+# Sarah wrote these
+# clean introduction data (last minute addition)
 def clean_intro():
-    attendance_cols = [
-        "Year",
-        "Grade",
-        "Average Attendance"
-    ]
+    attendance_cols = ["Year", "Grade", "Average Attendance"]
     attendance = pd.read_csv(
-        "CAPP_project/raw_data/introduction/FIG1.csv", usecols = attendance_cols
+        "CAPP_project/raw_data/introduction/FIG1.csv", usecols=attendance_cols
     )
 
     attendance["Grade"] = attendance["Grade"].astype(str)
@@ -24,12 +21,13 @@ def clean_intro():
 
     attendance.to_csv("CAPP_project/data_wrangling/cleaned_data/intro_attendance.csv")
 
+
 # using on introduction page
 def intro_attendance():
     attendance = pd.read_csv(
         "CAPP_project/data_wrangling/cleaned_data/intro_attendance.csv"
     )
-    
+
     intro_line = px.line(
         attendance,
         x="Year",
@@ -42,14 +40,19 @@ def intro_attendance():
         markers=True,
         line_shape="spline",
     )
-    intro_line.update_layout(title={"y": 0.9, "x": 0.5, "xanchor": "center", "yanchor": "top"})
+    intro_line.update_layout(
+        title={"y": 0.9, "x": 0.5, "xanchor": "center", "yanchor": "top"}
+    )
 
     return intro_line
 
+
 # using on introduction page
 def intro_two():
-    num_schools = {"Number of Schools":[649, 152],
-                    "": ["Total Number of CPS Schools", "Number of CPS High Schools"]}
+    num_schools = {
+        "Number of Schools": [649, 152],
+        "": ["Total Number of CPS Schools", "Number of CPS High Schools"],
+    }
 
     num_schools_df = pd.DataFrame(num_schools)
 
@@ -57,11 +60,11 @@ def intro_two():
         num_schools_df,
         x="",
         y="Number of Schools",
-        title="Only 23% of CPS Schools are High Schools"
+        title="Only 23% of CPS Schools are High Schools",
     )
 
     fig.update_layout(title={"y": 0.9, "x": 0.5, "xanchor": "center", "yanchor": "top"})
-    return fig            
+    return fig
 
 
 # Amari wrote this
@@ -293,10 +296,6 @@ def scatter_pre_post_grid():
         annotation_text="Mean of Attendance Pre COVID",
         annotation_position="top left",
     )
-
-    ### This part is not needed- will go in dash.py file
-    # app = dash.Dash(__name__)
-    # app.layout = html.Div([dcc.Graph(id="scatterplot", figure=scatter)])
 
     return scatter
 

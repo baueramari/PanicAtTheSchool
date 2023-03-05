@@ -9,13 +9,19 @@
 #       plots._____
 
 descriptions = {
-    "intro one": "Sarah", #plots.intro_attendance()
-    "intro two": "Sarah", #plots.intro_two()
-    "crime": """News sources have identified crime rates as a key factor in falling attendance at Chicago Public Schools.
-            By categorizing the data into the wards with the highest, lowest, and middle-ground levels of crime, 
-            we are able to identify schools that operate in these varying environments. By tracking attendance over the years, we
-            intended to identify. Further research would benefit from looking more closely at the several wards that changed
-            crime class during this ten year period, and how attendance correlates with that shift, rather than overall crime levels""",
+    "intro one": "Sarah",  # plots.intro_attendance()
+    "intro two": "Sarah",  # plots.intro_two()
+    "attend": "Someone",  # plots.scatter_SSrate_attendance()
+    "crime": """News sources have identified crime rates as a key factor in falling attendance at Chicago 
+            Public Schools. By categorizing the data into the wards with the highest, lowest, and middle-ground 
+            levels of crime, we are able to identify schools that operate in these varying environments. 
+            By tracking attendance over the years, we intended to investigate those news claims and 
+            identify any relationship that may exist between varying levels of crime and attendance. 
+            We found that schools in the lowest tercile for crime reports actually experienced the 
+            largest drop in attendance, particularly since 2019, which is the opposite of what we had 
+            expected. Further research would benefit from looking more closely at the several wards 
+            that changed crime class during this ten year period, and how attendance correlates 
+            with that shift, rather than overall crime levels.""",
     "ISS and OSS": "Sarah writes this",  # plots.bar_crime_OSS_ISS()
     "police": "Sarah writes this",  # plots.bar_police_crime()
     "pre_post grid": "Eshan writes this",  # plots.scatter_pre_post_grid()

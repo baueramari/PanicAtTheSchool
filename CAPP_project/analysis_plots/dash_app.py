@@ -15,6 +15,8 @@ from CAPP_project.analysis_plots.plots import (
     scatter_income_pre_post,
     bar_att_diff_buckets,
     bar_finance_buckets,
+    intro_attendance,
+    intro_two,
 )
 from CAPP_project.analysis_plots.Graph_Descriptions.analysis_desc_dict import (
     descriptions,
@@ -72,10 +74,11 @@ app.layout = html.Div(
                     "textAlign": "center",
                     "width": "85%",
                     "marginTop": 50,
-                    "height": 200,
+                    "height": 300,
                     "border-style": "none",
                     "margin-left": 105,
                     "margin-right": 75,
+                    "font-size": "16px",
                 },
             )
         ),
@@ -89,12 +92,15 @@ app.layout = html.Div(
         html.Div(
             dcc.Textarea(
                 id="desc1",
+                readOnly=True,
                 style={
                     "border-style": "none",
                     "width": "85%",
-                    "height": 40,
+                    "height": 185,
                     "margin-left": 75,
                     "margin-right": 75,
+                    "textAlign": "center",
+                    "font-size": "16px",
                 },
             ),
             style={"textAlign": "center"},
@@ -112,12 +118,15 @@ app.layout = html.Div(
         html.Div(
             dcc.Textarea(
                 id="desc2",
+                readOnly=True,
                 style={
                     "border-style": "none",
                     "width": "85%",
-                    "height": 40,
-                    "marginLeft": 75,
-                    "marginRight": 75,
+                    "height": 160,
+                    "margin-left": 75,
+                    "margin-right": 75,
+                    "textAlign": "center",
+                    "font-size": "16px",
                 },
             ),
             style={"textAlign": "center"},
@@ -132,12 +141,15 @@ app.layout = html.Div(
         html.Div(
             dcc.Textarea(
                 id="desc3",
+                readOnly=True,
                 style={
                     "border-style": "none",
                     "width": "85%",
-                    "height": 40,
-                    "marginLeft": 75,
-                    "marginRight": 75,
+                    "height": 160,
+                    "margin-left": 75,
+                    "margin-right": 75,
+                    "textAlign": "center",
+                    "font-size": "16px",
                 },
             ),
             style={"textAlign": "center"},
@@ -152,12 +164,15 @@ app.layout = html.Div(
         html.Div(
             dcc.Textarea(
                 id="desc4",
+                readOnly=True,
                 style={
                     "border-style": "none",
                     "width": "85%",
-                    "height": 40,
-                    "marginLeft": 75,
-                    "marginRight": 75,
+                    "height": 160,
+                    "margin-left": 75,
+                    "margin-right": 75,
+                    "textAlign": "center",
+                    "font-size": "16px",
                 },
             ),
             style={"textAlign": "center"},
@@ -181,7 +196,7 @@ app.layout = html.Div(
 )
 def display_plots(value):
     if value == "Conclusion":
-        fig = plot_crime()
+        fig = blank_figure()
         fig_desc = descriptions["conclusion"]
         fig2 = blank_figure()
         fig2_desc = ""
@@ -214,16 +229,16 @@ def display_plots(value):
         return [fig, fig_desc, fig2, fig2_desc, fig3, fig3_desc, fig4, fig4_desc]
 
     else:  # display intro
-        fig = blank_figure()  # two plots from Sarah
+        fig = intro_attendance()
         fig_desc = descriptions["somebody"]
-        fig2 = blank_figure()
+        fig2 = intro_two()
         fig2_desc = descriptions["somebody"]
         fig3 = blank_figure()
-        fig3_desc = descriptions["somebody"]
+        fig3_desc = ""
         fig4 = blank_figure()
-        fig4_desc = descriptions["somebody"]
+        fig4_desc = ""
         return [fig, fig_desc, fig2, fig2_desc, fig3, fig3_desc, fig4, fig4_desc]
 
 
 if __name__ == "__main__":
-    app.run_server(port=6069)
+    app.run_server(port=6091)
