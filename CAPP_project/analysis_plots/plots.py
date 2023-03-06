@@ -259,8 +259,8 @@ def bar_police_crime():
     return bar_police_crime
 
 
-##Eshan wrote this
-# using this on impact of COVID page
+#Eshan wrote this
+#using this on impact of COVID page
 def scatter_pre_post_grid():
     school_df = pd.read_csv(
         "CAPP_project/data_wrangling/merged_data/all_school_merged.csv"
