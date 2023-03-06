@@ -17,9 +17,9 @@ def package_breakdown():
     sys_args = ["fetch", "clean", "merge", "plot", "explore", "all"]
     print(f"Great! Choose one of the steps:{sys_args}:")
     arg = input().lower()
-    if arg == "all":
-        dw_main.run(arg)
-        ap_main.run(arg)
+    #if arg == "all":
+    #    dw_main.run(arg)
+    #    ap_main.run(arg)
     elif arg == "clean" or arg == "merge":
         dw_main.run(arg)
     elif arg == "plot":
@@ -35,14 +35,6 @@ if __name__ == "__main__":
         package_breakdown()
     elif arg == "jump":
         app.run_server(port=6093)
-        print("Now, do you want to run package stepwise? [y/n]")
-        if arg == "n":
-            print("Great,looking forward to the feedback!")
-        elif arg == "y":
-            package_breakdown()
-        else:
-            print(f"Unknown command: {arg}")
-            sys.exit()
     else:
         print(f"Unknown command: {arg}")
         sys.exit()
