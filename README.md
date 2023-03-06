@@ -1,9 +1,11 @@
 # PanicAtTheSchool
 CAPP 30122 Group Project: Sarah, Eshan, and Amari
 
-TLDR: We have moved away from looking into enrolment and learning gains, and now are focusing only at attendance drops. Our goal is to investigate reasons for drops (read below) and visualize our findings on a web app. 
 
-Our aim is to assess the drop in attendance observed by Chicago Public Schools in the last decade, but more specifically, in the time returning from COVID. Based on attendance data from CPS, pre-K and grades 9-12 have shown the most noticeable drop in attendance. For these grades, in 2018 and 2019, for example, the average attendance was 86.15%  and 86.51% respectively. Post Covid, these numbers dropped to 79.72% and 78.79% respectively in 2021 and 2022. 
+Our aim of this project is to assess factors which may be contributing to low attendance rates in Chicago public high schools. Based on attendance data from Chicago Public Schools (CPS), grades 9-12 show the lowest attendance rates of all grade levels in the last decade, at an average of about 86.51% before 2019. Moreover, there was a noticeable drop in attendance post-COVID, with high school atteandance rates falling to an average of about 78.79% in school years 2021 and 2022 following the pandemic. 
+
+In our investigation we used publically available CPS data, an API from City of Chicago crime data, and ____ to find sources to investigate factors in attendance. We have broken down our study into two main focus areas: the relationship between school misconducts and community crime rates as an influence on the criminalization of students (which we hypothesized may be associated with changes in attendance), 
+
 News agencies covering this issue have attributed these trends to the emergence and solidification of the Chicago Teachers Union. While we’re not looking into those claims through this project, we want to investigate other variables that might have impacted attendance. Specifically, we want to look at 3 buckets: 
   a) Neighborhood indicators: These will cover:
 Demographic build up of school neighborhood
