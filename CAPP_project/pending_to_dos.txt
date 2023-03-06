@@ -1,2 +1,10 @@
 Overarching:
     * Replace static file paths with os path or Pathlib - try to run on a TA's machine
+    * Replace blobs of code with functions and add doc_strings
+Eshan:
+    * Jaro-Winkler for teacher data -- Done
+    * Jaro-Winkler for mobility data --- Done
+    * Add descriptions to existing charts 
+    * Figure out what goes in Conclusion/Further exploration section:
+        - regressions, teacher analysis etc - why data is not matching values
+    * Remove columns/syntax for demographic/health data that is not needed/used

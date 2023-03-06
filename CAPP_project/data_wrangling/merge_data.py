@@ -10,7 +10,7 @@ import pandas as pd
 def merge():
     """
     This function will create merged_csvs using the cleaned csvs generated from clean function in clean.py
-    
+
     """
     avg_attend = pd.read_csv("CAPP_project/data_wrangling/cleaned_data/avg_attend.csv")
     crime_by_ward = pd.read_csv(
@@ -57,9 +57,12 @@ def merge():
     ).mean("Attendance")
     attend_by_crime = attend_by_crime[["crime_class", "Year", "Attendance"]]
 
-    attend_id_crime.to_csv("CAPP_project/data_wrangling/merged_data/attend_id_crime.csv")
-    attend_by_crime.to_csv("CAPP_project/data_wrangling/merged_data/attend_by_crime.csv")
-
+    attend_id_crime.to_csv(
+        "CAPP_project/data_wrangling/merged_data/attend_id_crime.csv"
+    )
+    attend_by_crime.to_csv(
+        "CAPP_project/data_wrangling/merged_data/attend_by_crime.csv"
+    )
 
     # Sarah's data merge needed for her visuals CAPP_project/data_wrangling/merge_data.py
 
@@ -69,7 +72,8 @@ def merge():
         "Attendance",
     ]
     ID_crimeclass = pd.read_csv(  # this csv is already loaded in, should be good to use it from above, switch column names and be good to go
-        "CAPP_project/data_wrangling/merged_data/attend_id_crime.csv", usecols=crime_cols
+        "CAPP_project/data_wrangling/merged_data/attend_id_crime.csv",
+        usecols=crime_cols,
     )
     suspensions = pd.read_csv(
         "CAPP_project/data_wrangling/cleaned_data/suspension_data.csv"
@@ -111,41 +115,58 @@ def merge():
     avg_suspension_attend.to_csv(
         "CAPP_project/data_wrangling/merged_data/suspension_attendance.csv"
     )
-
-
-    # Eshan's school merge/analysis code (initially bucket-2)
+    # Eshan's school merge/analysis code
     # Objective is to merge all school data, then create csvs for Sarah that she can use to plot
     sch_profile = pd.read_csv(
         "CAPP_project/data_wrangling/cleaned_data/clean_school_admin.csv"
     )
-    sch_att = pd.read_csv("CAPP_project/data_wrangling/cleaned_data/clean_attendance.csv")
+    sch_att = pd.read_csv(
+        "CAPP_project/data_wrangling/cleaned_data/clean_attendance.csv"
+    )
     sch_finance = pd.read_csv(
         "CAPP_project/data_wrangling/cleaned_data/clean_school_budget.csv"
     )
-    sch_teachers = pd.read_csv("CAPP_project/data_wrangling/cleaned_data/clean_teacher.csv")
+    sch_teachers = pd.read_csv(
+        "CAPP_project/data_wrangling/cleaned_data/clean_teacher.csv"
+    )
+    sch_mobility = pd.read_csv(
+        "CAPP_project/data_wrangling/cleaned_data/clean_mobility.csv"
+    )
 
     school_merged = sch_profile.merge(sch_att, left_on="sch_id", right_on="School ID")
     school_merged = school_merged.merge(
         sch_finance, left_on="fin_id", right_on="finance_id"
     )
     school_merged = school_merged.merge(
-        sch_teachers, how="left", left_on="sch_id", right_on="School_ID"
+        sch_teachers, how="left", left_on="sch_id", right_on="match_id"
+    )
+
+    school_merged = school_merged.merge(
+        sch_mobility, how="left", left_on="sch_id", right_on="match_id"
     )
 
     # Standardizing data and removing additional columns
     school_merged["dolla_per_student"] = (
         school_merged["fy_2022_proposed_budget"] / school_merged["tot_student"]
     )
-    school_merged["salary_per_teacher"] = school_merged["teacher_salary"].divide(
-        school_merged["teachers"]
-    )
+    print(school_merged.columns)
     cols_to_drop = [
-        "School Name",
-        "Unnamed: 0",
+        "Unnamed: 0_x",
+        "lea_name",
+        "match_id_x",
+        "num_student_x",
+        "max_score_x",
+        "Unnamed: 0_y",
+        "School Name_y", 
+        "District",
+        "City",
+        "Student Attendance Rate",
+        "match_id_y",
+        "num_student_y",
+        "max_score_y",
         "School ID",
         "finance_id",
-        "fy_2022_proposed_budget",
-        "teacher_salary",
+        "fy_2022_proposed_budget"
     ]
     school_merged = school_merged.drop(cols_to_drop, axis=1)
 
@@ -161,10 +182,10 @@ def merge():
         lambda row: "low" if row["post_cov_att"] < mean_post_cov_att else "high", axis=1
     )
 
+    school_merged.to_csv(
+        "CAPP_project/data_wrangling/merged_data/all_school_merged.csv"
+    )
 
-    school_merged.to_csv("CAPP_project/data_wrangling/merged_data/all_school_merged.csv")
-
-    # Eshan-Other analysis pending
     # Eshan's merge/analysis of school attendance-demographic data
 
     cols_to_keep = ["ca_id", "pre_cov_att", "post_cov_att", "att_diff_pp"]

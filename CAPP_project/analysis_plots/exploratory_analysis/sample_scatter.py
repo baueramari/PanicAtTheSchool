@@ -1,9 +1,15 @@
+"""
+Eshan wrote this-- file in progress, need to say something about lack of insights from demographic, teacher and mobility data
+Maybe just explore this data without merging with other file
+"""
+
 import pandas as pd
 import plotly.express as px
 import dash
 from dash import dcc, html 
 from dash.dependencies import Input, Output
 
+#filepath needs to be validated
 att_matrix = pd.read_csv(
     "/home/eshanprashar/PanicAtTheSchool/data_wrangling/bucket_1_2/b1_2_analysis/final_clean_data/pre_vs_post_att.csv"
 )
