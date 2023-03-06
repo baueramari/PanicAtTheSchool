@@ -2,8 +2,8 @@
 Amari wrote this file.
 """
 import dash
-import dash_html_components as html
-import dash_core_components as dcc
+from dash import html
+from dash import dcc
 from dash.dependencies import Input, Output
 import pandas as pd
 import plotly.graph_objects as go
