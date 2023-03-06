@@ -90,17 +90,12 @@ app.layout = html.Div(
         html.Div(
             dcc.Textarea(
                 id="intro",
-                value="""CAPP 30122 Group Project: Sarah, Eshan, and Amari
-
-    TLDR: We have moved away from looking into enrollment and learning gains, and now are focusing only at attendance drops. Our goal is to investigate reasons for drops (read below) and visualize our findings on a web app.
-
-    Our aim is to assess the drop in attendance observed by Chicago Public Schools in the last decade, but more specifically, in the time returning from COVID. Based on attendance data from CPS, pre-K and grades 9-12 have shown the most noticeable drop in attendance. For these grades, in 2018 and 2019, for example, the average attendance was 86.15% and 86.51% respectively. Post Covid, these numbers dropped to 79.72% and 78.79% respectively in 2021 and 2022. News agencies covering this issue have attributed these trends to the emergence and solidification of the Chicago Teachers Union. While we’re not looking into those claims through this project, we want to investigate other variables that might have impacted attendance. Specifically, we want to look at 3 buckets: a) Neighborhood indicators: These will cover: Demographic build up of school neighborhood Socioeconomic indicators - employment, income etc. Health indicators Accessibility indicators such as walkability score, access to public transport etc.
-    b) Investment in school indicators: These will cover: Per pupil budget for schools Teacher distribution by race/qualification Attendance distribution by school type c) Crime and punishment indicators: Crime in the school neighborhood Suspensions/expulsions handed out by school authorities Through our analysis, we want to see which of these factors impacts attendance the most. Finally, we will visualize our results on a web-app and write down some potential next steps based on research of news articles/interviews with CPS employees.')""",
+                value=descriptions['opener (no graph)'],
                 style={
                     "textAlign": "center",
                     "width": "85%",
                     "marginTop": 50,
-                    "height": 300,
+                    "height": 100,
                     "border-style": "none",
                     "margin-left": 105,
                     "margin-right": 75,
@@ -198,10 +193,10 @@ def display_plots(value):
     if value == "Impact of COVID-19 in Schools":
         fig = scatter_pre_post_grid()
         fig_desc = descriptions["pre_post grid"]
-        fig2 = scatter_income_pre_post()
-        fig2_desc = descriptions["income"]
-        fig3 = bar_att_diff_buckets()
-        fig3_desc = descriptions["change"]
+        fig2 = bar_att_diff_buckets()
+        fig2_desc = descriptions["change"]
+        fig3 = scatter_income_pre_post()
+        fig3_desc = descriptions["income"]
         fig4 = bar_finance_buckets()
         fig4_desc = descriptions["finance"]
         return [fig, fig_desc, fig2, fig2_desc, fig3, fig3_desc, fig4, fig4_desc]
@@ -211,7 +206,7 @@ def display_plots(value):
         fig_desc = descriptions["intro one"]
         fig2 = intro_two()
         fig2_desc = descriptions["intro two"]
-        fig3 = clean_intro()
+        fig3 = blank_figure()
         fig3_desc = ""
         fig4 = blank_figure()
         fig4_desc = ""

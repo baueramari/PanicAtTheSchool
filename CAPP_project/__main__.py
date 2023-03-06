@@ -37,7 +37,7 @@ if __name__ == "__main__":
     if  arg == "stepwise":
         package_breakdown()
     elif arg  == "jump":
-        app.run_server(port=6093)
+        app.run_server(port=6094)
         print("Now do you want to test step-wise operations? [y/n]")
         new_arg = input().lower()
         if new_arg == "y":
