@@ -9,8 +9,7 @@
 #       plots._____
 
 descriptions = {
-    "opener (no graph)": "Our aim of this project is to investigate possible factors for low attendance rates being recorded\
-    in Chicago Public Schools (CPS).",
+    "opener (no graph)": "Our aim of this project is to investigate possible factors for low attendance rates in Chicago Public Schools (CPS).",
 
     "intro one": "Using CPS attendance data since 2003, we averaged attendance rates for Pre-K, Elementary (grades K-5),Middle (grades 6-8),\
     and High (grades 9-12) Schools for each available year and plot them over time. First, we notice attendance rates for Elementary and\
@@ -18,9 +17,9 @@ descriptions = {
     there was a noticeable dip in attendance following the COVID pandemic (with attendance dropping around 6-8% from 2019 to 2021).\
     For the two school years since COVID (2021 and 2022), high schools are experiencing the lowest attendance rates.\
     We see, on average, only 76% of students are regularly attending school, which leaves almost a quarter of the high school\
-    aged population missing class. Although Pre-K is also showing low attendance, we decided to focus this project on the high\
-    school population specifically because of the greater autonomy that the students themselves have when deciding whether to attend\
-    the school day or not.",
+    aged population missing class for 10+ days in a school year. Although Pre-K is also showing low attendance, we decided to focus this\
+    project on the high school population specifically because of the greater autonomy that the students themselves have when deciding \
+    whether to attend school day.",
 
     "intro two": "We limited our attendance data to high school records only. For reference, high schools make up 23% (or 152 of 649)\
     of all CPS operated schools.",
@@ -42,6 +41,8 @@ descriptions = {
             expected. Further research would benefit from looking more closely at the several wards 
             that changed crime class during this ten year period, and how attendance correlates 
             with that shift, rather than overall crime levels.""",
+
+    "attend": "NA for now", #plot exists on dash_app
 
     "ISS and OSS": "Continuing with the trend of crime and misconduct, we next investigated the average unique suspension rate within a\
     school (i.e., the percent of students who receive suspension as a student) to the crime class of the community which the school is located in.\
