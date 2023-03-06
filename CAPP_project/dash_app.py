@@ -8,7 +8,7 @@ from dash.dependencies import Input, Output
 import pandas as pd
 import plotly.graph_objects as go
 import plotly.express as px
-from CAPP_project.analysis_plots.plots import(
+from CAPP_project.analysis_plots.plots import (
     plot_crime,
     scatter_SSrate_attendance,
     scatter_ISS_attendance,
@@ -20,11 +20,13 @@ from CAPP_project.analysis_plots.plots import(
     bar_finance_buckets,
     intro_attendance,
     intro_two,
+    clean_intro,
 )
 from CAPP_project.analysis_plots.Graph_Descriptions.analysis_desc_dict import (
-     descriptions,
- )
- 
+    descriptions,
+)
+
+
 def blank_figure():  # necessary to avoid displaying default blank graph when no dropdown option is selected
     blank = go.Figure(
         go.Scatter(x=[], y=[])
@@ -206,10 +208,10 @@ def display_plots(value):
 
     else:  # display intro
         fig = intro_attendance()
-        fig_desc = descriptions["somebody"]
+        fig_desc = descriptions["intro one"]
         fig2 = intro_two()
-        fig2_desc = descriptions["somebody"]
-        fig3 = blank_figure()
+        fig2_desc = descriptions["intro two"]
+        fig3 = clean_intro()
         fig3_desc = ""
         fig4 = blank_figure()
         fig4_desc = ""
@@ -217,4 +219,4 @@ def display_plots(value):
 
 
 if __name__ == "__main__":
-    app.run_server(port=6093)
+    app.run_server(port=6095)
