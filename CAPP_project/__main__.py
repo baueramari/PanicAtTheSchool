@@ -17,9 +17,10 @@ def package_breakdown():
     sys_args = ["fetch", "clean", "merge", "plot", "explore", "all"]
     print(f"Great! Choose one of the steps:{sys_args}:")
     arg = input().lower()
-    #if arg == "all":
-    #    dw_main.run(arg)
-    #    ap_main.run(arg)
+    if arg == "all":
+        dw_main.run("clean")
+        dw_main.run("merge")
+        ap_main.run("plot")
     elif arg == "clean" or arg == "merge":
         dw_main.run(arg)
     elif arg == "plot":
