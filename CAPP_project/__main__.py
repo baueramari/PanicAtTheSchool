@@ -11,12 +11,14 @@ from CAPP_project.analysis_plots import __main__ as ap_main
 def package_breakdown():
     """
     Function to run different files (and associated functions) based on input given by user in console
-    Input: One of the following commands from variable sys_args
-    Returns: Execute command and give confirmation message (TBD)
+    Input: None
+    Returns: None. Executes selected file/function and reports time to run
     """
-    sys_args = ["fetch", "clean", "merge", "plot", "explore", "all"]
-    print(f"Great! Choose one of the steps:{sys_args}:")
+    sys_args = ["fetch", "clean", "merge", "plot", "explore", "all"] #Will need Amari's help for fetch; explore pending-- to be added in ap_main 
+    print(f"Great! Choose one of the steps:{sys_args} or exit")
     arg = input().lower()
+    if arg == "exit":
+        sys.exit(1)
     if arg == "all":
         dw_main.run("clean")
         dw_main.run("merge")
@@ -32,10 +34,19 @@ def package_breakdown():
 if __name__ == "__main__":
     print("Hi user! Do you want to jump to our dash app or run the app stepwise? [jump/stepwise]")
     arg = input().lower()
-    if arg == "stepwise":
+    if  arg == "stepwise":
         package_breakdown()
-    elif arg == "jump":
+    elif arg  == "jump":
         app.run_server(port=6093)
+        print("Now do you want to test step-wise operations? [y/n]")
+        new_arg = input().lower()
+        if new_arg == "y":
+            package_breakdown()
+        elif new_arg == "n":
+            sys.exit(1)
+        else:
+            print(sys.argv)
+            print(f"Unknown command:{new_arg}. Please try again!")
     else:
         print(f"Unknown command: {arg}")
-        sys.exit()
+        sys.exit(1)
