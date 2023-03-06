@@ -177,7 +177,7 @@ def bar_crime_OSS_ISS():
     ].mean()["Medium"]
     Low_ISS = avg_SS_crime.groupby(["crime_class"])[
         "% of Unique Students Receiving ISS"
-    ].mean()["Medium"]
+    ].mean()["Low"]
 
     High_OSS = avg_SS_crime.groupby(["crime_class"])[
         "% of Unique Students Receiving OSS"
@@ -187,7 +187,7 @@ def bar_crime_OSS_ISS():
     ].mean()["Medium"]
     Low_OSS = avg_SS_crime.groupby(["crime_class"])[
         "% of Unique Students Receiving OSS"
-    ].mean()["Medium"]
+    ].mean()["Low"]
 
     groups = {
         "Crime Class": ["Low", "Low", "Medium", "Medium", "High", "High"],
