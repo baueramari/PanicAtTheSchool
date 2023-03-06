@@ -17,5 +17,5 @@ def run(name):
         plots.intro_two(),
         end_time = time.time()
         elapsed_time = end_time - start_time
-        print(f"Plotted data successfully in {elapsed_time:.2f} seconds")
+        print(f"Plotted data successfully in {elapsed_time:.2f} seconds!")
     #Add other conditions if needed
