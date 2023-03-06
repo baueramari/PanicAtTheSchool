@@ -1,0 +1,2 @@
+Overarching:
+    * Replace static file paths with os path or Pathlib - try to run on a TA's machine
