@@ -14,7 +14,8 @@ To see our findings, run the following commands within the PanicAtTheSchool repo
 2. ~/PanicAtTheSchool$ poetry shell
 3. (in the shell) ~/PanicAtTheSchool$ python3 -m CAPP_project
 4. jump
-5. select the pop-up message "Open in Browser" appearing on the bottom right of the screen
 
-When you have fully explored the webpage and are back in your terminal, run ctrl+d to exit the application launch. 
+Finally, select the pop-up message "Open in Browser" appearing on the bottom right of the screen to launch the web page.
+
+When you have fully explored the webpage and are back in your terminal, run ctrl+d in the terminal to close the application. 
 
