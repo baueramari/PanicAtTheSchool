@@ -103,8 +103,9 @@ descriptions = {
 #     intro_attendance()
 #     intro_two()
 # Misconduct-
-#     scatter_SSrate_attendance()
 #     plot_crime()
+# scatter_SSrate_attendance()
+#     
 #     bar_crime_OSS_ISS()
 #     bar_police_crime()
 # Impact of COVID in Schools -

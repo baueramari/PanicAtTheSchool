@@ -1,5 +1,5 @@
 """
-Eshan wrote this
+Author: Eshan 
 Objective of this file is to get school-relevant indicators (teacher data and student mobility data) that could impact attendance
 """
 
