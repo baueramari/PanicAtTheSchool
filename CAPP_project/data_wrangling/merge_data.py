@@ -1,16 +1,14 @@
 """
 Amari wrote lines 12-59, 
-Sarah wrote
-Eshan wrote
+Sarah wrote lines 
+Eshan wrote lines 117-184
 """
-from pathlib import Path
 import pandas as pd
 
 
-def merge():
+def data_merge():
     """
     This function will create merged_csvs using the cleaned csvs generated from clean function in clean.py
-
     """
     avg_attend = pd.read_csv("CAPP_project/data_wrangling/cleaned_data/avg_attend.csv")
     crime_by_ward = pd.read_csv(
@@ -115,8 +113,9 @@ def merge():
     avg_suspension_attend.to_csv(
         "CAPP_project/data_wrangling/merged_data/suspension_attendance.csv"
     )
+
     # Eshan's school merge/analysis code
-    # Objective is to merge all school data, then create csvs for Sarah that she can use to plot
+    # Objective is to merge all school data, then create a csv for Sarah that she can use to plot
     sch_profile = pd.read_csv(
         "CAPP_project/data_wrangling/cleaned_data/clean_school_admin.csv"
     )
@@ -149,7 +148,6 @@ def merge():
     school_merged["dolla_per_student"] = (
         school_merged["fy_2022_proposed_budget"] / school_merged["tot_student"]
     )
-    print(school_merged.columns)
     cols_to_drop = [
         "Unnamed: 0_x",
         "lea_name",
@@ -170,8 +168,7 @@ def merge():
     ]
     school_merged = school_merged.drop(cols_to_drop, axis=1)
 
-    # For Analysis:
-    # 1. 2*2 plotting of schools into low-high buckets
+    # For creating a 2*2 plot of schools into low-high buckets
     mean_pre_cov_att = school_merged["pre_cov_att"].mean()
     mean_post_cov_att = school_merged["post_cov_att"].mean()
 
@@ -184,34 +181,4 @@ def merge():
 
     school_merged.to_csv(
         "CAPP_project/data_wrangling/merged_data/all_school_merged.csv"
-    )
-
-    # Eshan's merge/analysis of school attendance-demographic data
-
-    cols_to_keep = ["ca_id", "pre_cov_att", "post_cov_att", "att_diff_pp"]
-    att_demo = school_merged.loc[:, cols_to_keep]
-
-    demog_info = pd.read_csv("CAPP_project/data_wrangling/cleaned_data/clean_demog.csv")
-    health_info = pd.read_csv(
-        "CAPP_project/data_wrangling/cleaned_data/clean_health_atlas.csv"
-    )
-    # Note: Check the keys in each file before merging
-    # Now group data by ca_id but also take count of schools for each ca_id
-    cols_grouping = {"ca_id": "count"}
-    cols_grouping.update({col: "mean" for col in att_demo.columns if col != "ca_id"})
-    att_demo = att_demo.groupby("ca_id").agg(cols_grouping)
-    att_demo = att_demo.rename(columns={"ca_id": "count_schools"})
-    att_demo = att_demo.reset_index()
-
-    # Threshold for number of schools
-    num_schools = 2
-    att_demo = att_demo[att_demo["count_schools"] >= num_schools]
-
-    # School data ready, now merge demographic and health data with this
-    merged_att_demo = pd.merge(att_demo, demog_info, on="ca_id")
-    merged_att_demo = pd.merge(merged_att_demo, health_info, on="ca_id")
-    cols_to_drop = ["comm_area_y"]
-    merged_att_demo = merged_att_demo.drop(cols_to_drop, axis=1)
-    merged_att_demo.to_csv(
-        "CAPP_project/data_wrangling/merged_data/school_demo_merged.csv", index=False
     )

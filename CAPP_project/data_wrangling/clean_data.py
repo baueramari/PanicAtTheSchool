@@ -1,12 +1,12 @@
 """
 Amari wrote lines 13-55, 95-120, 147-166 to clean crime, attendance, and admin data.
 Sarah wrote
-Eshan wrote
+Eshan wrote lines 121-146, 167-192, 248-292, 297-369 to clean attendance, finance, health and demographic data
 """
 from pathlib import Path
 import pandas as pd
 
-def clean():
+def clean_data():
     """
     This function cleans different datasets used in analysis of attendance data
     """
@@ -262,8 +262,6 @@ def clean():
             "VRPNCP_2013-2017",
             "VAC_2017-2021",
             "HTA_2017-2021",
-            "HCSCBP_2016-2018",
-            "HCSCBP_2020-2021",
             "SNP_2017-2021",
             "SNQ_2017-2021",
             "RBU_2017-2021",
@@ -284,8 +282,6 @@ def clean():
             "VRPNCP_2013-2017": "adq_child_care",
             "VAC_2017-2021": "perc_vacant_units",
             "HTA_2017-2021": "perc_sing_par_hh",
-            "HCSCBP_2016-2018": "comm_belong_16_18",
-            "HCSCBP_2020-2021": "comm_belong_20_21",
             "SNP_2017-2021": "perc_hh_stamps",
             "SNQ_2017-2021": "perc_not_getting_stamps",
             "RBU_2017-2021": "rent_burdened_hh",
@@ -293,9 +289,7 @@ def clean():
             "VRDIDR_2015-2019": "drug_induced_dt_rate",
         }
     )
-    # comm_belong_16_18 has 1 missing value; will impute average of remaining
-    col_impute_val = ha_df["comm_belong_16_18"].mean()
-    ha_df["comm_belong_16_18"].fillna(col_impute_val, inplace=True)
+    # Save this to csv  
     ha_df.to_csv(
         "CAPP_project/data_wrangling/cleaned_data/clean_health_atlas.csv", index=False
     )
