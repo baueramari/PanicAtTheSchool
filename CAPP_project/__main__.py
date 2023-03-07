@@ -7,6 +7,7 @@ import pathlib
 from CAPP_project.dash_app import app
 from CAPP_project.data_wrangling import __main__ as dw_main
 from CAPP_project.analysis_plots import __main__ as ap_main
+from CAPP_project.raw_data.crime_api import crime_extract
 
 def package_breakdown():
     """
@@ -14,18 +15,27 @@ def package_breakdown():
     Input: None
     Returns: None. Executes selected file/function and reports time to run
     """
-    sys_args = ["fetch", "clean", "merge", "plot", "explore", "all"] #Will need Amari's help for fetch; explore pending-- to be added in ap_main 
+    sys_args = ["fetch", "clean", "merge", "plot", "explore", "all"] 
     print(f"Great! Choose one of the steps:{sys_args} or exit")
     arg = input().lower()
     if arg == "fetch":
-        print("Fetching latest crime data from Chicago Crime portal...this will take ~10 minutes!")
-        sys.exit(1) ## Amari's code goes here
+        print("Fetching crime data from Chicago data portal...this will take ~10 minutes! If you want to exit, press Ctrl+C")
+        crime_extract()
     if arg == "all":
-        dw_main.run("clean")
-        dw_main.run("merge")
-        ap_main.run("plot")
-        print("All grunt work done, ready to publish dash app!")
-        app.run_server(port=6094)
+        print("This includes fetching latest data which takes ~10 mins; type y if you want to continue or type n if you want to skip fetching:[y/n]")
+        if input().lower() == "y":
+            crime_extract()
+            dw_main.run("clean")
+            dw_main.run("merge")
+            ap_main.run("plot")
+            print("All grunt work done, ready to publish dash app!")
+            app.run_server(port=6094)
+        else:
+            dw_main.run("clean")
+            dw_main.run("merge")
+            ap_main.run("plot")
+            print("All grunt work done, ready to publish dash app!")
+            app.run_server(port=6094)
     elif arg == "clean" or arg == "merge":
         dw_main.run(arg)
     elif arg == "plot":

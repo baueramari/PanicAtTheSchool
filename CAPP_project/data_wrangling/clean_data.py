@@ -10,30 +10,30 @@ def clean_data():
     """
     This function cleans different datasets used in analysis of attendance data
     """
-    # crime_cols = [
-    #    "id",
-    #    "case_number",
-    #    "description",
-    #    "arrest",
-    #    "domestic",
-    #    "district",
-    #    "ward",
-    #    "community_area",
-    #    "fbi_code",
-    #    "year",
-    #    "updated_on",
-    # ]
-    # crime = pd.read_csv("CAPP_project/raw_data/crime.csv", usecols=crime_cols)
-    # crime = crime[crime["year"] > 2011]
-    # crime = crime[crime["year"] != 2023]
-    # crime.dropna(subset="ward", inplace=True)
-    # crime.drop_duplicates(inplace=True)
-    # crime["ward"] = crime["ward"].astype(int)
-    # crime_by_ward = crime.groupby(by=["ward", "year"], as_index=False).size()
-    # crime_by_ward["crime_capita"] = (
-    #    crime_by_ward["size"] / 55000
-    # )  # average population in Chicago wards interpret: crime reports per person in ward.
-    # crime_by_ward.to_csv("CAPP_project/data_wrangling/cleaned_data/crime_by_ward.csv")
+    crime_cols = [
+        "id",
+        "case_number",
+        "description",
+        "arrest",
+        "domestic",
+        "district",
+        "ward",
+        "community_area",
+        "fbi_code",
+        "year",
+        "updated_on",
+     ]
+    crime = pd.read_csv("https://uchicago.box.com/s/3tpb8dibaad6i1usrc5dr96cymzdv7m4", usecols=crime_cols) 
+    crime = crime[crime["year"] > 2011]
+    crime = crime[crime["year"] != 2023]
+    crime.dropna(subset="ward", inplace=True)
+    crime.drop_duplicates(inplace=True)
+    crime["ward"] = crime["ward"].astype(int)
+    crime_by_ward = crime.groupby(by=["ward", "year"], as_index=False).size()
+    crime_by_ward["crime_capita"] = (
+        crime_by_ward["size"] / 55000
+     )  # average population in Chicago wards interpret: crime reports per person in ward.
+    crime_by_ward.to_csv("CAPP_project/data_wrangling/cleaned_data/crime_by_ward.csv")
 
     admin_cols = [
         "School_ID",
