@@ -1,6 +1,6 @@
 """
-Eshan wrote this file
-#Objective is to give user the flexibiity to jump to the app or just test functions in specific modules
+Author: Eshan 
+#Objective is to give user the flexibiity to jump to the app directly or just run sub-packages
 """
 import sys
 import pathlib
@@ -17,12 +17,15 @@ def package_breakdown():
     sys_args = ["fetch", "clean", "merge", "plot", "explore", "all"] #Will need Amari's help for fetch; explore pending-- to be added in ap_main 
     print(f"Great! Choose one of the steps:{sys_args} or exit")
     arg = input().lower()
-    if arg == "exit":
-        sys.exit(1)
+    if arg == "fetch":
+        print("Fetching latest crime data from Chicago Crime portal...this will take ~10 minutes!")
+        sys.exit(1) ## Amari's code goes here
     if arg == "all":
         dw_main.run("clean")
         dw_main.run("merge")
         ap_main.run("plot")
+        print("All grunt work done, ready to publish dash app!")
+        app.run_server(port=6094)
     elif arg == "clean" or arg == "merge":
         dw_main.run(arg)
     elif arg == "plot":

@@ -1,5 +1,6 @@
 # PanicAtTheSchool
-CAPP 30122 Group Project: Sarah, Eshan, and Amari
+CAPP 30122 Group Project: 
+Sarah, Eshan, and Amari
 
 
 Our aim of this project is to assess factors which may be contributing to low attendance rates in Chicago public high schools. Based on attendance data from Chicago Public Schools (CPS), grades 9-12 show the lowest attendance rates of all grade levels in the last decade, at an average of about 86.51% before 2019. Moreover, there was a noticeable drop in attendance post-COVID, with high school atteandance rates falling to an average of about 78.79% in school years 2021 and 2022 following the pandemic. 
@@ -16,6 +17,8 @@ To see our findings, run the following commands within the PanicAtTheSchool repo
 4. jump
 
 Finally, select the pop-up message "Open in Browser" appearing on the bottom right of the screen to launch the web page.
+
+We also give the option to run sub-packages 
 
 When you have fully explored the webpage and are back in your terminal, run ctrl+d in the terminal to close the application. 
 
