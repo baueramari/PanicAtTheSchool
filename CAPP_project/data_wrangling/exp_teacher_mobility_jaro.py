@@ -1,7 +1,6 @@
 """
 Author: Eshan 
 Objective of this file is to get school-relevant indicators (teacher data and student mobility data) that could impact attendance
-Since this analysis was pushed to exploratory section, csv files generate here have also been merged here itself to have a "plot-ready" input
 """
 
 import pandas as pd
@@ -146,4 +145,3 @@ prepare_mobility().to_csv(
 )
 
 #Merge code moved here because merging these files with year-wise attendance data did not particularly yield interesting insights
-

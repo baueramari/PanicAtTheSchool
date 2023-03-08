@@ -19,39 +19,35 @@ def package_breakdown():
     print(f"Great! Choose one of the steps:{sys_args} or exit")
     arg = input().lower()
     if arg == "fetch":
-        print("Fetching crime data from Chicago data portal...this will take ~10 minutes! If you want to exit, press Ctrl+C")
+        print("Hope you got the correct API key...\
+        Fetching crime data from Chicago data portal...\
+        this will take ~10 minutes! If you want to exit, press Ctrl+C")
         crime_extract()
-    if arg == "all":
-        print("This includes fetching latest data which takes ~10 mins; type y if you want to continue or type n if you want to skip fetching:[y/n]")
-        if input().lower() == "y":
-            crime_extract()
-            dw_main.run("clean")
-            dw_main.run("merge")
-            ap_main.run("plot")
-            print("All grunt work done, ready to publish dash app!")
-            app.run_server(port=6094)
-        else:
-            dw_main.run("clean")
-            dw_main.run("merge")
-            ap_main.run("plot")
-            print("All grunt work done, ready to publish dash app!")
-            app.run_server(port=6094)
     elif arg == "clean" or arg == "merge":
         dw_main.run(arg)
     elif arg == "plot":
-        ap_main.run(arg) 
+        ap_main.run(arg)
+    elif arg == "all":
+        print("This includes fetching latest data which takes ~10 mins;\
+        type y if you want to continue or type n if you want to skip fetching:[y/n]")
+        if input().lower() == "y":
+            crime_extract()
+        dw_main.run("clean")
+        dw_main.run("merge")
+        ap_main.run("plot")
+        app.run_server(port=6094) 
     else:
         print(f"Unknown step: {arg}")
         sys.exit(1)
 
 if __name__ == "__main__":
-    print("Hi user! Do you want to jump to our dash app or run the app stepwise? [jump/stepwise]")
-    arg = input().lower()
-    if  arg == "stepwise":
+    print("Hi user! Please enter 1 if you want to just run the dash app or 2 if you want to check things stepwise: [1/2]")
+    arg = input()
+    if  arg == "2":
         package_breakdown()
-    elif arg  == "jump":
+    elif arg  == "1":
         app.run_server(port=6094)
-        print("Now do you want to test step-wise operations? [y/n]")
+        print("Now do you want to check step-wise operations? [y/n]")
         new_arg = input().lower()
         if new_arg == "y":
             package_breakdown()

@@ -7,7 +7,29 @@ information which we eventually put in "exploratory" section
 import pandas as pd
 
 def merge_teach_mobility():
+    """
+    Merge teacher and mobility data for exploration
+    """
+    teacher_df = pd.read_csv("CAPP_project/data_wrangling/cleaned_data/clean_teacher.csv")
+    mobility_df = pd.read_csv("CAPP_project/data_wrangling/cleaned_data/clean_mobility.csv")
 
+    tch_mob_merge = pd.merge(teacher_df, mobility_df, how = "left", on = "match_id")
+    print(tch_mob_merge.columns)
+
+    cols_to_drop = [
+        "Unnamed: 0_x",
+        "lea_name",
+        "num_student_x",
+        "max_score_x",
+        "Unnamed: 0_y",
+        "School Name", 
+        "District",
+        "City",
+        "num_student_y",
+        "max_score_y",
+    ]
+    tch_mob_merge = tch_mob_merge.drop(cols_to_drop, axis=1)
+    tch_mob_merge.to_csv("CAPP_project/data_wrangling/merged_data/exp_teach_mob.csv")
 
 def merge_school_demo():
     """
@@ -37,5 +59,5 @@ def merge_school_demo():
     cols_to_drop = ["comm_area_y"]
     merged_att_demo = merged_att_demo.drop(cols_to_drop, axis=1)
     merged_att_demo.to_csv(
-        "CAPP_project/data_wrangling/merged_data/school_demo_merged.csv", index=False
+        "CAPP_project/data_wrangling/merged_data/exp_school_demo_merged.csv", index=False
     )
