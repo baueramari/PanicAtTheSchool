@@ -15,7 +15,7 @@ To see our findings, run the following commands within the cloned PanicAtTheScho
 1. ~/PanicAtTheSchool$ poetry install
 2. ~/PanicAtTheSchool$ poetry shell
 3. (in the shell) ~/PanicAtTheSchool$ python3 -m CAPP_project
-4. From here, you can choose to directly launch the dash app by entering 'jump' or you my examine each step in the data pipeline by entering 'stepwise.'
+4. From here, you can choose to directly launch the dash app by entering 'jump' or you may examine each step in the data pipeline by entering 'stepwise.'
 5. If you choose 'jump,' select the pop-up message "Open in Browser" appearing on the bottom right of the screen to launch the web page.
 6. If you choose stepwise, you have several options:
     - fetch: runs the API data collection process to create or update our crime.csv
@@ -24,7 +24,7 @@ To see our findings, run the following commands within the cloned PanicAtTheScho
     - plot: runs all the code to create visualizations 
     - all: runs the entire data pipeline, cleaning, merging, plotting and ultimately launching our Dash appplication.
 
-Note 1: Pulling data from the Chicago Data Portal API (as would happen if you selected 'fetch' or 'all') requires a private token to be assigned to TOKEN at line 16 of the 'crime_api.py' file. Professor Turk has been provided this private token for grading purposes. Pulling this data takes approximately 10 minutes.
+Note 1: Pulling data from the Chicago Data Portal API (as would happen if you selected 'fetch' or 'all') requires a private token to be assigned to TOKEN at line 16 of the 'crime_api.py' file, instead of using the environmental variable as discussed in class. Professor Turk has been provided this private token for grading purposes. Pulling this data takes approximately 10 minutes.
 Note 2: If you do not wish to fully pull data from the API, Professor Turk has been provided with the dropbox link to access the static crime data file. For grading purposes, this file can be downloaded as a csv at the provided link, placed in the 'CAPP_project/raw_data' subdirectory, and renamed 'crime.csv.'
 
 When you have fully explored the webpage and are back in your terminal, run ctrl+c in the terminal to close the application. 
