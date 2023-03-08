@@ -14,11 +14,12 @@ To see our findings, run the following commands within the PanicAtTheSchool repo
 1. ~/PanicAtTheSchool$ poetry install
 2. ~/PanicAtTheSchool$ poetry shell
 3. (in the shell) ~/PanicAtTheSchool$ python3 -m CAPP_project
-4. jump
 
-Finally, select the pop-up message "Open in Browser" appearing on the bottom right of the screen to launch the web page.
+Once a user follows these steps, they will get the following message on console:
 
-We also give the option to run sub-packages 
+"Hi user! Please enter 1 if you want to just run the dash app or 2 if you want to check things stepwise: [1/2]"
+
+1. Entering "1" will launch the dash app, which can be opened in browser
+2. Entering "2" allows a user to run individual steps/subpackages such as fetching latest API data, cleaning, merging, plotting and finally running the dash app.  
 
 When you have fully explored the webpage and are back in your terminal, run ctrl+d in the terminal to close the application. 
-
