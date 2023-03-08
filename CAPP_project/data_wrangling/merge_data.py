@@ -1,7 +1,7 @@
 """
-Amari wrote lines 12-59, 
-Sarah wrote lines 
+Amari wrote lines 12-64
 Eshan wrote lines 117-184
+Sarah wrote the remaining lines.
 """
 import pandas as pd
 
@@ -69,10 +69,7 @@ def data_merge():
         "crime_class",
         "Attendance",
     ]
-    ID_crimeclass = pd.read_csv(  # this csv is already loaded in, should be good to use it from above, switch column names and be good to go
-        "CAPP_project/data_wrangling/merged_data/attend_id_crime.csv",
-        usecols=crime_cols,
-    )
+    ID_crimeclass = attend_id_crime[attend_id_crime[crime_cols]]
     suspensions = pd.read_csv(
         "CAPP_project/data_wrangling/cleaned_data/suspension_data.csv"
     )
@@ -155,7 +152,7 @@ def data_merge():
         "num_student_x",
         "max_score_x",
         "Unnamed: 0_y",
-        "School Name_y", 
+        "School Name_y",
         "District",
         "City",
         "Student Attendance Rate",
@@ -164,7 +161,7 @@ def data_merge():
         "max_score_y",
         "School ID",
         "finance_id",
-        "fy_2022_proposed_budget"
+        "fy_2022_proposed_budget",
     ]
     school_merged = school_merged.drop(cols_to_drop, axis=1)
 

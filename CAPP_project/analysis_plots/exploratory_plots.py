@@ -6,13 +6,12 @@ Maybe just explore this data without merging with other file
 import pandas as pd
 import plotly.express as px
 import dash
-from dash import dcc, html 
+from dash import dcc, html
 from dash.dependencies import Input, Output
-
-#filepath needs to be validated
-
-
-
+import seaborn as sns
+import matplotlib.pyplot as plt
+import numpy as np
+import statsmodels.api as sm
 
 
 att_matrix = pd.read_csv(
@@ -51,27 +50,26 @@ if __name__ == "__main__":
     app.run_server(debug=True)
 
 
-
-####
-import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
-import numpy as np
-import statsmodels.api as sm
-
 merged_df = pd.read_csv(
     "/home/eshanprashar/PanicAtTheSchool/data_wrangling/merged_data/all_school_merged.csv"
 )
 
 # For, analysis: we will first explore correlations
-#num_schools = 3
-#merged_df = merged_df[merged_df["count_schools"] >= num_schools]
+# num_schools = 3
+# merged_df = merged_df[merged_df["count_schools"] >= num_schools]
 
 cols_for_corr = [
-    "perc_low_income","perc_black_his_stu","pre_cov_att","post_cov_att","teachers_per_100stu","help_fte_per_100stu","dolla_per_student","salary_per_teacher"
+    "perc_low_income",
+    "perc_black_his_stu",
+    "pre_cov_att",
+    "post_cov_att",
+    "teachers_per_100stu",
+    "help_fte_per_100stu",
+    "dolla_per_student",
+    "salary_per_teacher",
 ]
 corr_matrix = merged_df[cols_for_corr].corr()
-sns.set(rc = {'figure.figsize': (12,9)})
-sns.heatmap(corr_matrix, cmap="coolwarm", annot=True, annot_kws = {"size": 6})
+sns.set(rc={"figure.figsize": (12, 9)})
+sns.heatmap(corr_matrix, cmap="coolwarm", annot=True, annot_kws={"size": 6})
 plt.savefig("correlation_heatmap.png")
 corr_matrix.to_csv("correlation_table.csv")

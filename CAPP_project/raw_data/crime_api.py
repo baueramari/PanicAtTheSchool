@@ -14,6 +14,8 @@ def crime_extract():
     """
     load_dotenv()
     TOKEN = os.environ["TOKEN"]
+    """For grading purposes, hashtag out 'os.environ["TOKEN"]' and assign the 
+    private API token to 'TOKEN'"""
 
     client = Socrata("data.cityofchicago.org", TOKEN, timeout=1200)
 

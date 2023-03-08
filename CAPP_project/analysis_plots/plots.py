@@ -1,19 +1,12 @@
 """
-Sarah wrote 
-Eshan wrote
-Amari wrote plot_crime()
-This file contains all code to create data visualizations. 
+Author of each plot is specified above each plotting function. 
 """
 import pandas as pd
 import plotly.express as px
 
-# import dash
-# from dash import dcc, html
-# from dash.dependencies import Input, Output
-
 
 # Sarah wrote these
-# clean introduction data (last minute addition)
+# clean introduction page data (last minute addition)
 def clean_intro():
     attendance_cols = ["Year", "Grade", "Average Attendance"]
     attendance = pd.read_csv(
@@ -72,7 +65,7 @@ def intro_two():
     return fig
 
 
-# using this on the misconduct page
+# Amari wrote this, using it on the misconduct page
 def plot_crime():
     attend_by_crime = pd.read_csv(
         "CAPP_project/data_wrangling/merged_data/attend_by_crime.csv"
@@ -259,8 +252,8 @@ def bar_police_crime():
     return bar_police_crime
 
 
-#Eshan wrote this
-#using this on impact of COVID page
+# Eshan wrote this
+# using this on impact of COVID page
 def scatter_pre_post_grid():
     school_df = pd.read_csv(
         "CAPP_project/data_wrangling/merged_data/all_school_merged.csv"

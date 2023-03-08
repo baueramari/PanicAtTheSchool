@@ -1,7 +1,7 @@
 """
-Amari wrote lines 13-55, 95-120, 147-166 to clean crime, attendance, and admin data.
-Sarah wrote
+Amari wrote lines 13-121, 150-166 to clean crime, attendance, and admin data.
 Eshan wrote lines 121-146, 167-192, 248-292, 297-369 to clean attendance, finance, health and demographic data
+Sarah wrote the remaining lines.
 """
 from pathlib import Path
 import pandas as pd
@@ -25,7 +25,7 @@ def clean_data():
         "updated_on",
     ]
     crime = pd.read_csv(
-        "https://uchicago.box.com/shared/static/3tpb8dibaad6i1usrc5dr96cymzdv7m4.csv=1",
+        "CAPP_project/raw_data/crime.csv",
         usecols=crime_cols,
     )
     crime = crime[crime["year"] > 2011]
@@ -214,8 +214,6 @@ def clean_data():
     susp_filename = "CAPP_project/raw_data/suspensions/suspension_data.csv"
     suspensions = pd.read_csv(susp_filename, usecols=suspension_cols)
 
-    # avg_attend = pd.read_csv("data_wrangling/cleaned_data/avg_attend.csv")
-    # high_schools = avg_attend["School ID"].unique().tolist()
     suspensions = suspensions[suspensions["School ID"].isin(high_schools)]
     suspensions["School ID"] = suspensions["School ID"].astype(int)
 
@@ -254,7 +252,6 @@ def clean_data():
     suspensions.to_csv("CAPP_project/data_wrangling/cleaned_data/suspension_data.csv")
 
     # Eshan's code: Cleaning health data
-    # Check final location and name of file- will definitely lead to bugs in case of incorrect pathname
     ha_filename = "CAPP_project/raw_data/health_data/health_indicators_atlas_v2.csv"
     ha_df = pd.read_csv(ha_filename, skiprows=range(4))
     ha_df = ha_df.loc[
@@ -297,13 +294,11 @@ def clean_data():
             "VRDIDR_2015-2019": "drug_induced_dt_rate",
         }
     )
-    # Save this to csv
     ha_df.to_csv(
         "CAPP_project/data_wrangling/cleaned_data/clean_health_atlas.csv", index=False
     )
 
     # Eshan's code: Cleaning demographic data
-    # Check final location and name of file- will definitely lead to bugs in case of incorrect pathname
     demo_filename = "CAPP_project/raw_data/demographic_data/cmap_demog_data.csv"
     demo_df = pd.read_csv(demo_filename)
     demo_df = demo_df.loc[

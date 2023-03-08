@@ -1,12 +1,6 @@
-# ADD ALL PROJECT GRAPH DESCRIPTIONS TO THE BELOW DICTIONARY.
-# KEY SHOULD BE SHORT/GRAPHSPECIFIC, AND VALUE SHOULD BE YOUR DESCRIPTION
+# This file was written and edited jointly by all three members.
+# All graph descriptions are accessible through the below dictionary.
 
-
-# To open your plots in ipython3:
-#       %load_ext autoreload
-#       %autoreload 2
-#       from CAPP_project.analysis_plots import plots
-#       plots._____
 
 descriptions = {
     "opener (no graph)": "This project aimed to investigate possible contributing factors for low attendance rates in Chicago Public Schools (CPS).",
@@ -69,38 +63,15 @@ descriptions = {
             than schools with high pre-Covid attendance ($15.6K). While this approach seems wise for schools that have had historically low attendance,
             school district officials might have underfunded high-low schools, with an average attendance drop of 10.44%, making it difficult to facilitate the 
             return of students.""",  # plots.bar_finance_buckets()
-    "conclusion": """Our goal during this project was to investigate trends in high school attendance in Chicago Public Schools. News sources had pointed to misconduct and health as 
-            two of the most significant factors in student attendance. Interestingly, we were unable to detect a relationship between misconduct and attendance, but we did find 
-            interesting relationships while looking at attendance before and after 2020. While we were able to find some interesting insights on distribution of schools, relationship
-            of attendance with misconduct, budget allocation and health, we also identified some areas of improvement that could have meaningfully improved the depth of analysis. 
-            Two areas are: 1. School-level data: While we sourced data on teacher numbers and salaries (below), the subset of schools that had attendance as well as teacher data was 
-            low (~50 schools). Same is true for truancy data. We obtained school IDs for these datasets by using Jaro-Winkler on school names, but even that did not result in a good 
-            enough dataset. 2. Indicator/dataset selection: We selected community level data from Chicago Health Atlas and CMap. However, since Chicago has only 150 high schools and 77 
-            community areas (~2 schools on avg. per community area), we did not find enough variation, or interesting trends between in attendance and demographic variables.""",
+    "conclusion": """Our goal during this project was to investigate trends in high school attendance in Chicago Public Schools. News sources had pointed to 
+            misconduct and health as two of the most significant factors in student attendance. Interestingly, we were unable to detect a relationship between 
+            misconduct and attendance, but we did find interesting relationships while looking at attendance before and after 2020. While we were able to find 
+            some insights on distribution of schools, relationship of attendance with misconduct, budget allocation and health, we also identified 
+            some areas of improvement that could have meaningfully deepened our analysis. Two areas are: 1. School-level data: While we sourced data on 
+            teacher numbers and salaries (below), the subset of schools that had attendance as well as teacher data was low (around 50 schools). The same is true for 
+            truancy data. We obtained school IDs for these datasets by using Jaro-Winkler on school names, but even that did not result in a large enough dataset 
+            for productive analysis. 2. Indicator/dataset selection: We selected community level data from Chicago Health Atlas and CMap. However, since Chicago 
+            has only 150 high schools and 77 community areas (around two schools on average per community area), we did not find enough variation in
+            trends between attendance and demographic variables. Further analysis could also look more closely at wards that moved up to a higher crime class
+            to gain a better understanding of how changes in crime levels might impact attendance.""",
 }
-
-# Webpage tabs:
-# Introduction-
-#     intro_attendance()
-#     intro_two()
-# Misconduct-
-#     plot_crime()
-# scatter_SSrate_attendance()
-#
-#     bar_crime_OSS_ISS()
-#     bar_police_crime()
-# Impact of COVID in Schools -
-#     scatter_pre_post_grid()
-#     scatter_income_pre_post()
-#     bar_att_diff_buckets()
-#     bar_finance_buckets()
-# Conclusion-
-#     text that Eshan will investigate
-
-
-# To do:
-#     -We each write our plot descriptions in dictionary above
-#     -Conclusion/Further Research Opportunities - Eshan write description for this
-#     -Eshan = __init__ and package details... Get the program running front to back how we will turn it in
-#     -Write documentation/update ReadMe
-#     -Check rubric and make sure we have everything
