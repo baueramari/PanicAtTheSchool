@@ -5,7 +5,7 @@ Eshan wrote this file, plots generated not used in final output
 import pandas as pd
 import plotly.express as px
 import dash
-from dash import dcc, html 
+from dash import dcc, html
 from dash.dependencies import Input, Output
 
 #filepath needs to be validated
@@ -110,8 +110,8 @@ if __name__ == "__main__":
 #)
 
 # For, analysis: we will first explore correlations
-#num_schools = 3
-#merged_df = merged_df[merged_df["count_schools"] >= num_schools]
+# num_schools = 3
+# merged_df = merged_df[merged_df["count_schools"] >= num_schools]
 
 #cols_for_corr = [
 #    "perc_low_income","perc_black_his_stu","pre_cov_att","post_cov_att","teachers_per_100stu","help_fte_per_100stu","dolla_per_student","salary_per_teacher"

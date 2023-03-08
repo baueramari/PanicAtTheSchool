@@ -1,6 +1,8 @@
 from CAPP_project.analysis_plots import plots
-#from CAPP_project.analysis_plots import exploratory_plots
+
+# from CAPP_project.analysis_plots import exploratory_plots
 import time
+
 
 def run(name):
     if name == "plot":
@@ -19,5 +21,3 @@ def run(name):
         end_time = time.time()
         elapsed_time = end_time - start_time
         print(f"Plotted data successfully in {elapsed_time:.2f} seconds!")
-    if name == "explore":
-        print("Generating exploratory plots...")

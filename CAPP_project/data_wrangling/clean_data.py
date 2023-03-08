@@ -1,10 +1,11 @@
 """
-Amari wrote lines 13-55, 95-120, 147-166 to clean crime, attendance, and admin data.
-Sarah wrote
+Amari wrote lines 13-121, 150-166 to clean crime, attendance, and admin data.
 Eshan wrote lines 121-146, 167-192, 248-292, 297-369 to clean attendance, finance, health and demographic data
+Sarah wrote the remaining lines.
 """
 from pathlib import Path
 import pandas as pd
+
 
 def clean_data():
     """
@@ -22,8 +23,11 @@ def clean_data():
         "fbi_code",
         "year",
         "updated_on",
-     ]
-    crime = pd.read_csv("https://uchicago.box.com/s/3tpb8dibaad6i1usrc5dr96cymzdv7m4", usecols=crime_cols) 
+    ]
+    crime = pd.read_csv(
+        "CAPP_project/raw_data/crime.csv",
+        usecols=crime_cols,
+    )
     crime = crime[crime["year"] > 2011]
     crime = crime[crime["year"] != 2023]
     crime.dropna(subset="ward", inplace=True)
@@ -32,7 +36,7 @@ def clean_data():
     crime_by_ward = crime.groupby(by=["ward", "year"], as_index=False).size()
     crime_by_ward["crime_capita"] = (
         crime_by_ward["size"] / 55000
-     )  # average population in Chicago wards interpret: crime reports per person in ward.
+    )  # average population in Chicago wards interpret: crime reports per person in ward.
     crime_by_ward.to_csv("CAPP_project/data_wrangling/cleaned_data/crime_by_ward.csv")
 
     admin_cols = [
@@ -155,9 +159,9 @@ def clean_data():
     attend.rename(columns={"variable": "Year"}, inplace=True)
     attend["Year"] = attend["Year"].astype(int)
 
-    avg_attend = attend.groupby(by=["School ID", "Year", "Network"], as_index=False).mean(
-        "Attendance"
-    )
+    avg_attend = attend.groupby(
+        by=["School ID", "Year", "Network"], as_index=False
+    ).mean("Attendance")
     avg_attend.dropna(subset="Attendance", inplace=True)
     high_schools = avg_attend["School ID"].unique().tolist()  # Sarah wants this
 
@@ -168,7 +172,9 @@ def clean_data():
     sch_finance = pd.read_csv(fin_filename)
 
     # Columns have whitespace: remove and convert to lower
-    sch_finance.rename(columns=lambda x: x.strip().replace(" ", "_").lower(), inplace=True)
+    sch_finance.rename(
+        columns=lambda x: x.strip().replace(" ", "_").lower(), inplace=True
+    )
 
     sch_finance = sch_finance.loc[
         :,
@@ -176,7 +182,9 @@ def clean_data():
     ]
 
     # Cleaning data: removing whitespaces, string characters and dropping zero rows
-    sch_finance["fy_2022_proposed_budget"] = sch_finance["fy_2022_proposed_budget"].apply(
+    sch_finance["fy_2022_proposed_budget"] = sch_finance[
+        "fy_2022_proposed_budget"
+    ].apply(
         lambda x: float(
             x.replace(",", "").replace("(", "").replace(")", "").strip()
             if x.strip() != "-"
@@ -190,7 +198,6 @@ def clean_data():
     sch_finance.to_csv(
         "CAPP_project/data_wrangling/cleaned_data/clean_school_budget.csv", index=False
     )
-
 
     # Sarah's Data Cleaning: School suspension data
     suspension_cols = [
@@ -207,14 +214,14 @@ def clean_data():
     susp_filename = "CAPP_project/raw_data/suspensions/suspension_data.csv"
     suspensions = pd.read_csv(susp_filename, usecols=suspension_cols)
 
-    # avg_attend = pd.read_csv("data_wrangling/cleaned_data/avg_attend.csv")
-    # high_schools = avg_attend["School ID"].unique().tolist()
     suspensions = suspensions[suspensions["School ID"].isin(high_schools)]
     suspensions["School ID"] = suspensions["School ID"].astype(int)
 
     suspensions = suspensions[suspensions["Time Period"] == "EOY"]
     suspensions = suspensions[
-        suspensions["% of Misconducts Resulting in a Suspension\n(includes ISS and OSS)"]
+        suspensions[
+            "% of Misconducts Resulting in a Suspension\n(includes ISS and OSS)"
+        ]
         != "--"
     ]
     suspensions[
@@ -244,9 +251,7 @@ def clean_data():
 
     suspensions.to_csv("CAPP_project/data_wrangling/cleaned_data/suspension_data.csv")
 
-
     # Eshan's code: Cleaning health data
-    # Check final location and name of file- will definitely lead to bugs in case of incorrect pathname
     ha_filename = "CAPP_project/raw_data/health_data/health_indicators_atlas_v2.csv"
     ha_df = pd.read_csv(ha_filename, skiprows=range(4))
     ha_df = ha_df.loc[
@@ -289,13 +294,11 @@ def clean_data():
             "VRDIDR_2015-2019": "drug_induced_dt_rate",
         }
     )
-    # Save this to csv  
     ha_df.to_csv(
         "CAPP_project/data_wrangling/cleaned_data/clean_health_atlas.csv", index=False
     )
 
     # Eshan's code: Cleaning demographic data
-    # Check final location and name of file- will definitely lead to bugs in case of incorrect pathname
     demo_filename = "CAPP_project/raw_data/demographic_data/cmap_demog_data.csv"
     demo_df = pd.read_csv(demo_filename)
     demo_df = demo_df.loc[
@@ -366,4 +369,6 @@ def clean_data():
             "MED_RENT": "med_rent",
         }
     )
-    demo_df.to_csv("CAPP_project/data_wrangling/cleaned_data/clean_demog.csv", index=False)
+    demo_df.to_csv(
+        "CAPP_project/data_wrangling/cleaned_data/clean_demog.csv", index=False
+    )

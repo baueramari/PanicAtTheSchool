@@ -9,13 +9,14 @@ from CAPP_project.data_wrangling import __main__ as dw_main
 from CAPP_project.analysis_plots import __main__ as ap_main
 from CAPP_project.raw_data.crime_api import crime_extract
 
+
 def package_breakdown():
     """
     Function to run different files (and associated functions) based on input given by user in console
     Input: None
     Returns: None. Executes selected file/function and reports time to run
     """
-    sys_args = ["fetch", "clean", "merge", "plot", "explore", "all"] 
+    sys_args = ["fetch", "clean", "merge", "plot", "explore", "all"]
     print(f"Great! Choose one of the steps:{sys_args} or exit")
     arg = input().lower()
     if arg == "fetch":
@@ -39,6 +40,7 @@ def package_breakdown():
     else:
         print(f"Unknown step: {arg}")
         sys.exit(1)
+
 
 if __name__ == "__main__":
     print("Hi user! Please enter 1 if you want to just run the dash app or 2 if you want to check things stepwise: [1/2]")
