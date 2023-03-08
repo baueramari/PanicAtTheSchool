@@ -40,7 +40,7 @@ def blank_figure():  # necessary to avoid displaying default blank graph when no
 style_dict = {
     "border-style": "none",
     "width": "85%",
-    "height": 185,
+    "height": 200,
     "margin-left": 75,
     "margin-right": 75,
     "textAlign": "center",
@@ -90,12 +90,12 @@ app.layout = html.Div(
         html.Div(
             dcc.Textarea(
                 id="intro",
-                value=descriptions['opener (no graph)'],
+                value=descriptions["opener (no graph)"],
                 style={
                     "textAlign": "center",
                     "width": "85%",
-                    "marginTop": 50,
-                    "height": 100,
+                    "marginTop": 25,
+                    "height": 50,
                     "border-style": "none",
                     "margin-left": 105,
                     "margin-right": 75,
