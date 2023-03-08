@@ -69,7 +69,7 @@ def data_merge():
         "crime_class",
         "Attendance",
     ]
-    ID_crimeclass = attend_id_crime[attend_id_crime[crime_cols]]
+    ID_crimeclass = attend_id_crime.loc[:, crime_cols]
     suspensions = pd.read_csv(
         "CAPP_project/data_wrangling/cleaned_data/suspension_data.csv"
     )
