@@ -34,7 +34,7 @@ def package_breakdown():
             dw_main.run("merge")
             ap_main.run("plot")
             print("All grunt work done, ready to publish dash app!")
-            app.run_server(port=6095)
+            app.run_server(port=6094)
         else:
             dw_main.run("clean")
             dw_main.run("merge")
