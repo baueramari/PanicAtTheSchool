@@ -18,7 +18,7 @@ descriptions = {
     "attend": """CPS has publicly available data about misconducts and suspensions occurring in schools. Within this data, there is a
             statistic that tracks the percent of misconducts that result in a suspension (both in school and out of school suspension).
             We hypothesized that schools which assign suspensions at higher rates when a student gets in trouble would perhaps also show lower
-            recorded attendance rates.  In this figure, we plot each school’s average attendance rate by the percent of misconducts which result
+            recorded attendance rates.  In this figure, we plot each schools' average attendance rate by the percent of misconducts which result
             in a suspension. Surprisingly, no clear relationship could be found, which might suggest that these statistics are either unrelated,
             or related only through indirect factors not considered here.""",
     "crime": """News sources have identified crime rates as a key factor in falling attendance at Chicago Public Schools. By categorizing
