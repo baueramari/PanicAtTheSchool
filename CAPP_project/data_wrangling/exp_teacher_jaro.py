@@ -52,11 +52,7 @@ def load_school_data():
     df_mobility = df_mobility[df_mobility["District"].str.contains("Chicago")]
     return df_school, df_teacher, df_mobility
 
-
-df_school, df_teacher, df_mobility = load_school_data()
-
-
-def get_school_jaro_distance(DataFrame, name):
+def get_school_jaro_distance(School, DataFrame, name):
     """
     Match school names using jaro-winkler probability to obtain school ID. Also take care of possible duplicates
     Return the dataframe for which matching has been done
@@ -70,10 +66,10 @@ def get_school_jaro_distance(DataFrame, name):
         match_id = None
         num_student = 0
         for id, s_name, l_name, students in zip(
-            df_school["School_ID"],
-            df_school["Short_Name"],
-            df_school["Long_Name"],
-            df_school["Student_Count_Total"],
+            School["School_ID"],
+            School["Short_Name"],
+            School["Long_Name"],
+            School["Student_Count_Total"],
         ):
             score_1 = distance.get_jaro_distance(row[name], s_name, winkler=True)
             score_2 = distance.get_jaro_distance(row[name], l_name, winkler=True)
@@ -106,42 +102,31 @@ def get_school_jaro_distance(DataFrame, name):
 
 
 # Teacher data analysis
-def prepare_teacher():
+def prepare_teacher(Teacher):
     """
     Modify and add additional cols to teacher data
     """
-    teacher_ids = get_school_jaro_distance(df_teacher, "school_name")
-    teacher_ids["teachers_per_100_stu"] = (
-        teacher_ids["teachers_fte_crdc"] / teacher_ids["num_student"]
+    Teacher["teachers_per_100_stu"] = (
+        Teacher["teachers_fte_crdc"] / Teacher["num_student"]
     ) * 100
-    teacher_ids["help_per_100_stu"] = (
+    Teacher["help_per_100_stu"] = (
         (
-            teacher_ids["counselors_fte"]
-            + teacher_ids["social_workers_fte"]
-            + teacher_ids["psychologists_fte"]
+            Teacher["counselors_fte"]
+            + Teacher["social_workers_fte"]
+            + Teacher["psychologists_fte"]
         )
-        / teacher_ids["num_student"]
+        / Teacher["num_student"]
     ) * 100
-    teacher_ids["salary_per_teach"] = (teacher_ids["salaries_teachers"].astype(float)).divide(
-        teacher_ids["teachers_fte_crdc"]
+    Teacher["salary_per_teach"] = (Teacher["salaries_teachers"].astype(float)).divide(
+        Teacher["teachers_fte_crdc"]
     )
-    return teacher_ids
+    return Teacher
+    
+def go():
+    df_school, df_teacher, df_mobility = load_school_data()
+    teacher_ids = get_school_jaro_distance(df_school, df_teacher, "school_name")
+    teacher_ids = prepare_teacher(teacher_ids)
+    teacher_ids.to_csv("CAPP_project/data_wrangling/cleaned_data/clean_teacher.csv", index=True)
 
-# Get mobility data
-def prepare_mobility():
-    """
-    Modify and add additional columns to mobility data
-    """
-    mobility_ids = get_school_jaro_distance(df_mobility, "School Name")
-    return mobility_ids
-
-
-prepare_teacher().to_csv(
-    "CAPP_project/data_wrangling/cleaned_data/clean_teacher.csv", index=True
-)
-
-prepare_mobility().to_csv(
-    "CAPP_project/data_wrangling/cleaned_data/clean_mobility.csv", index=True
-)
-
-#Merge code moved here because merging these files with year-wise attendance data did not particularly yield interesting insights
+    mobility_ids = get_school_jaro_distance(df_school, df_mobility, "School Name")
+    mobility_ids.to_csv("CAPP_project/data_wrangling/cleaned_data/clean_mobility.csv", index=True)

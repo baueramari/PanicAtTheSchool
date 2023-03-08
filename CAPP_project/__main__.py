@@ -5,7 +5,6 @@ Author: Eshan
 import sys
 import pathlib
 from CAPP_project.dash_app import app
-from CAPP_project.data_wrangling import __main__ as dw_main
 from CAPP_project.analysis_plots import __main__ as ap_main
 from CAPP_project.raw_data.crime_api import crime_extract
 
@@ -16,7 +15,7 @@ def package_breakdown():
     Input: None
     Returns: None. Executes selected file/function and reports time to run
     """
-    sys_args = ["fetch", "clean", "merge", "plot", "explore", "all"]
+    sys_args = ["fetch", "clean", "merge", "plot", "exploratory", "all"]
     print(f"Great! Choose one of the steps:{sys_args} or exit")
     arg = input().lower()
     if arg == "fetch":
@@ -24,7 +23,8 @@ def package_breakdown():
         Fetching crime data from Chicago data portal...\
         this will take ~10 minutes! If you want to exit, press Ctrl+C")
         crime_extract()
-    elif arg == "clean" or arg == "merge":
+    elif arg == "clean" or arg == "merge" or arg == "exploratory":
+        from CAPP_project.data_wrangling import __main__ as dw_main
         dw_main.run(arg)
     elif arg == "plot":
         ap_main.run(arg)

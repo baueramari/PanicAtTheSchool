@@ -6,7 +6,7 @@ import plotly.express as px
 
 
 # Sarah wrote these
-# clean introduction page data (last minute addition)
+# clean introduction page data
 def clean_intro():
     attendance_cols = ["Year", "Grade", "Average Attendance"]
     attendance = pd.read_csv(

@@ -14,7 +14,6 @@ def merge_teach_mobility():
     mobility_df = pd.read_csv("CAPP_project/data_wrangling/cleaned_data/clean_mobility.csv")
 
     tch_mob_merge = pd.merge(teacher_df, mobility_df, how = "left", on = "match_id")
-    print(tch_mob_merge.columns)
 
     cols_to_drop = [
         "Unnamed: 0_x",
