@@ -31,4 +31,5 @@ Note 2: If you do not wish to pull data from the API or have not been given the 
 
 Link to crime csv.
 https://uchicago.app.box.com/file/1154307867116?s=3tpb8dibaad6i1usrc5dr96cymzdv7m4
+
 When you have fully explored the webpage and are back in your terminal, run ctrl+c to close the application.
