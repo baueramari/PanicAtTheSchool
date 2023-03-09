@@ -20,22 +20,31 @@ def package_breakdown():
     arg = input().lower()
 
     if arg == "fetch":
-        print("Hope you got the correct API key...\
+        print(
+            "Hope you got the correct API key...\
         Fetching crime data from Chicago data portal...\
-        this will take ~10 minutes! If you want to exit, press Ctrl+C")
+        this will take ~10 minutes! If you want to exit, press Ctrl+C"
+        )
         crime_extract()
 
     elif arg == "plot":
         ap_main.run(arg)
 
     elif arg == "clean" or arg == "merge" or arg == "exploratory" or arg == "all":
-        from CAPP_project.data_wrangling import __main__ as dw_main #added here bcs was taking time
+        from CAPP_project.data_wrangling import (
+            __main__ as dw_main,
+        )
+
         if arg == "clean" or "all":
-            print("Please check ReadMe for steps to access the crime.csv. Program will stop if not already added!")
-        dw_main.run(arg)
-        elif arg == "all":
-            print("This includes fetching latest data which takes ~10 mins;\
-            type y if you want to continue or type n if you want to skip fetching:[y/n]")
+            print(
+                "Please check ReadMe for steps to access the crime.csv. Program will stop if not already added!"
+            )
+            dw_main.run(arg)
+        if arg == "all":
+            print(
+                "This includes fetching latest data which takes ~10 mins;\
+                 type y if you want to continue or type n if you want to skip fetching:[y/n]"
+            )
             if input().lower() == "y":
                 crime_extract()
             print("Now importing other files, sit back...")
@@ -50,11 +59,13 @@ def package_breakdown():
 
 
 if __name__ == "__main__":
-    print("Hi user! Please enter 1 if you want to just run the dash app or 2 if you want to check things stepwise: [1/2]")
+    print(
+        "Hi user! Please enter 1 if you want to just run the dash app or 2 if you want to check things stepwise: [1/2]"
+    )
     arg = input()
-    if  arg == "2":
+    if arg == "2":
         package_breakdown()
-    elif arg  == "1":
+    elif arg == "1":
         app.run_server(port=6094)
         print("Now do you want to check step-wise operations? [y/n]")
         new_arg = input().lower()
