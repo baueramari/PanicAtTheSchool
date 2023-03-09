@@ -14,10 +14,11 @@ To see our findings, run the following commands within the cloned PanicAtTheScho
 
 1. ~/PanicAtTheSchool$ poetry install
 2. ~/PanicAtTheSchool$ poetry shell
-3. (in the shell) ~/PanicAtTheSchool$ python3 -m CAPP_project
-4. From here, you can choose to directly launch the dash app by entering '1', or you may examine each step in the data pipeline by entering '2.'
-5. If you choose '1', select the pop-up message "Open in Browser" appearing on the bottom right of the screen to launch the web page.
-6. If you choose '2', you have several options:
+3. pip install pyjarowinkler
+4. (in the shell) ~/PanicAtTheSchool$ python3 -m CAPP_project
+5. From here, you can choose to directly launch the dash app by entering '1', or you may examine each step in the data pipeline by entering '2.'
+6. If you choose '1', select the pop-up message "Open in Browser" appearing on the bottom right of the screen to launch the web page.
+7. If you choose '2', you have several options:
     - fetch: runs the API data collection process to create or update our crime.csv
     - clean: loads in our data sets, filtering and managing unusal or unknown values
     - merge: loads in our cleaned data sets, and merges them for further analysis and plotting. 
