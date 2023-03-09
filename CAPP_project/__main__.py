@@ -18,28 +18,32 @@ def package_breakdown():
     sys_args = ["fetch", "clean", "merge", "plot", "exploratory", "all"]
     print(f"Great! Choose one of the steps:{sys_args} or exit")
     arg = input().lower()
+
     if arg == "fetch":
         print("Hope you got the correct API key...\
         Fetching crime data from Chicago data portal...\
         this will take ~10 minutes! If you want to exit, press Ctrl+C")
         crime_extract()
-    elif arg == "clean" or arg == "merge" or arg == "exploratory" or arg == "all":
-        from CAPP_project.data_wrangling import __main__ as dw_main #added here bcs was taking time
-        dw_main.run(arg)
+
     elif arg == "plot":
         ap_main.run(arg)
-    elif arg == "all":
-        print("This includes fetching latest data which takes ~10 mins;\
-        type y if you want to continue or type n if you want to skip fetching:[y/n]")
-        if input().lower() == "y":
-            crime_extract()
-        print("Now importing other files, sit back...")
-        from CAPP_project.data_wrangling import __main__ as dw_main
-        dw_main.run("clean")
-        dw_main.run("merge")
-        ap_main.run("plot")
-        print("And we're ready...")
-        app.run_server(port=6094) 
+
+    elif arg == "clean" or arg == "merge" or arg == "exploratory" or arg == "all":
+        from CAPP_project.data_wrangling import __main__ as dw_main #added here bcs was taking time
+        if arg == "clean" or "all":
+            print("Please check ReadMe for steps to access the crime.csv. Program will stop if not already added!")
+        dw_main.run(arg)
+        elif arg == "all":
+            print("This includes fetching latest data which takes ~10 mins;\
+            type y if you want to continue or type n if you want to skip fetching:[y/n]")
+            if input().lower() == "y":
+                crime_extract()
+            print("Now importing other files, sit back...")
+            dw_main.run("clean")
+            dw_main.run("merge")
+            ap_main.run("plot")
+            print("And we're ready...")
+            app.run_server(port=6094)
     else:
         print(f"Unknown step: {arg}")
         sys.exit(1)
